@@ -78,6 +78,10 @@
     color: #5EFFB1;
 }
 
+.bell-icon {
+    margin-top: -0.35rem;
+}
+
 #nav-icons:hover {
     cursor: pointer;
     color: #A9E6C8;

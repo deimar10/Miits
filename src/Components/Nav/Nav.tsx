@@ -27,7 +27,7 @@ function Nav() {
               <Link to={'/offers/favorites'}>
                   <FaRegHeart id="nav-icons" />
               </Link>
-            <FaRegBell id="nav-icons" />
+              <FaRegBell className="bell-icon" id="nav-icons" />
           </div>
       </nav>
     );
