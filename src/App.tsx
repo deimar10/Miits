@@ -1,9 +1,14 @@
 import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Offers from './pages/user/Offers';
+
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Offers />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
