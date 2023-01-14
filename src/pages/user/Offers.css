@@ -14,7 +14,7 @@ body {
     display: flex;
     align-items: center;
     gap: 5rem;
-    width: 70%;
+    width: 68%;
     margin: 0 auto;
     margin-top: -4rem;
     padding-bottom: 3.5rem;
@@ -22,7 +22,7 @@ body {
 }
 
 .headings h2 {
-    margin-left: -3.5rem;
+    margin-left: -4.5rem;
 }
 
 #heading-icons {
@@ -36,53 +36,6 @@ body {
 .grid-wrapper {
     width: 100%;
     display: flex;
-}
-
-.offers-grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    width: 60%;
-    gap: 2rem;
-    margin: 0 auto;
-}
-
-.offer-details-container {
-    display: flex;
-    padding-left: 1.5rem;
-    color: white;
-    height: 40%;
-}
-
-.grid-item {
-    background: #212121;
-    border-radius: 2rem;
-    height: 17.5rem;
-    width: 95%;
-}
-
-.grid-image {
-    border-radius: 2rem;
-    height: 60%;
-}
-
-.offer-info {
-    font-size: 1rem;
-    width: 75%;
-}
-
-.offer-info p {
-    margin-top: -0.75rem;
-    font-size: 1.15rem;
-}
-
-.offer-icon {
-    color: #5EFFB1;
-    font-size: 1.5rem;
-    display: flex;
-    margin-top: 1.5rem;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
 }
 
 .sideBar-container {
@@ -99,7 +52,7 @@ body {
     background: #212121;
     height: 45rem;
     width: 25%;
-    margin: 0 auto;
+    margin-left: 2.5rem;
 }
 
 #sideBar-icons {

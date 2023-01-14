@@ -1,14 +1,15 @@
 import React from 'react';
 import './Offers.css';
-import {FaRegHeart, FaWallet} from 'react-icons/fa';
+import {FaWallet} from 'react-icons/fa';
 import {AiFillCalendar} from 'react-icons/ai';
 import {BiDrink} from 'react-icons/bi';
 import {ImLocation2} from 'react-icons/im';
 import {HiClock} from 'react-icons/hi';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
+import Offer from '../../Components/Offer/Offer';
 
-function Offers() {
+function Offers({offersData} : any) {
     return (
         <div>
             <Nav/>
@@ -29,9 +30,7 @@ function Offers() {
                             <HiClock id="sideBar-icons" />
                         </div>
                     </div>
-                    <div className="offers-grid-container">
-
-                    </div>
+                    <Offer offersData={offersData} />
                 </div>
             </div>
             <Footer/>

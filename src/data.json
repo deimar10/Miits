@@ -1,0 +1,161 @@
+[
+  {
+    "id": 1,
+    "new": false,
+    "title": "GigaBang-Shooters",
+    "category": "Event",
+    "slug": "GigaBang-Shooters",
+    "location": "Tartu",
+    "date": "08.01.2023",
+    "price": 35.00,
+    "image": "./assets/Images/offers/gigabang.jpg",
+    "description": "This year's biggest event with Dj Matrix & Lulle taking the stage once again at Shoorters.",
+    "feedback": [
+      {
+        "name": "Madis",
+        "comment": "Cool event. Bit expensive tho"
+      },
+      {
+        "name": "Milfe",
+        "comment": "Cant wait!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "new": false,
+    "title": "Triple-Effect",
+    "category": "Drinks",
+    "slug": "Triple-Effect",
+    "location": "Tartu",
+    "date": "16.01.2023",
+    "price": 16.99,
+    "image": "./assets/Images/offers/triple-effect.jpg",
+    "description": "Come enjoy our well balanced gin cocktails at Kolm Tilli",
+    "feedback": [
+      {
+        "name": "Marit",
+        "comment": "Sounds Amazing!"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "new": false,
+    "title": "Old-Fashioned",
+    "category": "Drinks",
+    "slug": "Old-Fashioned",
+    "location": "Pärnu",
+    "date": "12.01.2023",
+    "price": 9.00,
+    "image": "./assets/Images/offers/old-fashioned.jpeg",
+    "description": "The old fashioned is a cocktail made by muddling sugar with bitters and water, adding whiskey (typically rye or bourbon) and our own little twist at bar Musketäär",
+    "feedback": [
+      {
+        "name": "Laura",
+        "comment": "That is like super cheap. I love it!"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "new": false,
+    "title": "LevelUp",
+    "category": "Event",
+    "slug": "LevelUp",
+    "location": "Tartu",
+    "date": "09.01.2023",
+    "price": 15.00,
+    "image": "./assets/Images/offers/level-up.jpeg",
+    "description": "Come dance at club Level. Enojoy great music with dj Heiki.",
+    "feedback": [
+      {
+        "name": "Madis",
+        "comment": "No thanks. The music is not that great"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "new": false,
+    "title": "Turn-it-up",
+    "category": "Event",
+    "slug": "Turn-it-up",
+    "location": "Tallinn",
+    "date": "09.01.2023",
+    "price": 50,
+    "image": "./assets/Images/offers/turn-it-up.jpeg",
+    "description": "Greatest Event at club Milyam.",
+    "feedback": [
+      {
+        "name": "Vilma",
+        "comment": "No thanks."
+      },
+      {
+        "name": "Karl",
+        "comment": "Sounds interesting. Might participate."
+      },
+      {
+        "name": "Sandra",
+        "comment": "I wish it didnt get so crowded at Milyam. Sucks."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "new": false,
+    "title": "Beer-n-Bugs",
+    "category": "Drinks",
+    "slug": "Beer-n-Bugs",
+    "location": "Pärnu",
+    "date": "17.01.2023",
+    "price": 4.99,
+    "image": "./assets/Images/offers/beer-n-bugs.jpg",
+    "description": "Intrested in trying something new? Now is your chance to try our own exotic beer mix at bar Ruuskalu.",
+    "feedback": [
+      {
+        "name": "Andres",
+        "comment": "I dont know about this one..."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "new": false,
+    "title": "Lemon",
+    "category": "Drinks",
+    "slug": "Lemon",
+    "location": "Tartu",
+    "date": "13.01.2023",
+    "price": 6.99,
+    "image": "./assets/Images/offers/lemon.jpg",
+    "description": "The Lemon is a French cocktail featuring yellow Curaçao mixed with vodka and lemonade. Come take a sip at club Shooters!",
+    "feedback": []
+  },
+  {
+    "id": 8,
+    "new": false,
+    "title": "VelvetVodka",
+    "category": "Drinks",
+    "slug": "VelvetVodka",
+    "location": "Tartu",
+    "date": "01.02.2023",
+    "price": 8.99,
+    "image": "./assets/Images/offers/velvet-vodka.jpeg",
+    "description": "Sweet and delicious, the red velvet cocktail features a red velvet cake-flavored vodka, mixing it with cream soda and fresh strawberries. Only the best at club Level",
+    "feedback": []
+  },
+  {
+    "id": 9,
+    "new": false,
+    "title": "Cobra",
+    "category": "Drinks",
+    "slug": "Cobra",
+    "location": "Tallinn",
+    "date": "05.02.2023",
+    "price": 11.00,
+    "image": "./assets/Images/offers/cobra.jpg",
+    "description": "Come enjoy our new vodka shots at bar Veski",
+    "feedback": []
+  }
+]
