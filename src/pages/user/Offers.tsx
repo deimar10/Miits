@@ -9,13 +9,13 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
 
-function Offers({offersData} : any) {
+function Offers({offersData, theme, handleThemeSwitch} : any) {
     return (
         <div>
-            <Nav/>
-            <div className="offers-section">
+            <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            <div className="offers-section" style={{ backgroundColor: theme ? '#161616' : 'white'}}>
                 <div className="headings">
-                    <BiDrink id="heading-icons"/>
+                    <BiDrink id="heading-icons" />
                     <h2>Pakkumised</h2>
                     <AiFillCalendar id="heading-icons" />
                     <h2>Üritused</h2>
@@ -33,7 +33,7 @@ function Offers({offersData} : any) {
                     <Offer offersData={offersData} />
                 </div>
             </div>
-            <Footer/>
+            <Footer theme={theme} />
         </div>
     );
 }

@@ -6,7 +6,12 @@ import data from './data.json';
 
 function App() {
 
-    const[offersData, setOffers] = useState<OfferInterface[]>();
+    const [theme, setTheme] = useState<boolean>(false);
+    const [offersData, setOffers] = useState<OfferInterface[]>();
+
+    const handleThemeSwitch = () => {
+        setTheme(!theme);
+    }
 
     useEffect(() => {
         setOffers(data);
@@ -15,7 +20,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Offers offersData={offersData} />} />
+        <Route index element={<Offers offersData={offersData} theme={theme} handleThemeSwitch={handleThemeSwitch} />} />
       </Routes>
     </BrowserRouter>
   );

@@ -2,15 +2,17 @@ import React from 'react';
 import './Footer.css';
 import {FaFacebookSquare, FaTwitter} from 'react-icons/fa';
 
-function Footer () {
+function Footer ({theme} : any) {
     return (
-        <footer className="footer-container">
+        <footer className="footer-container" style={{ backgroundColor: theme ? '#212121' : '#F1F0F0'}}>
             <div className="social-icons-container">
-                <FaFacebookSquare id="footer-social-icons" />
-                <FaTwitter id="footer-social-icons" />
+                <FaFacebookSquare id="footer-social-icons" style={{color: theme ? 'white' : 'black'}} />
+                <FaTwitter id="footer-social-icons" style={{color: theme ? 'white' : 'black'}} />
             </div>
             <div className="logo-container">
-                <img src="../../assets/logo/logo-light.png" alt="logo-light" />
+                {theme ? <img src="../../assets/logo/logo-dark.png" alt="logo-light" /> :
+                    <img src="../../assets/logo/logo-light.png" alt="logo-light" />
+                }
             </div>
         </footer>
     );

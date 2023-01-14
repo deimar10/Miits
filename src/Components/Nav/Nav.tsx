@@ -1,18 +1,18 @@
 import React from 'react';
 import './Nav.css';
 import {Link} from 'react-router-dom';
-import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell} from 'react-icons/fa';
-import {FaRegHeart} from 'react-icons/fa';
+import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell, FaRegHeart} from 'react-icons/fa';
+import {HiSun} from 'react-icons/hi';
 import {TbSearch} from 'react-icons/tb';
 
-function Nav() {
+function Nav({theme, handleThemeSwitch} : any) {
     return (
       <nav className="nav-container">
           <div className="nav-logo">
             <img src="../../assets/logo/logo-dark.png" alt="logo-dark" />
           </div>
           <div className="nav-input-container">
-              <FaMoon id="theme" />
+              {!theme ? <FaMoon id="theme" onClick={handleThemeSwitch} /> : <HiSun id="theme" onClick={handleThemeSwitch} />}
               <TbSearch id="search-icon" />
               <input
                   type="text"
