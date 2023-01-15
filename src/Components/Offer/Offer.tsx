@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import './Offer.css';
 import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/interface";
 import {FaRegHeart} from 'react-icons/fa';
 
-function Offer({offersData} : any ) {
+function Offer({offersData, selected} : any ) {
+
+    const handleProccessOffers = (): [] => {
+        if (selected === 'price') { return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);}
+
+        if (selected === 'date') { return offersData.sort((a: { date: string }, b: { date: string }) => Date.parse(a.date) - Date.parse(b.date));}
+        return offersData;
+    }
+
+    let processed = useMemo(handleProccessOffers, [selected, offersData]);
+
     return (
         <div className="offers-grid-container">
-            {offersData.length ? offersData.map((info :  OfferInterface) => {
+            {processed.length ? processed.map((info :  OfferInterface) => {
                 return (
                     <div className="grid-item" key={info.id}>
                         <div className="grid-image" style={{

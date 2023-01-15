@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactElement, useState} from 'react';
 import './Offers.css';
 import {FaWallet} from 'react-icons/fa';
 import {AiFillCalendar} from 'react-icons/ai';
@@ -10,6 +10,13 @@ import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
 
 function Offers({offersData, theme, handleThemeSwitch} : any) {
+
+    const [selected, setSelected] = useState<string>();
+
+    const handleSelected = (category: string) => {
+        setSelected(category);
+    }
+
     return (
         <div>
             <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} />
@@ -23,14 +30,14 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
                 <div className="grid-wrapper">
                     <div className="sideBar-container">
                         <div className="sideBar">
-                            <ImLocation2 id="sideBar-icons" />
+                            <ImLocation2 id="sideBar-icons" name="location" />
                             <AiFillCalendar id="sideBar-icons" />
                             <BiDrink id="sideBar-icons" />
-                            <FaWallet id="sideBar-icons" />
-                            <HiClock id="sideBar-icons" />
+                            <FaWallet id="sideBar-icons" onClick={ e => handleSelected('price')} />
+                            <HiClock id="sideBar-icons" onClick={ e => handleSelected('date')} />
                         </div>
                     </div>
-                    <Offer offersData={offersData} />
+                    <Offer offersData={offersData} selected={selected} />
                 </div>
             </div>
             <Footer theme={theme} />
