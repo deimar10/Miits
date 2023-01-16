@@ -42,7 +42,7 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
                 <div className="grid-wrapper">
                     <div className="sideBar-container">
                         <div  className="location-filter" style={{
-                            width: locationMenu ? '35%' : '0'
+                            width: locationMenu ? '5%' : '0'
                         }}>
                             <ul style={{ display: locationMenu ? '' : 'none'}}>
                                 <li onClick={e => handleLocation('Tartu')}>Tartu</li>
