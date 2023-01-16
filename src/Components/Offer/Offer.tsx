@@ -6,27 +6,56 @@ import {FaRegHeart} from 'react-icons/fa';
 
 function Offer({offersData, selected, location, theme, search} : any ) {
 
-    const handleProccessOffers = (): [] => {
-        if (selected === 'price') { return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);}
-
-        if (selected === 'date') { return offersData.sort((a: { date: string }, b: { date: string }) => Date.parse(a.date) - Date.parse(b.date));}
-
-        if (selected === 'events') { return offersData.filter((offer: { category: string }) => offer.category === 'Event');}
-
-        if (selected === 'drinks') { return offersData.filter((offer: { category: string }) => offer.category === 'Drinks');}
-
-        if (location === 'Tartu') { return offersData.filter((offer: { location: string }) => offer.location === 'Tartu');}
-
-        if (location === 'Tallinn') { return offersData.filter((offer: { location: string }) => offer.location === 'Tallinn');}
-
-        if (location === 'Pärnu') { return offersData.filter((offer: { location: string }) => offer.location === 'Pärnu');}
-
-        if (search) { return offersData.filter((offer: { title: string, location: string }) => offer.title.includes(search) || offer.location.includes(search));}
-
-        return offersData;
+    const handleSortOffers = () => {
+        switch (selected) {
+            case 'price':
+                return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);
+            case 'date':
+                return offersData.sort((a: { date: string}, b: { date: string }) => Date.parse(a.date) - Date.parse(b.date));
+            default:
+                return offersData;
+        }
     }
 
-    let processed = useMemo(handleProccessOffers, [location, selected, offersData, search]);
+    const handleFilterOffers = () => {
+        let filteredOffers = offersData;
+
+        switch (selected) {
+            case 'events':
+                filteredOffers = filteredOffers.filter((offer: { category: string }) => offer.category === 'Event');
+                break;
+            case 'drinks':
+                filteredOffers = filteredOffers.filter((offer: { category: string }) => offer.category === 'Drinks');
+                break;
+        }
+
+        switch (location) {
+            case 'Tartu':
+                filteredOffers = filteredOffers.filter((offer: { location: string }) => offer.location === 'Tartu');
+                break;
+            case 'Tallinn':
+                filteredOffers = filteredOffers.filter((offer: { location: string }) => offer.location === 'Tallinn');
+                break;
+            case 'Pärnu':
+                filteredOffers = filteredOffers.filter((offer: { location: string }) => offer.location === 'Pärnu');
+                break;
+        }
+
+        if (search) {
+            filteredOffers = filteredOffers.filter(((offer: { title: string, location: string }) =>
+                offer.title.toLowerCase().includes(search.toLowerCase()) || offer.location.toLowerCase().includes(search.toLowerCase())));
+        }
+        return filteredOffers;
+    }
+
+    const handleProccessOffers = () => {
+        let processedOffers = handleSortOffers();
+        processedOffers = handleFilterOffers();
+
+        return processedOffers;
+    }
+
+    const processed = useMemo(() => handleProccessOffers(), [location, selected, offersData, search]);
 
     return (
         <div className="offers-grid-container">
