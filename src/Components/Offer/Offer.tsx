@@ -4,25 +4,31 @@ import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/interface";
 import {FaRegHeart} from 'react-icons/fa';
 
-function Offer({offersData, selected} : any ) {
+function Offer({offersData, selected, location} : any ) {
 
     const handleProccessOffers = (): [] => {
         if (selected === 'price') { return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);}
 
         if (selected === 'date') { return offersData.sort((a: { date: string }, b: { date: string }) => Date.parse(a.date) - Date.parse(b.date));}
 
-        if (selected === 'events') { return offersData.filter((offer: { category: string}) => offer.category === 'Event');}
+        if (selected === 'events') { return offersData.filter((offer: { category: string }) => offer.category === 'Event');}
 
-        if (selected === 'drinks') { return offersData.filter((offer: { category: string}) => offer.category === 'Drinks');}
+        if (selected === 'drinks') { return offersData.filter((offer: { category: string }) => offer.category === 'Drinks');}
+
+        if (location === 'Tartu') { return offersData.filter((offer: { location: string }) => offer.location === 'Tartu');}
+
+        if (location === 'Tallinn') { return offersData.filter((offer: { location: string }) => offer.location === 'Tallinn');}
+
+        if (location === 'Pärnu') { return offersData.filter((offer: { location: string }) => offer.location === 'Pärnu');}
 
         return offersData;
     }
 
-    let processed = useMemo(handleProccessOffers, [selected, offersData]);
+    let processed = useMemo(handleProccessOffers, [location, selected, offersData]);
 
     return (
         <div className="offers-grid-container">
-            {processed.length ? processed.map((info :  OfferInterface) => {
+            {typeof processed !== "undefined" && processed.length !== 0 ? processed.map((info :  OfferInterface) => {
                 return (
                     <div className="grid-item" key={info.id}>
                         <div className="grid-image" style={{

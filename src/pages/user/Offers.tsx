@@ -12,9 +12,19 @@ import Offer from '../../Components/Offer/Offer';
 function Offers({offersData, theme, handleThemeSwitch} : any) {
 
     const [selected, setSelected] = useState<string>();
+    const [locationMenu, setLocationMenu] = useState<boolean>(false);
+    const [location, setLocation] = useState<string>();
 
     const handleSelected = (category: string) => {
         setSelected(category);
+    }
+
+    const handleLocationSelect = () => {
+        setLocationMenu(!locationMenu);
+    }
+
+    const handleLocation = (name: string) => {
+        setLocation(name);
     }
 
     return (
@@ -29,15 +39,24 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
                 </div>
                 <div className="grid-wrapper">
                     <div className="sideBar-container">
+                        <div  className="location-filter" style={{
+                            width: locationMenu ? '35%' : '0'
+                        }}>
+                            <ul style={{ display: locationMenu ? '' : 'none'}}>
+                                <li onClick={e => handleLocation('Tartu')}>Tartu</li>
+                                <li onClick={e => handleLocation('Tallinn')}>Tallinn</li>
+                                <li onClick={e => handleLocation('Pärnu')}>Pärnu</li>
+                            </ul>
+                        </div>
                         <div className="sideBar">
-                            <ImLocation2 id="sideBar-icons" name="location" />
-                            <AiFillCalendar id="sideBar-icons" onClick={ e => handleSelected('events')} />
-                            <BiDrink id="sideBar-icons" onClick={ e => handleSelected('drinks')} />
-                            <FaWallet id="sideBar-icons" onClick={ e => handleSelected('price')} />
-                            <HiClock id="sideBar-icons" onClick={ e => handleSelected('date')} />
+                            <ImLocation2 id="sideBar-icons" name="location" onClick={e => handleLocationSelect() } />
+                            <AiFillCalendar id="sideBar-icons" onClick={e => handleSelected('events')} />
+                            <BiDrink id="sideBar-icons" onClick={e => handleSelected('drinks')} />
+                            <FaWallet id="sideBar-icons" onClick={e => handleSelected('price')} />
+                            <HiClock id="sideBar-icons" onClick={e => handleSelected('date')} />
                         </div>
                     </div>
-                    <Offer offersData={offersData} selected={selected} />
+                    <Offer offersData={offersData} selected={selected} location={location} />
                 </div>
             </div>
             <Footer theme={theme} />
