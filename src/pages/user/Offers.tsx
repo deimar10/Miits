@@ -31,8 +31,8 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
                     <div className="sideBar-container">
                         <div className="sideBar">
                             <ImLocation2 id="sideBar-icons" name="location" />
-                            <AiFillCalendar id="sideBar-icons" />
-                            <BiDrink id="sideBar-icons" />
+                            <AiFillCalendar id="sideBar-icons" onClick={ e => handleSelected('events')} />
+                            <BiDrink id="sideBar-icons" onClick={ e => handleSelected('drinks')} />
                             <FaWallet id="sideBar-icons" onClick={ e => handleSelected('price')} />
                             <HiClock id="sideBar-icons" onClick={ e => handleSelected('date')} />
                         </div>

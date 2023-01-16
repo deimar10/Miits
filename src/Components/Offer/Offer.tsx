@@ -10,6 +10,11 @@ function Offer({offersData, selected} : any ) {
         if (selected === 'price') { return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);}
 
         if (selected === 'date') { return offersData.sort((a: { date: string }, b: { date: string }) => Date.parse(a.date) - Date.parse(b.date));}
+
+        if (selected === 'events') { return offersData.filter((offer: { category: string}) => offer.category === 'Event');}
+
+        if (selected === 'drinks') { return offersData.filter((offer: { category: string}) => offer.category === 'Drinks');}
+
         return offersData;
     }
 
