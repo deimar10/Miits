@@ -5,7 +5,12 @@ import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell, FaRegHeart} from 'react-
 import {HiSun} from 'react-icons/hi';
 import {TbSearch} from 'react-icons/tb';
 
-function Nav({theme, handleThemeSwitch} : any) {
+function Nav({theme, handleThemeSwitch, setSearch} : any) {
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+    }
+
     return (
       <nav className="nav-container">
           <div className="nav-logo">
@@ -17,8 +22,9 @@ function Nav({theme, handleThemeSwitch} : any) {
               <input
                   type="text"
                   name="search"
-                  placeholder="e.g GigaBang Shooters"
+                  placeholder="e.g Triple-Effect"
                   id="search"
+                  onChange={handleSearch}
               />
               <FaFacebookSquare id="social-icons" />
               <FaTwitter id="social-icons" />

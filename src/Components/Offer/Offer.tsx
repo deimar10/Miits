@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/interface";
 import {FaRegHeart} from 'react-icons/fa';
 
-function Offer({offersData, selected, location, theme} : any ) {
+function Offer({offersData, selected, location, theme, search} : any ) {
 
     const handleProccessOffers = (): [] => {
         if (selected === 'price') { return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);}
@@ -21,10 +21,12 @@ function Offer({offersData, selected, location, theme} : any ) {
 
         if (location === 'Pärnu') { return offersData.filter((offer: { location: string }) => offer.location === 'Pärnu');}
 
+        if (search) { return offersData.filter((offer: { title: string, location: string }) => offer.title.includes(search) || offer.location.includes(search));}
+
         return offersData;
     }
 
-    let processed = useMemo(handleProccessOffers, [location, selected, offersData]);
+    let processed = useMemo(handleProccessOffers, [location, selected, offersData, search]);
 
     return (
         <div className="offers-grid-container">

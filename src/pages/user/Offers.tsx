@@ -14,6 +14,7 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
     const [selected, setSelected] = useState<string>();
     const [locationMenu, setLocationMenu] = useState<boolean>(false);
     const [location, setLocation] = useState<string>();
+    const [search, setSearch] = useState<string>();
 
     const handleSelected = (category: string) => {
         setSelected(category);
@@ -30,7 +31,7 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
     return (
         <body style={{ backgroundColor: theme ? '#161616' : 'white'}}>
         <div>
-            <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} setSearch={setSearch} />
             <div className="offers-section">
                 <div className="headings">
                     <BiDrink id="heading-icons" />
@@ -57,7 +58,7 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
                             <HiClock id="sideBar-icons" onClick={e => handleSelected('date')} />
                         </div>
                     </div>
-                    <Offer offersData={offersData} selected={selected} location={location} theme={theme} />
+                    <Offer offersData={offersData} selected={selected} location={location} theme={theme} search={search} />
                 </div>
             </div>
             <Footer theme={theme} />
