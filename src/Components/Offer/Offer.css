@@ -73,6 +73,7 @@
 }
 
 .offers-empty {
+    padding: 15rem;
     font-size: 1.25rem;
     flex-direction: column;
     display: flex;

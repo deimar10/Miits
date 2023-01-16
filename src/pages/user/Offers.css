@@ -44,6 +44,7 @@ body {
 }
 
 .sideBar {
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,7 +53,7 @@ body {
     border-radius: 1rem;
     background: #212121;
     height: 45rem;
-    width: 25%;
+    width: 3.5%;
     margin-left: 2.5rem;
 }
 
