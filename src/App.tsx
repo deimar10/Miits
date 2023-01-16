@@ -14,7 +14,7 @@ function App() {
     }
 
     useEffect(() => {
-        setOffers(data);
+        setOffers([]);
     }, [])
 
   return (

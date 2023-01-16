@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/interface";
 import {FaRegHeart} from 'react-icons/fa';
 
-function Offer({offersData, selected, location} : any ) {
+function Offer({offersData, selected, location, theme} : any ) {
 
     const handleProccessOffers = (): [] => {
         if (selected === 'price') { return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);}
@@ -54,7 +54,9 @@ function Offer({offersData, selected, location} : any ) {
                     </div>
                 )
             }) : <div className="offers-empty">
-                <p>
+                <p style={{
+                    color: theme ? 'white' : '#161616'
+                }}>
                     Looks like there aren't any offers available. If you are an enterprise that would like to advertise their events or deals,
                     please sign up!
                 </p>

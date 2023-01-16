@@ -28,9 +28,10 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
     }
 
     return (
+        <body style={{ backgroundColor: theme ? '#161616' : 'white'}}>
         <div>
             <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} />
-            <div className="offers-section" style={{ backgroundColor: theme ? '#161616' : 'white'}}>
+            <div className="offers-section">
                 <div className="headings">
                     <BiDrink id="heading-icons" />
                     <h2>Pakkumised</h2>
@@ -56,12 +57,14 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
                             <HiClock id="sideBar-icons" onClick={e => handleSelected('date')} />
                         </div>
                     </div>
-                    <Offer offersData={offersData} selected={selected} location={location} />
+                    <Offer offersData={offersData} selected={selected} location={location} theme={theme} />
                 </div>
             </div>
             <Footer theme={theme} />
         </div>
+        </body>
     );
 }
+
 
 export default Offers;
