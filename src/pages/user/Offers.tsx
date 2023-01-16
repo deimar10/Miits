@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react';
+import React, {useState} from 'react';
 import './Offers.css';
 import {FaWallet} from 'react-icons/fa';
 import {AiFillCalendar} from 'react-icons/ai';
