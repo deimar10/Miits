@@ -68,9 +68,10 @@ function Offer({offersData, selected, location, theme, search} : any ) {
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center center',
                             width: '100%',
-                            borderRadius: '2rem 2rem 0rem 0rem'
+                            borderRadius: '2rem 2rem 0rem 0rem',
                         }}>
                         </div>
+                        { info.upcoming ? <h3 id="upcoming" >Upcoming!</h3> : null}
                         <div className="offer-details-container">
                             <div className="offer-info">
                                 <h2>{info.title}</h2>

@@ -14,6 +14,15 @@ function App() {
     }
 
     useEffect(() => {
+        const date = new Date().getTime();
+
+        {data.map((object: OfferInterface) => {
+            if (date < new Date(object.date).getTime()) {
+                return object.upcoming = true;
+            } else {
+                return object.upcoming = false;
+            }
+        })}
         setOffers(data);
     }, [])
 

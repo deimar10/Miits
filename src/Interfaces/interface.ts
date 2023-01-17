@@ -1,6 +1,6 @@
 export interface OfferInterface {
     id: number,
-    new: boolean,
+    upcoming: boolean,
     title: string,
     category: string,
     slug: string,
