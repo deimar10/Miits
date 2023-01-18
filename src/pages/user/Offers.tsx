@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Offers.css';
 import {FaWallet} from 'react-icons/fa';
 import {AiFillCalendar} from 'react-icons/ai';
@@ -28,8 +28,12 @@ function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites, 
         setLocation(name);
     }
 
+    useEffect(() => {
+        document.body.style.backgroundColor = theme ? '#161616' : 'white';
+    }, [theme])
+
     return (
-        <div className="body" style={{ backgroundColor: theme ? '#161616' : 'white'}}>
+        <div>
             <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} setSearch={setSearch} favoriteCount={favoriteCount} />
             <div className="offers-section">
                 <div className="headings">

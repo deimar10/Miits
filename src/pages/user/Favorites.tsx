@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {OfferInterface} from "../../Interfaces/interface";
 import './Favorites.css';
@@ -15,8 +15,12 @@ function Favorites({theme, handleThemeSwitch, favorites}: any) {
         navigate(-1);
     }
 
+    useEffect(() => {
+        document.body.style.backgroundColor = theme ? '#161616' : 'white';
+    }, [theme])
+
     return (
-        <div style={{ backgroundColor: theme ? '#161616' : 'white'}}>
+        <div>
             <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} />
             <div className="header-container">
                 <FaHeart id="favorite-icon" />
