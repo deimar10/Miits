@@ -33,6 +33,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
+    width: 7.5%;
 }
 
 .nav-back-container span:hover > #back-icon {
