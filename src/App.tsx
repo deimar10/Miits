@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Offers from './pages/user/Offers';
+import Favorites from "./pages/user/Favorites";
 import {OfferInterface} from "./Interfaces/interface";
 import data from './data.json';
 
@@ -27,11 +28,12 @@ function App() {
     }, [offersData])
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Offers offersData={offersData} theme={theme} handleThemeSwitch={handleThemeSwitch} />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+          <Routes>
+              <Route index element={<Offers offersData={offersData} theme={theme} handleThemeSwitch={handleThemeSwitch} />} />
+              <Route path="/offers/favorites" element={<Favorites theme={theme} handleThemeSwitch={handleThemeSwitch} />} />
+          </Routes>
+      </BrowserRouter>
   );
 }
 

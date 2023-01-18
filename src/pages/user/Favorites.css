@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Rubik';
+}
+
+.header-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+#favorite-icon {
+    font-size: 1.5rem;
+    color: #5EFFB1;
+    padding-right: 0.5rem;
+}
+
+#back-icon {
+    font-size: 1.5rem;
+}
+
+.nav-back-container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.nav-back-container span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.nav-back-container span:hover > #back-icon {
+   color: #5EFFB1;
+}
