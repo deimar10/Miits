@@ -6,7 +6,7 @@ import {FaRegHeart} from 'react-icons/fa';
 
 function Offer({offersData, selected, location, theme, search, favorites, setFavorites} : any ) {
 
-    const handleSortOffers = () => {
+    const handleSortOffers = (): OfferInterface[] => {
         switch (selected) {
             case 'price':
                 return offersData.sort((a: { price: number }, b: { price: number }) => a.price - b.price);
@@ -17,7 +17,7 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
         }
     }
 
-    const handleFilterOffers = () => {
+    const handleFilterOffers = (): OfferInterface[] => {
         let filteredOffers = offersData;
 
         switch (selected) {
@@ -48,7 +48,7 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
         return filteredOffers;
     }
 
-    const handleProccessOffers = () => {
+    const handleProccessOffers = (): OfferInterface[] => {
         let processedOffers = handleSortOffers();
         processedOffers = handleFilterOffers();
 
