@@ -65,6 +65,7 @@
 }
 
 .nav-icons-container {
+    position: relative;
     padding-right: 4rem;
     display: flex;
     justify-content: end;
@@ -76,6 +77,14 @@
 #nav-icons {
     font-size: 1.40rem;
     color: #5EFFB1;
+}
+
+#fav-count {
+    position: absolute;
+    color: #5EFFB1;
+    top: 2.25rem;
+    right: 6.25rem;
+    font-size: 0.85rem;
 }
 
 .bell-icon {

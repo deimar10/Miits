@@ -10,6 +10,11 @@ function App() {
     const [theme, setTheme] = useState<boolean>(false);
     const [offersData, setOffers] = useState<OfferInterface[]>();
     const [favorites, setFavorites] = useState<OfferInterface[]>([]);
+    const [favoriteCount, setCount] = useState<number>();
+
+    useEffect(() => {
+        setCount(favorites.length);
+    }, [favorites.length])
 
     const handleThemeSwitch = () => {
         setTheme(!theme);
@@ -36,7 +41,8 @@ function App() {
                   theme={theme}
                   handleThemeSwitch={handleThemeSwitch}
                   favorites={favorites}
-                  setFavorites={setFavorites} />}
+                  setFavorites={setFavorites}
+                  favoriteCount={favoriteCount} />}
               />
               <Route path="/offers/favorites" element={<Favorites
                   theme={theme}

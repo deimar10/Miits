@@ -9,7 +9,7 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
 
-function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites} : any) {
+function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites, favoriteCount} : any) {
 
     const [selected, setSelected] = useState<string>();
     const [locationMenu, setLocationMenu] = useState<boolean>(false);
@@ -30,7 +30,7 @@ function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites} 
 
     return (
         <div className="body" style={{ backgroundColor: theme ? '#161616' : 'white'}}>
-            <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} setSearch={setSearch} />
+            <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} setSearch={setSearch} favoriteCount={favoriteCount} />
             <div className="offers-section">
                 <div className="headings">
                     <BiDrink id="heading-icons" />

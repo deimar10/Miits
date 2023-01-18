@@ -5,7 +5,7 @@ import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell, FaRegHeart} from 'react-
 import {HiSun} from 'react-icons/hi';
 import {TbSearch} from 'react-icons/tb';
 
-function Nav({theme, handleThemeSwitch, setSearch} : any) {
+function Nav({theme, handleThemeSwitch, setSearch, favoriteCount} : any) {
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
@@ -32,6 +32,7 @@ function Nav({theme, handleThemeSwitch, setSearch} : any) {
           <div className="nav-icons-container">
               <Link to={'/offers/favorites'}>
                   <FaRegHeart id="nav-icons" />
+                  {favoriteCount !== 0 ? <p id="fav-count">{favoriteCount}</p> : null}
               </Link>
               <FaRegBell className="bell-icon" id="nav-icons" />
           </div>
