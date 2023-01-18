@@ -59,19 +59,18 @@ body {
 
 .offer-image {
     height: 15rem;
-    width: 30%;
+    width: 27.5%;
 }
 
 .offer-image > img {
     height: 100%;
-    width: 100%;
+    width: 87.5%;
     border-radius: 2rem;
 }
 
 .offer-description-container {
-    padding-left: 2.5rem;
     height: 15rem;
-    width: 70%;
+    width: 72.5%;
 }
 
 .offer-description {
