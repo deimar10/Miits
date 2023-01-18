@@ -29,8 +29,7 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
     }
 
     return (
-        <body style={{ backgroundColor: theme ? '#161616' : 'white'}}>
-        <div>
+        <div className="body" style={{ backgroundColor: theme ? '#161616' : 'white'}}>
             <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} setSearch={setSearch} />
             <div className="offers-section">
                 <div className="headings">
@@ -63,7 +62,6 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
             </div>
             <Footer theme={theme} />
         </div>
-        </body>
     );
 }
 
