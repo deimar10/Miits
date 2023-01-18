@@ -9,7 +9,7 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
 
-function Offers({offersData, theme, handleThemeSwitch} : any) {
+function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites} : any) {
 
     const [selected, setSelected] = useState<string>();
     const [locationMenu, setLocationMenu] = useState<boolean>(false);
@@ -57,7 +57,15 @@ function Offers({offersData, theme, handleThemeSwitch} : any) {
                             <HiClock id="sideBar-icons" onClick={e => handleSelected('date')} />
                         </div>
                     </div>
-                    <Offer offersData={offersData} selected={selected} location={location} theme={theme} search={search} />
+                    <Offer
+                        offersData={offersData}
+                        selected={selected}
+                        location={location}
+                        theme={theme}
+                        search={search}
+                        favorites={favorites}
+                        setFavorites={setFavorites}
+                    />
                 </div>
             </div>
             <Footer theme={theme} />

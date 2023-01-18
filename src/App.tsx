@@ -9,6 +9,7 @@ function App() {
 
     const [theme, setTheme] = useState<boolean>(false);
     const [offersData, setOffers] = useState<OfferInterface[]>();
+    const [favorites, setFavorites] = useState<OfferInterface[]>([]);
 
     const handleThemeSwitch = () => {
         setTheme(!theme);
@@ -30,8 +31,18 @@ function App() {
   return (
       <BrowserRouter>
           <Routes>
-              <Route index element={<Offers offersData={offersData} theme={theme} handleThemeSwitch={handleThemeSwitch} />} />
-              <Route path="/offers/favorites" element={<Favorites theme={theme} handleThemeSwitch={handleThemeSwitch} />} />
+              <Route index element={<Offers
+                  offersData={offersData}
+                  theme={theme}
+                  handleThemeSwitch={handleThemeSwitch}
+                  favorites={favorites}
+                  setFavorites={setFavorites} />}
+              />
+              <Route path="/offers/favorites" element={<Favorites
+                  theme={theme}
+                  handleThemeSwitch={handleThemeSwitch}
+                  favorites={favorites} />}
+              />
           </Routes>
       </BrowserRouter>
   );

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/interface";
 import {FaRegHeart} from 'react-icons/fa';
 
-function Offer({offersData, selected, location, theme, search} : any ) {
+function Offer({offersData, selected, location, theme, search, favorites, setFavorites} : any ) {
 
     const handleSortOffers = () => {
         switch (selected) {
@@ -57,9 +57,13 @@ function Offer({offersData, selected, location, theme, search} : any ) {
 
     const processed = useMemo(() => handleProccessOffers(), [location, selected, offersData, search]);
 
+    const handleAddToFavorites = (info: OfferInterface) => {
+        setFavorites([...favorites, info]);
+    }
+
     return (
         <div className="offers-grid-container">
-            {typeof processed !== "undefined" && processed.length !== 0 ? processed.map((info :  OfferInterface) => {
+            {typeof processed !== "undefined" && processed.length !== 0 ? processed.map((info: OfferInterface) => {
                 return (
                     <div className="grid-item" key={info.id}>
                         <div className="grid-image" style={{
@@ -71,7 +75,7 @@ function Offer({offersData, selected, location, theme, search} : any ) {
                             borderRadius: '2rem 2rem 0rem 0rem',
                         }}>
                         </div>
-                        { info.upcoming ? <h3 id="upcoming" >Upcoming!</h3> : null}
+                        {info.upcoming ? <h3 id="upcoming" >Upcoming!</h3> : null}
                         <div className="offer-details-container">
                             <div className="offer-info">
                                 <h2>{info.title}</h2>
@@ -80,7 +84,7 @@ function Offer({offersData, selected, location, theme, search} : any ) {
                                 </p>
                             </div>
                             <div className="offer-icon">
-                                <FaRegHeart id="fav-icon" />
+                                <FaRegHeart id="fav-icon" onClick={e => handleAddToFavorites(info)} />
                             </div>
                         </div>
                     </div>
