@@ -38,3 +38,60 @@ body {
 .nav-back-container span:hover > #back-icon {
    color: #5EFFB1;
 }
+
+.favorites-main-container {
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.favorites-grid-item {
+    margin-top: 2rem;
+    height: 20rem;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 2.5rem;
+}
+
+.offer-image {
+    height: 15rem;
+    width: 30%;
+}
+
+.offer-image > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+}
+
+.offer-description-container {
+    padding-left: 2.5rem;
+    height: 15rem;
+    width: 70%;
+}
+
+.offer-description {
+    height: 8rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-description h3{
+    margin-bottom: -0.75rem;
+}
+
+.offer-description span{
+    font-weight: 400;
+}
+
+.offer-date-container {
+    margin-top: 3.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #cccccc;
+}
+
