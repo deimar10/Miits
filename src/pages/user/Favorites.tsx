@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {useNavigate} from "react-router-dom";
 import {OfferInterface} from "../../Interfaces/interface";
 import './Favorites.css';
@@ -34,8 +34,9 @@ function Favorites({theme, handleThemeSwitch, favorites}: any) {
                     <h3>Go Back</h3>
                </span>
             </div>
+            {typeof favorites !== "undefined" && favorites.length !== 0 ?
             <div className="favorites-main-container">
-                {favorites.map((favorite: OfferInterface) =>{
+                {favorites.map((favorite: OfferInterface) => {
                     return (
                         <div className="favorites-grid-item" key={favorite.id}>
                             <div className="offer-image">
@@ -57,7 +58,14 @@ function Favorites({theme, handleThemeSwitch, favorites}: any) {
                         </div>
                     )
                 })}
-            </div>
+            </div> : <div className="offers-empty">
+                    <p id="offers-empty-text" style={{
+                        color: theme ? 'white' : '#161616'
+                    }}>
+                        Ükski pakkumine ei ole valitud lemmikuks!
+                    </p>
+                 </div>
+            }
             <Footer theme={theme} />
         </div>
     );
