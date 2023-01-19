@@ -2,6 +2,7 @@
   {
     "id": 1,
     "upcoming": false,
+    "favorite": false,
     "title": "GigaBang-Shooters",
     "category": "Event",
     "slug": "GigaBang-Shooters",
@@ -24,6 +25,7 @@
   {
     "id": 2,
     "upcoming": false,
+    "favorite": false,
     "title": "Triple-Effect",
     "category": "Drinks",
     "slug": "Triple-Effect",
@@ -42,6 +44,7 @@
   {
     "id": 3,
     "upcoming": false,
+    "favorite": false,
     "title": "Old-Fashioned",
     "category": "Drinks",
     "slug": "Old-Fashioned",
@@ -60,6 +63,7 @@
   {
     "id": 4,
     "upcoming": false,
+    "favorite": false,
     "title": "LevelUp",
     "category": "Event",
     "slug": "LevelUp",
@@ -78,6 +82,7 @@
   {
     "id": 5,
     "upcoming": false,
+    "favorite": false,
     "title": "Turn-it-up",
     "category": "Event",
     "slug": "Turn-it-up",
@@ -104,6 +109,7 @@
   {
     "id": 6,
     "upcoming": false,
+    "favorite": false,
     "title": "Beer-n-Bugs",
     "category": "Drinks",
     "slug": "Beer-n-Bugs",
@@ -122,6 +128,7 @@
   {
     "id": 7,
     "upcoming": false,
+    "favorite": false,
     "title": "Lemon",
     "category": "Drinks",
     "slug": "Lemon",
@@ -135,6 +142,7 @@
   {
     "id": 8,
     "upcoming": false,
+    "favorite": false,
     "title": "VelvetVodka",
     "category": "Drinks",
     "slug": "VelvetVodka",
@@ -148,6 +156,7 @@
   {
     "id": 9,
     "upcoming": false,
+    "favorite": false,
     "title": "Cobra",
     "category": "Drinks",
     "slug": "Cobra",
