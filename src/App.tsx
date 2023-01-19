@@ -16,6 +16,12 @@ function App() {
         setCount(favorites.length);
     }, [favorites.length])
 
+    useEffect(() => {
+        if (localStorage.getItem('favorites') === null) {
+            localStorage.setItem('favorites', JSON.stringify([]));
+        }
+    }, [])
+
     const handleThemeSwitch = () => {
         setTheme(!theme);
     }
