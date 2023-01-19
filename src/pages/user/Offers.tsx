@@ -9,7 +9,7 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
 
-function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites, favoriteCount} : any) {
+function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites, favoriteCount, setOffers} : any) {
 
     const [selected, setSelected] = useState<string>();
     const [locationMenu, setLocationMenu] = useState<boolean>(false);
@@ -69,6 +69,7 @@ function Offers({offersData, theme, handleThemeSwitch, favorites, setFavorites, 
                         search={search}
                         favorites={favorites}
                         setFavorites={setFavorites}
+                        setOffers={setOffers}
                     />
                 </div>
             </div>

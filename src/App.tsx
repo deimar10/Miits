@@ -42,7 +42,8 @@ function App() {
                   handleThemeSwitch={handleThemeSwitch}
                   favorites={favorites}
                   setFavorites={setFavorites}
-                  favoriteCount={favoriteCount} />}
+                  favoriteCount={favoriteCount}
+                  setOffers={setOffers} />}
               />
               <Route path="/offers/favorites" element={<Favorites
                   theme={theme}

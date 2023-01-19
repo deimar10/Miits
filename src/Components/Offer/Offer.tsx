@@ -2,9 +2,9 @@ import React, {useMemo} from 'react';
 import './Offer.css';
 import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/interface";
-import {FaRegHeart} from 'react-icons/fa';
+import {FaRegHeart,FaHeart} from 'react-icons/fa';
 
-function Offer({offersData, selected, location, theme, search, favorites, setFavorites} : any ) {
+function Offer({offersData, selected, location, theme, search, favorites, setFavorites, setOffers} : any ) {
 
     const handleSortOffers = (): OfferInterface[] => {
         switch (selected) {
@@ -58,6 +58,13 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
     const processed = useMemo(() => handleProccessOffers(), [location, selected, offersData, search]);
 
     const handleAddToFavorites = (info: OfferInterface) => {
+       let offers = [...offersData];
+
+        offers.map((offer: OfferInterface) => {
+            if (offer.id === info.id) {return offer.favorite = true;}
+        })
+
+        setOffers(offers);
         setFavorites([...favorites, info]);
     }
 
@@ -84,7 +91,7 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                                 </p>
                             </div>
                             <div className="offer-icon">
-                                <FaRegHeart id="fav-icon" onClick={e => handleAddToFavorites(info)} />
+                                {info.favorite ? <FaHeart id="fav-icon" /> : <FaRegHeart id="fav-icon" onClick={e => handleAddToFavorites(info)} />}
                             </div>
                         </div>
                     </div>
