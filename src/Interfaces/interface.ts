@@ -1,4 +1,4 @@
-export interface OfferInterface {
+export interface OfferInterface extends feedback{
     id: number,
     upcoming: boolean,
     favorite: boolean,
@@ -10,6 +10,9 @@ export interface OfferInterface {
     date: string,
     image: string,
     description: string,
+}
+
+interface feedback {
     feedback: Array<{
         name: string,
         comment: string
