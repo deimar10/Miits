@@ -48,7 +48,10 @@ function App() {
               <Route path="/offers/favorites" element={<Favorites
                   theme={theme}
                   handleThemeSwitch={handleThemeSwitch}
-                  favorites={favorites} />}
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                  offersData={offersData}
+                  setOffers={setOffers} />}
               />
           </Routes>
       </BrowserRouter>

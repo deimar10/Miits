@@ -3,8 +3,9 @@ import './Offer.css';
 import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/interface";
 import {FaRegHeart,FaHeart} from 'react-icons/fa';
+import offers from "../../pages/user/Offers";
 
-function Offer({offersData, selected, location, theme, search, favorites, setFavorites, setOffers} : any ) {
+function Offer({offersData, selected, location, theme, search, favorites, setFavorites, setOffers}: any ) {
 
     const handleSortOffers = (): OfferInterface[] => {
         switch (selected) {

@@ -7,12 +7,24 @@ import Footer from '../../Components/Footer/Footer';
 import {FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
 
-function Favorites({theme, handleThemeSwitch, favorites}: any) {
+function Favorites({theme, handleThemeSwitch, favorites, setFavorites, offersData, setOffers}: any) {
 
     let navigate = useNavigate();
 
     const handleNavigateBack = () => {
         navigate(-1);
+    }
+
+    const handleRemoveFavorite = (id: number) => {
+        let filterFavorite = favorites.filter((favorite: OfferInterface ) => favorite.id !== id);
+        let offers = [...offersData];
+
+        offers.map((offer: OfferInterface) => {
+            if (offer.id === id) {return offer.favorite = false;}
+        })
+
+        setOffers(offers);
+        setFavorites(filterFavorite);
     }
 
     useEffect(() => {
@@ -53,6 +65,7 @@ function Favorites({theme, handleThemeSwitch, favorites}: any) {
                                 </div>
                                 <div className="offer-date-container">
                                     <p>Date: {favorite.date}</p>
+                                    <button onClick={e => handleRemoveFavorite(favorite.id)}>Remove</button>
                                 </div>
                             </div>
                         </div>

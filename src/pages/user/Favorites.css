@@ -89,10 +89,26 @@ body {
 }
 
 .offer-date-container {
+    display: flex;
     margin-top: 3.5rem;
     font-size: 1.05rem;
     font-weight: 600;
     color: #cccccc;
 }
 
+.offer-date-container button {
+    margin-left: auto;
+    float: right;
+    color: #ec4646;
+    background: transparent;
+    border: 1px solid transparent;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.offer-date-container button:hover {
+    color: rgba(241, 31, 31, 0.64);
+    cursor: pointer;
+}
 
