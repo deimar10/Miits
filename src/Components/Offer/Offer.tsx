@@ -90,11 +90,11 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                     </div>
                 )
             }) : <div className="offers-empty">
-                <p style={{
+                <p  id="offers-empty-text" style={{
                     color: theme ? 'white' : '#161616'
                 }}>
-                    Looks like there aren't any offers available. If you are an enterprise that would like to advertise their events or deals,
-                    please sign up!
+                    Paistab, et pakkumisi ei ole saadaval. Kui olete ettevõte, kes soovib reklaamida oma üritusi või pakkumisi,
+                    palun registreeruge!
                 </p>
                 <Link to={"/enterprise/register"} id="redirect">
                     Register Account

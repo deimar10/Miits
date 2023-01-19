@@ -99,3 +99,7 @@
     float: left;
     color: #A9E6C8;
 }
+
+#offers-empty-text {
+    font-size: 1.75rem;
+}
