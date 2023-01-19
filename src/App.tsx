@@ -27,6 +27,7 @@ function App() {
     }
 
     useEffect(() => {
+        let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
         const date = new Date().getTime();
 
         data.map((object: OfferInterface) => {
@@ -36,6 +37,13 @@ function App() {
                 return object.upcoming = false;
             }
         })
+
+        data.map((object: OfferInterface) => {
+            if (localFavorites.find((favorite: OfferInterface) => favorite.id === object.id) !== undefined) {
+                return object.favorite = true;
+            }
+        })
+
         setOffers(data);
     }, [offersData])
 
