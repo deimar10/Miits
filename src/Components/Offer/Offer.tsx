@@ -65,6 +65,11 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
             if (offer.id === info.id) {return offer.favorite = true;}
         })
 
+        let localFavorite = JSON.parse(localStorage.getItem('favorites') || "");
+        localFavorite.push(info);
+
+        localStorage.setItem('favorites', JSON.stringify(localFavorite));
+
         setOffers(offers);
         setFavorites([...favorites, info]);
     }

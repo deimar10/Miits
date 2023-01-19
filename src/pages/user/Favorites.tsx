@@ -23,9 +23,20 @@ function Favorites({theme, handleThemeSwitch, favorites, setFavorites, offersDat
             if (offer.id === id) {return offer.favorite = false;}
         })
 
+        let localFavorite = JSON.parse(localStorage.getItem('favorites') || "");
+        let updateLocal: [] = localFavorite.filter((offer: OfferInterface) => offer.id !== id);
+
+        localStorage.setItem('favorites', JSON.stringify(updateLocal));
+
         setOffers(offers);
         setFavorites(filterFavorite);
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('favorites') !== null) {
+            setFavorites(JSON.parse(localStorage.getItem('favorites') || ""));
+        }
+    }, [])
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
