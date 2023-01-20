@@ -29,9 +29,9 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount}: an
     }, [theme])
 
     return (
-        <div>
+        <div style={{color: theme ? 'white' : 'black'}}>
             <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} favoriteCount={favoriteCount} />
-            <div className="details-nav-back-container" style={{color: theme ? 'white' : 'black'}}>
+            <div className="details-nav-back-container" >
                 <span onClick={handleNavigateBack}>
                     <HiChevronLeft id="back-icon" />
                     <h3>Go Back</h3>
