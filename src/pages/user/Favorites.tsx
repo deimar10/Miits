@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {OfferInterface} from "../../Interfaces/interface";
 import './Favorites.css';
+import {Link} from 'react-router-dom';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import {FaHeart} from 'react-icons/fa';
@@ -62,9 +63,9 @@ function Favorites({theme, handleThemeSwitch, favorites, setFavorites, offersDat
                 {favorites.map((favorite: OfferInterface) => {
                     return (
                         <div className="favorites-grid-item" key={favorite.id}>
-                            <div className="offer-image">
-                                <img src={favorite.image} alt="offer" />
-                            </div>
+                                <div className="offer-image">
+                                    <img src={favorite.image} alt="offer" />
+                                </div>
                             <div className="offer-description-container">
                                 <div className="offer-description" style={{color: theme ? 'white' : 'black'}}>
                                     <h3>Location:
@@ -76,6 +77,9 @@ function Favorites({theme, handleThemeSwitch, favorites, setFavorites, offersDat
                                 </div>
                                 <div className="offer-date-container">
                                     <p>Date: {favorite.date}</p>
+                                    <Link id="read-more" to={`/offers/offer-details/${favorite.slug}`}>
+                                        Read More
+                                    </Link>
                                     <button onClick={e => handleRemoveFavorite(favorite.id)}>Remove</button>
                                 </div>
                             </div>

@@ -94,6 +94,7 @@ body {
     font-size: 1.05rem;
     font-weight: 600;
     color: #cccccc;
+    align-items: center;
 }
 
 .offer-date-container button {
@@ -110,5 +111,11 @@ body {
 .offer-date-container button:hover {
     color: rgba(241, 31, 31, 0.64);
     cursor: pointer;
+}
+
+#read-more {
+    color: #A9E6C8;
+    font-size: 1.05rem;
+    padding-left: 2rem;
 }
 

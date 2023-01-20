@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Offers from './pages/user/Offers';
 import Favorites from "./pages/user/Favorites";
+import OfferDetails from './pages/user/OfferDetails';
 import {OfferInterface} from "./Interfaces/interface";
 import data from './data.json';
 
@@ -66,6 +67,9 @@ function App() {
                   setFavorites={setFavorites}
                   offersData={offersData}
                   setOffers={setOffers} />}
+              />
+              <Route path="/offers/offer-details/:slug" element={<OfferDetails
+                  offersData={offersData} />}
               />
           </Routes>
       </BrowserRouter>

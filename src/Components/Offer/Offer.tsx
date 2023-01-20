@@ -79,15 +79,17 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
             {typeof processed !== "undefined" && processed.length !== 0 ? processed.map((info: OfferInterface) => {
                 return (
                     <div className="grid-item" key={info.id}>
-                        <div className="grid-image" style={{
-                            backgroundImage: `url(${info.image})`,
-                            backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center center',
-                            width: '100%',
-                            borderRadius: '2rem 2rem 0rem 0rem',
-                        }}>
-                        </div>
+                        <Link to={`/offers/offer-details/${info.slug}`}>
+                            <div className="grid-image" style={{
+                                backgroundImage: `url(${info.image})`,
+                                backgroundSize: 'cover',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center center',
+                                width: '100%',
+                                borderRadius: '2rem 2rem 0rem 0rem',
+                            }}>
+                            </div>
+                        </Link>
                         {info.upcoming ? <h3 id="upcoming" >Upcoming!</h3> : null}
                         <div className="offer-details-container">
                             <div className="offer-info">
