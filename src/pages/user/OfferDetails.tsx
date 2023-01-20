@@ -15,12 +15,19 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount}: an
     const offer = offersData.find((offer: OfferInterface) => offer.slug === slug);
 
     const [offerSelected, setOfferSelected] = useState<OfferInterface>({...offer});
+    const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
     const handleNavigateBack = () => {
         navigate(-1);
     }
 
     useEffect(() => {
+        let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
+
+        if (localFavorites.find((favorite: OfferInterface) => favorite.id === offerSelected.id) !== undefined) {
+            setIsFavorite(true);
+        }
+
         setOfferSelected({...offer});
     }, [slug])
 
@@ -43,8 +50,8 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount}: an
                         <img src={offerSelected.image} alt="offer" />
                     </div>
                     <div className="addToFavorites-container">
-                        <span onClick={handleNavigateBack}>
-                            <FaRegHeart id="fav-icon" />
+                        <span>
+                            {isFavorite ? <FaHeart id="fav-icon" /> : <FaRegHeart id="fav-icon" />}
                             <h3>Add to favorites</h3>
                          </span>
                         <p>Date: {offerSelected.date}</p>
