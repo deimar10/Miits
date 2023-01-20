@@ -1,0 +1,105 @@
+.details-nav-back-container {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 5.25rem;
+}
+
+.details-nav-back-container span{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 7.5%;
+}
+
+.details-nav-back-container span:hover > #back-icon{
+    color: #5EFFB1;
+}
+
+.details-main-container {
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 5rem;
+}
+
+.details-grid-item {
+    margin-top: 2rem;
+    width: 50%;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 2.5rem;
+}
+
+.details-image {
+    height: 30rem;
+    width: 100%;
+}
+
+.details-image img{
+    height: 100%;
+    width: 87.5%;
+    border-radius: 2rem;
+}
+
+.details-description {
+    width: 87.5%;
+    padding-left: 1.5rem;
+}
+
+.details-description span{
+    font-weight: 500;
+}
+
+.details-description h3:nth-child(5){
+    margin-top: 4rem;
+}
+
+.addToFavorites-container {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    width: 87.5%;
+}
+
+.addToFavorites-container p{
+    color: #cccccc;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.addToFavorites-container span{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 1rem;
+}
+
+#fav-icon {
+    color: #5EFFB1;
+    font-size: 1.5rem;
+    padding-right: 1rem;
+}
+
+.addToFavorites-container p{
+    margin-left: auto;
+    float: right;
+}
+
+.details-feedback-container {
+    height: 20rem;
+    width: 50%;
+    overflow-y: scroll;
+}
+
+.details-feedback-container::-webkit-scrollbar {
+    width: 0.45rem;
+    background: #cccccc;
+    border-radius: 1rem;
+}
+
+.user-feedback {
+    margin-top: 3rem;
+    width: 100%;
+    height: 5rem;
+    border-bottom: 1px solid #cccccc;
+}
