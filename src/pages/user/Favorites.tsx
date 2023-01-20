@@ -63,9 +63,9 @@ function Favorites({theme, handleThemeSwitch, favorites, setFavorites, offersDat
                 {favorites.map((favorite: OfferInterface) => {
                     return (
                         <div className="favorites-grid-item" key={favorite.id}>
-                                <div className="offer-image">
-                                    <img src={favorite.image} alt="offer" />
-                                </div>
+                            <div className="offer-image">
+                                <img src={favorite.image} alt="offer" />
+                            </div>
                             <div className="offer-description-container">
                                 <div className="offer-description" style={{color: theme ? 'white' : 'black'}}>
                                     <h3>Location:
