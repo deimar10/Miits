@@ -69,7 +69,10 @@ function App() {
                   setOffers={setOffers} />}
               />
               <Route path="/offers/offer-details/:slug" element={<OfferDetails
-                  offersData={offersData} />}
+                  offersData={offersData}
+                  theme={theme}
+                  handleThemeSwitch={handleThemeSwitch}
+                  favoriteCount={favoriteCount} />}
               />
           </Routes>
       </BrowserRouter>
