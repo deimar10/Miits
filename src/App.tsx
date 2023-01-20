@@ -71,6 +71,9 @@ function App() {
               <Route path="/offers/offer-details/:slug" element={<OfferDetails
                   offersData={offersData}
                   theme={theme}
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                  setOffers={setOffers}
                   handleThemeSwitch={handleThemeSwitch}
                   favoriteCount={favoriteCount} />}
               />

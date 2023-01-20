@@ -7,7 +7,7 @@ import Footer from '../../Components/Footer/Footer';
 import {FaRegHeart, FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from "react-icons/hi";
 
-function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount}: any) {
+function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, favorites, setFavorites, setOffers}: any) {
 
     const navigate = useNavigate();
     let { slug } = useParams();
@@ -21,6 +21,22 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount}: an
         navigate(-1);
     }
 
+    const handleAddToFavorites = () => {
+        let offers = [...offersData];
+
+        offers.map((offer: OfferInterface) => {
+            if (offer.id === offerSelected.id) {return offer.favorite = true;}
+        })
+
+        let localFavorite = JSON.parse(localStorage.getItem('favorites') || "");
+        localFavorite.push(offerSelected);
+
+        localStorage.setItem('favorites', JSON.stringify(localFavorite));
+
+        setOffers(offers);
+        setFavorites([...favorites, offerSelected]);
+    }
+
     useEffect(() => {
         let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
 
@@ -29,7 +45,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount}: an
         }
 
         setOfferSelected({...offer});
-    }, [slug])
+    }, [slug, offersData])
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
@@ -51,7 +67,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount}: an
                     </div>
                     <div className="addToFavorites-container">
                         <span>
-                            {isFavorite ? <FaHeart id="fav-icon" /> : <FaRegHeart id="fav-icon" />}
+                            {isFavorite ? <FaHeart id="fav-icon" /> : <FaRegHeart id="fav-icon" onClick={handleAddToFavorites} />}
                             <h3>Add to favorites</h3>
                          </span>
                         <p>Date: {offerSelected.date}</p>
