@@ -67,16 +67,21 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
         let isValid = handleValidate();
 
         if(isValid) {
-            offersData.map((offer: OfferInterface) => {
-                if(offer.slug === offerSelected.slug) {
-                     offer.feedback.push(feedback);
-                     setOffers(offersData);
-                }
-            });
+            let offers = [...offersData];
+            let offerFeedback = [...offerSelected.feedback];
+
+            offerFeedback.push(feedback);
+            setOfferSelected({...offerSelected, feedback: offerFeedback});
+
+            offers.map((offer: OfferInterface) => {
+                if (offer.slug === offerSelected.slug) {return offer.feedback = offerFeedback;}
+            })
+            setOffers(offers);
+            setFeedback({...feedback, commentError: "", nameError: ""});
         }
     }
 
-    const handleValidate = () => {
+    const handleValidate = (): boolean => {
         let nameError = "";
         let commentError = "";
 
@@ -170,7 +175,9 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
                             style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
                         />
-                        <button id="form-submit" onClick={handleFormSubmit}><AiFillPlusCircle id="plus-icon" />submit</button>
+                        <button id="form-submit" onClick={handleFormSubmit}><AiFillPlusCircle id="plus-icon" />
+                            submit
+                        </button>
                     </div>
                 </div>
             </div>
