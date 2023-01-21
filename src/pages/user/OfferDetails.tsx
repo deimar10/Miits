@@ -156,6 +156,8 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
                             placeholder="e.g Mari"
                             name="name"
                             onChange={handleFeedbackChange}
+                            style={{backgroundColor: theme ? '#161616' : 'white',
+                                    color: theme ? 'white' : 'black'}}
                         />
                         <label>Feedback</label>
                         {feedback.commentError ? <p id="error-validate">{feedback.commentError}</p> : null}
@@ -165,6 +167,8 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
                             placeholder="e.g Väga lahe pakkumine. Kindlasti kaasan oma sõbrad"
                             name="comment"
                             onChange={handleFeedbackChange}
+                            style={{backgroundColor: theme ? '#161616' : 'white',
+                                    color: theme ? 'white' : 'black'}}
                         />
                         <button id="form-submit" onClick={handleFormSubmit}><AiFillPlusCircle id="plus-icon" />submit</button>
                     </div>
