@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import './OfferDetails.css';
 import {OfferInterface} from "../../Interfaces/interface";
+import {feedback} from "../../Interfaces/interface";
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import {FaRegHeart, FaHeart} from 'react-icons/fa';
-import {HiChevronLeft} from "react-icons/hi";
+import {HiChevronLeft} from 'react-icons/hi';
+import {AiFillPlusCircle} from 'react-icons/ai';
 
 function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, favorites, setFavorites, setOffers}: any) {
 
@@ -16,6 +18,12 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
 
     const [offerSelected, setOfferSelected] = useState<OfferInterface>({...offer});
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
+    const [feedback, setFeedback] = useState<feedback>({
+        name: "",
+        comment: "",
+        nameError: "",
+        commentError: ""
+    });
 
     const handleNavigateBack = () => {
         navigate(-1);
@@ -50,6 +58,43 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme])
+
+    const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFeedback({...feedback,  [e.target.name] : e.target.value});
+    }
+
+    const handleFormSubmit = () => {
+        let isValid = handleValidate();
+
+        if(isValid) {
+            offersData.map((offer: OfferInterface) => {
+                if(offer.slug === offerSelected.slug) {
+                     offer.feedback.push(feedback);
+                     setOffers(offersData);
+                }
+            });
+        }
+    }
+
+    const handleValidate = () => {
+        let nameError = "";
+        let commentError = "";
+
+        if(!feedback.name) {nameError = "Nimi peab olema lisatud!";}
+
+        if(!feedback.comment) {commentError = "Kommentaar peab olema lisatud!";}
+
+        if(nameError) {
+            setFeedback({...feedback, nameError : nameError});
+            return false;
+        }
+
+        if(commentError) {
+            setFeedback({...feedback, commentError : commentError});
+            return false;
+        }
+        return true;
+    }
 
     return (
         <div style={{color: theme ? 'white' : 'black'}}>
@@ -90,16 +135,39 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
                         </h3>
                     </div>
                 </div>
-                <div className="details-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
+                <div className="details-feedback-container">
                     <h2>Users Feedback</h2>
-                    {offerSelected.feedback.map((feedback: {comment: string, name: string}) => {
-                        return (
-                            <div className="user-feedback" key={feedback.comment}>
-                                <h3>{feedback.name}</h3>
-                                <p>{feedback.comment}</p>
-                            </div>
-                        )
-                    })}
+                    <div className="user-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
+                        {offerSelected.feedback.map((feedback: {comment: string, name: string}) => {
+                            return (
+                                <div className="user-feedback" key={feedback.comment}>
+                                    <h3>{feedback.name}</h3>
+                                    <p>{feedback.comment}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="details-form-container">
+                        <label>First Name</label>
+                        {feedback.nameError ? <p id="error-validate">{feedback.nameError}</p> : null}
+                        <input
+                            id="form-name"
+                            type="text"
+                            placeholder="e.g Mari"
+                            name="name"
+                            onChange={handleFeedbackChange}
+                        />
+                        <label>Feedback</label>
+                        {feedback.commentError ? <p id="error-validate">{feedback.commentError}</p> : null}
+                        <input
+                            id="form-feedback"
+                            type="text"
+                            placeholder="e.g Väga lahe pakkumine. Kindlasti kaasan oma sõbrad"
+                            name="comment"
+                            onChange={handleFeedbackChange}
+                        />
+                        <button id="form-submit" onClick={handleFormSubmit}><AiFillPlusCircle id="plus-icon" />submit</button>
+                    </div>
                 </div>
             </div>
             <Footer theme={theme} />

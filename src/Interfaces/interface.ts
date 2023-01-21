@@ -15,4 +15,10 @@ export interface OfferInterface {
         name: string
     }>
 }
+export interface feedback {
+    name: string,
+    comment: string,
+    nameError: string,
+    commentError: string
+}
 
