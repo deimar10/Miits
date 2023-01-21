@@ -9,7 +9,7 @@ import {FaRegHeart, FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
 import {AiFillPlusCircle} from 'react-icons/ai';
 
-function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, favorites, setFavorites, setOffers}: any) {
+function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotificationModal, notification, favoriteCount, favorites, setFavorites, setOffers}: any) {
 
     const navigate = useNavigate();
     let { slug } = useParams();
@@ -103,7 +103,13 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
 
     return (
         <div style={{color: theme ? 'white' : 'black'}}>
-            <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} favoriteCount={favoriteCount} />
+            <Nav
+                theme={theme}
+                handleThemeSwitch={handleThemeSwitch}
+                favoriteCount={favoriteCount}
+                handleNotificationModal={handleNotificationModal}
+                notification={notification}
+            />
             <div className="details-nav-back-container" >
                 <span onClick={handleNavigateBack}>
                     <HiChevronLeft id="back-icon" />

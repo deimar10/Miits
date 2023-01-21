@@ -1,4 +1,5 @@
 .nav-container {
+    position: relative;
     width: 100%;
     height: 6rem;
     background-color: #212121;
@@ -88,7 +89,7 @@
 }
 
 .bell-icon {
-    margin-top: -0.35rem;
+    margin-top: -0.15rem;
 }
 
 #nav-icons:hover {

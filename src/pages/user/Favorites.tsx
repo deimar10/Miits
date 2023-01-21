@@ -8,7 +8,7 @@ import Footer from '../../Components/Footer/Footer';
 import {FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
 
-function Favorites({theme, handleThemeSwitch, favorites, setFavorites, offersData, setOffers}: any) {
+function Favorites({theme, handleThemeSwitch, handleNotificationModal, notification, favorites, setFavorites, offersData, setOffers}: any) {
 
     let navigate = useNavigate();
 
@@ -45,7 +45,12 @@ function Favorites({theme, handleThemeSwitch, favorites, setFavorites, offersDat
 
     return (
         <div>
-            <Nav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            <Nav
+                theme={theme}
+                handleThemeSwitch={handleThemeSwitch}
+                handleNotificationModal={handleNotificationModal}
+                notification={notification}
+            />
             <div className="header-container">
                 <FaHeart id="favorite-icon" />
                 <h2 style={{color: theme ? 'white' : 'black'}}>

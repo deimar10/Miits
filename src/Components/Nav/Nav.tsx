@@ -1,11 +1,12 @@
 import React from 'react';
 import './Nav.css';
+import Notifcation from '../Notification/Notification';
 import {Link} from 'react-router-dom';
 import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell, FaRegHeart} from 'react-icons/fa';
 import {HiSun} from 'react-icons/hi';
 import {TbSearch} from 'react-icons/tb';
 
-function Nav({theme, handleThemeSwitch, setSearch, favoriteCount} : any) {
+function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, setSearch, favoriteCount} : any) {
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
@@ -34,7 +35,8 @@ function Nav({theme, handleThemeSwitch, setSearch, favoriteCount} : any) {
                   <FaRegHeart id="nav-icons" />
                   {favoriteCount !== 0 ? <p id="fav-count">{favoriteCount}</p> : null}
               </Link>
-              <FaRegBell className="bell-icon" id="nav-icons" />
+              <FaRegBell className="bell-icon" id="nav-icons" onClick={handleNotificationModal} />
+              {notification ? <Notifcation /> : null}
           </div>
       </nav>
     );

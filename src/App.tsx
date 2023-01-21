@@ -9,6 +9,7 @@ import data from './data.json';
 function App() {
 
     const [theme, setTheme] = useState<boolean>(false);
+    const [notification, setNotification] = useState<boolean>(false);
     const [offersData, setOffers] = useState<OfferInterface[]>();
     const [favorites, setFavorites] = useState<OfferInterface[]>([]);
     const [favoriteCount, setCount] = useState<number>();
@@ -25,6 +26,10 @@ function App() {
 
     const handleThemeSwitch = () => {
         setTheme(!theme);
+    }
+
+    const handleNotificationModal = () => {
+        setNotification(!notification);
     }
 
     useEffect(() => {
@@ -55,6 +60,8 @@ function App() {
                   offersData={offersData}
                   theme={theme}
                   handleThemeSwitch={handleThemeSwitch}
+                  handleNotificationModal={handleNotificationModal}
+                  notification={notification}
                   favorites={favorites}
                   setFavorites={setFavorites}
                   favoriteCount={favoriteCount}
@@ -63,6 +70,8 @@ function App() {
               <Route path="/offers/favorites" element={<Favorites
                   theme={theme}
                   handleThemeSwitch={handleThemeSwitch}
+                  handleNotificationModal={handleNotificationModal}
+                  notification={notification}
                   favorites={favorites}
                   setFavorites={setFavorites}
                   offersData={offersData}
@@ -75,6 +84,8 @@ function App() {
                   setFavorites={setFavorites}
                   setOffers={setOffers}
                   handleThemeSwitch={handleThemeSwitch}
+                  handleNotificationModal={handleNotificationModal}
+                  notification={notification}
                   favoriteCount={favoriteCount} />}
               />
           </Routes>
