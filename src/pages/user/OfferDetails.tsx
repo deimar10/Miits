@@ -138,14 +138,14 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, favoriteCount, fav
                 <div className="details-feedback-container">
                     <h2>Users Feedback</h2>
                     <div className="user-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
-                        {offerSelected.feedback.map((feedback: {comment: string, name: string}) => {
+                        {offerSelected.feedback.length !== 0 ? offerSelected.feedback.map((feedback: {comment: string, name: string}) => {
                             return (
                                 <div className="user-feedback" key={feedback.comment}>
                                     <h3>{feedback.name}</h3>
                                     <p>{feedback.comment}</p>
                                 </div>
                             )
-                        })}
+                        }) : <p id="empty-feedback">Tundub, et ühtegi tagasisidet ei ole lisatud. Julgelt lisage kommentaar.</p>}
                     </div>
                     <div className="details-form-container">
                         <label>First Name</label>

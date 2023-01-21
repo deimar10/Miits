@@ -169,3 +169,10 @@
     font-weight: 600;
 }
 
+#empty-feedback {
+    color: #cccccc;
+    font-size: 1.25rem;
+    margin-top: 5rem;
+    text-align: center;
+}
+
