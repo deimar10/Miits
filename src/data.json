@@ -10,27 +10,27 @@
     "date": "01.08.2023",
     "price": 35.00,
     "image": "/assets/Images/offers/gigabang.jpg",
-    "description": "This year's biggest event with Dj Matrix & Lulle taking the stage once again at Shoorters.",
+    "description": "Tänavune suurim üritus, kus Dj Matrix & Lulle astuvad taas kord Shoortersis lavale.",
     "feedback": [
       {
         "name": "Madis",
-        "comment": "Cool event. Bit expensive tho"
+        "comment": "Lahe sündmus. Natuke kallis."
       },
       {
         "name": "Milfe",
-        "comment": "Cant wait!"
+        "comment": "Ei jõua ära oodata!"
       },
       {
         "name": "Tauri",
-        "comment": "Impressive stuff. I will make sure to call up all my friends"
+        "comment": "Muljetavaldav kraam. Kindlasti kutsun kõik oma sõbrad."
       },
       {
         "name": "Kalle",
-        "comment": "Sheeeesh. This will make my year!"
+        "comment": "Sheeeesh. See teeb minu aasta!"
       },
       {
         "name": "Shaggy",
-        "comment": "I hope this is better than last year's party"
+        "comment": "Ma loodan, et see on parem kui eelmise aasta pidu."
       }
     ]
   },
@@ -45,11 +45,11 @@
     "date": "01.16.2023",
     "price": 16.99,
     "image": "/assets/Images/offers/triple-effect.jpg",
-    "description": "Come enjoy our well balanced gin cocktails at Kolm Tilli",
+    "description": "Tulge nautima meie hästi tasakaalustatud džinnikokteile baaris Kolm Tilli.",
     "feedback": [
       {
         "name": "Marit",
-        "comment": "Sounds Amazing!"
+        "comment": "Kõlab suurepäraselt!"
       }
     ]
   },
@@ -64,11 +64,11 @@
     "date": "01.12.2023",
     "price": 9.00,
     "image": "/assets/Images/offers/old-fashioned.jpeg",
-    "description": "The old fashioned is a cocktail made by muddling sugar with bitters and water, adding whiskey (typically rye or bourbon) and our own little twist at bar Musketäär",
+    "description": "Old fashioned on kokteil, mida valmistatakse suhkru segamisel bitterite ja veega, lisades viskit (tavaliselt rukki või bourbon) ja meie enda väikest väänet baaris Musketäär.",
     "feedback": [
       {
         "name": "Laura",
-        "comment": "That is like super cheap. I love it!"
+        "comment": "See on nagu super odav. Äge!"
       }
     ]
   },
@@ -83,15 +83,15 @@
     "date": "01.09.2023",
     "price": 15.00,
     "image": "/assets/Images/offers/level-up.jpeg",
-    "description": "Come dance at club Level. Enjoy great music with dj Heiki.",
+    "description": "Tule tantsima klubisse Level. Nautige suurepärast muusikat koos dj Heikiga.",
     "feedback": [
       {
         "name": "Madis",
-        "comment": "No thanks. The music is not that great"
+        "comment": "Ei, aitäh. Muusika ei ole nii hea."
       },
       {
         "name": "Laura",
-        "comment": "I hate these kind of parties!!"
+        "comment": "Ma vihkan selliseid pidusid!"
       }
     ]
   },
@@ -106,19 +106,19 @@
     "date": "01.09.2023",
     "price": 50,
     "image": "/assets/Images/offers/turn-it-up.jpeg",
-    "description": "Greatest Event at club Milyam.",
+    "description": "Suurim sündmus klubis Milyam.",
     "feedback": [
       {
         "name": "Vilma",
-        "comment": "No thanks."
+        "comment": "Ei äitah."
       },
       {
         "name": "Karl",
-        "comment": "Sounds interesting. Might participate."
+        "comment": "Kõlab huvitavalt. Vast osalen."
       },
       {
         "name": "Sandra",
-        "comment": "I wish it didnt get so crowded at Milyam. Sucks."
+        "comment": "Ma soovin, et Milyamis ei oleks nii palju rahvast. See on jama."
       }
     ]
   },
@@ -133,11 +133,11 @@
     "date": "01.17.2023",
     "price": 4.99,
     "image": "/assets/Images/offers/beer-n-bugs.jpg",
-    "description": "Intrested in trying something new? Now is your chance to try our own exotic beer mix at bar Ruuskalu.",
+    "description": "Soovid proovida midagi uut? Nüüd on sinu võimalus proovida meie enda eksootilist õllesegu baaris Ruuskalu.",
     "feedback": [
       {
         "name": "Andres",
-        "comment": "I dont know about this one..."
+        "comment": "Ma ei tea...kõlab kohutavalt."
       }
     ]
   },
@@ -152,7 +152,7 @@
     "date": "01.24.2023",
     "price": 6.99,
     "image": "/assets/Images/offers/lemon.jpg",
-    "description": "The Lemon is a French cocktail featuring yellow Curaçao mixed with vodka and lemonade. Come take a sip at club Shooters!",
+    "description": "The Lemon on prantsuse kokteil, mis sisaldab kollast Curaçao't segatuna viina ja limonaadiga. Tulge võtke lonksu klubis Shooters!",
     "feedback": []
   },
   {
@@ -166,7 +166,7 @@
     "date": "02.01.2023",
     "price": 8.99,
     "image": "/assets/Images/offers/velvet-vodka.jpeg",
-    "description": "Sweet and delicious, the red velvet cocktail features a red velvet cake-flavored vodka, mixing it with cream soda and fresh strawberries. Only the best at club Level",
+    "description": "Magusas ja maitsvas punase sametkooki kokteilis on kasutatud punase sametkooki maitsestatud viina, mis on segatud kreem-sooda ja värskete maasikatega. Ainult parimad klubis Level!",
     "feedback": []
   },
   {
@@ -180,7 +180,7 @@
     "date": "02.05.2023",
     "price": 11.00,
     "image": "/assets/Images/offers/cobra.jpg",
-    "description": "Come enjoy our new vodka shots at bar Veski",
+    "description": "Tule ja naudi meie uusi viinašotte baaris Veski",
     "feedback": []
   }
 ]
