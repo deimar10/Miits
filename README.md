@@ -10,8 +10,6 @@
 </div>
 
 ## Table of Contents
-<hr>
-
 * <strong>Overview</strong>
     * <strong>Introduction</strong>
     * <strong>Project Management</strong>
@@ -19,12 +17,10 @@
     * <strong>Screenshots</strong>
 
 ## Introduction
-<hr>
 The aim was to create a web application (as a <strong>final</strong> project) that collects entertainment offers from different companies to help young students participate in social events in a more <strong>affordable</strong> way.
 The main functionality of the application is to allow companies to create new offers and display them to the user. Users can bookmark offers, give feedback to companies and receive a notification when a bookmarked offer expires.
 
 ## Project Management
-<hr>
 <div style="display: flex; justify-content: start;">
   <img src="https://img.shields.io/badge/toggl-black?style=for-the-badge&logo=toggl&logoColor=white" alt="Toggl Badge"/>
   <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/jira-black?style=for-the-badge&logo=jira&logoColor=white" alt="Jira Badge"/>
@@ -32,12 +28,9 @@ The main functionality of the application is to allow companies to create new of
 </div>
 
 ## Team
-<hr>
-
 | Name        |                       Role                        |                         Github Profile |
 |-------------|:-------------------------------------------------:|---------------------------------------:|
 | Jurgen Mikk | Project Manager, Developer, Documentation, Design | [Jurgen](https://github.com/JurgenMik) |
 | Deimar Pärn |     Testing, Developer, Documentation, Design     |  [Deimar](https://github.com/deimar10) |
 
 ## Screenshots
-<hr>
