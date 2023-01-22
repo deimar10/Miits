@@ -24,10 +24,7 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
             if (offer.id === id) {return offer.favorite = false;}
         })
 
-        let localFavorite = JSON.parse(localStorage.getItem('favorites') || "");
-        let updateLocal: [] = localFavorite.filter((offer: OfferInterface) => offer.id !== id);
-
-        localStorage.setItem('favorites', JSON.stringify(updateLocal));
+        localStorage.setItem('favorites', JSON.stringify(filterFavorite));
 
         setOffers(offers);
         setFavorites(filterFavorite);
