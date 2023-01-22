@@ -73,16 +73,12 @@
     margin-left: 1rem;
 }
 
-#close-icon {
+#notification-price {
+    font-size: 1rem;
     margin-left: auto;
     float: right;
-    font-size: 1.5rem;
+    color: #5EFFB1;
     padding-right: 1.75rem;
-    color: #ec4646;
-}
-
-#close-icon:hover {
-    color: #d27f7f;
 }
 
 #expiring-empty {

@@ -27,7 +27,7 @@ function Notification({isExpiring, theme}: any) {
                         <div className="notification-details">
                             <h3>{favorite.location}</h3>
                             <h3 id="notification-title">{favorite.title}</h3>
-                            <TiDelete id="close-icon" />
+                            <p id="notification-price">{favorite.price}€</p>
                         </div>
                     </div>
                     )
