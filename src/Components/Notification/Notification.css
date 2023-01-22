@@ -1,12 +1,15 @@
 .notification-container {
-    position: absolute;
     width: 25rem;
-    height: auto;
-    top: 4.75rem;
+    right: 3.5rem;
+    top: 6rem;
     z-index: 10;
-    background: #212121;
-    border-radius: 1rem 1rem 1rem 1rem;
+    transition: height 0.5s ease-in-out;
+    position: absolute;
     color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0rem 0rem 1rem 1rem;
+    backdrop-filter: blur(0.3rem);
+    -webkit-backdrop-filter: blur(0.3rem);
     animation: pulse 0.65s;
 }
 
@@ -75,7 +78,7 @@
     float: right;
     font-size: 1.5rem;
     padding-right: 1.75rem;
-    color: red;
+    color: #ec4646;
 }
 
 #close-icon:hover {

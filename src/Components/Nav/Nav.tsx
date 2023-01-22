@@ -64,7 +64,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
               </Link>
               <FaRegBell className="bell-icon" id="nav-icons" onClick={handleNotificationModal} />
               {!isEmpty ? <span id="notification-count"></span> : null}
-              {notification ? <Notifcation isExpiring={isExpiring} setExpiring={setExpiring} /> : null}
+              {notification ? <Notifcation isExpiring={isExpiring} theme={theme} notification={notification} /> : null}
           </div>
       </nav>
     );

@@ -1,15 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './Notification.css';
 import {OfferInterface} from "../../Interfaces/interface";
-import {IoMdClose} from "react-icons/io";
+import {TiDelete} from "react-icons/ti";
 import {BiDrink} from 'react-icons/bi';
 import {AiFillCalendar} from 'react-icons/ai';
 
-function Notification({isExpiring, setExpiring}: any) {
+function Notification({isExpiring, theme}: any) {
     return (
-        <div className="notification-container">
+        <div className="notification-container" style={{
+           backgroundColor: theme ? 'rgba(73, 73, 73, 0.37)' : 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: theme ? 'blur(0.2rem)' : 'blur(0.3rem)',
+        }}>
             <div className="notification-header">
-                <h1>Kehtivus - 1 päev</h1>
+                <h1>Aegub päeva pärast</h1>
                 <div className="header-icons">
                     <BiDrink />
                     <AiFillCalendar />
@@ -24,7 +27,7 @@ function Notification({isExpiring, setExpiring}: any) {
                         <div className="notification-details">
                             <h3>{favorite.location}</h3>
                             <h3 id="notification-title">{favorite.title}</h3>
-                            <IoMdClose id="close-icon" />
+                            <TiDelete id="close-icon" />
                         </div>
                     </div>
                     )
