@@ -88,6 +88,15 @@
     font-size: 0.85rem;
 }
 
+#notification-count {
+    position: absolute;
+    top: 2.75rem;
+    background: red;
+    padding: 0.25rem;
+    border-radius: 100%;
+    right: 3.75rem;
+}
+
 .bell-icon {
     margin-top: -0.15rem;
 }

@@ -5,23 +5,7 @@ import {IoMdClose} from "react-icons/io";
 import {BiDrink} from 'react-icons/bi';
 import {AiFillCalendar} from 'react-icons/ai';
 
-function Notification() {
-
-    const [isExpiring, setExpiring] = useState<OfferInterface[]>();
-
-    useEffect(() => {
-        let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
-
-        const filteredFavorites = localFavorites.filter((favorite: any) => {
-            let favoriteDate = new Date(favorite.date);
-            let futureDate = new Date();
-
-            futureDate.setDate(futureDate.getDate() + 1);
-            return favoriteDate.toLocaleDateString() === futureDate.toLocaleDateString();
-        });
-        setExpiring(filteredFavorites);
-    }, [])
-
+function Notification({isExpiring, setExpiring}: any) {
     return (
         <div className="notification-container">
             <div className="notification-header">
