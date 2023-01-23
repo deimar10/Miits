@@ -2,6 +2,8 @@ import React,{useState, useEffect} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Offers from './pages/user/Offers';
 import Favorites from "./pages/user/Favorites";
+import Register from "./pages/enterprise/Register";
+import Login from "./pages/enterprise/Login";
 import OfferDetails from './pages/user/OfferDetails';
 import {OfferInterface} from "./Interfaces/interface";
 import data from './data.json';
@@ -88,6 +90,8 @@ function App() {
                   notification={notification}
                   favoriteCount={favoriteCount} />}
               />
+              <Route path="/enterprise/register" element={<Register />} />
+              <Route path="/enterprise/login" element={<Login />} />
           </Routes>
       </BrowserRouter>
   );
