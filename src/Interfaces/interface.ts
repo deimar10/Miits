@@ -22,3 +22,9 @@ export interface feedback {
     commentError: string
 }
 
+export interface register {
+    username: string,
+    password: string,
+    password_repeat: string,
+}
+

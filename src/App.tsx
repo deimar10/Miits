@@ -6,6 +6,7 @@ import Register from "./pages/enterprise/Register";
 import Login from "./pages/enterprise/Login";
 import OfferDetails from './pages/user/OfferDetails';
 import {OfferInterface} from "./Interfaces/interface";
+import {register} from './Interfaces/interface';
 import data from './data.json';
 
 function App() {
@@ -15,6 +16,11 @@ function App() {
     const [offersData, setOffers] = useState<OfferInterface[]>();
     const [favorites, setFavorites] = useState<OfferInterface[]>([]);
     const [favoriteCount, setCount] = useState<number>();
+    const [register, setRegister] = useState<register>({
+        username: '',
+        password: '',
+        password_repeat: ''
+    });
 
     useEffect(() => {
         setCount(favorites.length);
@@ -90,7 +96,10 @@ function App() {
                   notification={notification}
                   favoriteCount={favoriteCount} />}
               />
-              <Route path="/enterprise/register" element={<Register />} />
+              <Route path="/enterprise/register" element={<Register
+                  register={register}
+                  setRegister={setRegister} />}
+              />
               <Route path="/enterprise/login" element={<Login />} />
           </Routes>
       </BrowserRouter>
