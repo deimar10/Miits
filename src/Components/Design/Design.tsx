@@ -4,7 +4,7 @@ import './Design.css';
 function Design() {
     return (
         <div className="pattern-container">
-            <img id="pattern" src="" alt="design" />
+            <img id="pattern" src={"../assets/illustration.jpg"} alt="design" />
         </div>
     );
 }
