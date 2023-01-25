@@ -100,7 +100,9 @@ function App() {
                   register={register}
                   setRegister={setRegister} />}
               />
-              <Route path="/enterprise/login" element={<Login />} />
+              <Route path="/enterprise/login" element={<Login
+                  register={register} />}
+              />
           </Routes>
       </BrowserRouter>
   );

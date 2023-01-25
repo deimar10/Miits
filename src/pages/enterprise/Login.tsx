@@ -1,11 +1,63 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Login.css';
+import {login} from '../../Interfaces/interface';
 import Design from '../../Components/Design/Design';
 import {Link} from 'react-router-dom';
+import {useNavigate} from "react-router-dom";
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 
-function Login() {
+function Login({register}: any) {
+
+    const navigate = useNavigate();
+
+    const [login, setLogin] = useState<login>({
+        username: '',
+        password: ''
+    });
+    const [loginError, setLoginError] = useState({
+        userError: '',
+        passwordError: ''
+    });
+
+    const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLogin({...login, [e.target.name]: e.target.value});
+    }
+
+    const loginValidate = () => {
+        let userError;
+        let passwordError;
+
+        if(register.username !== login.username) {
+            userError = "Vale kasutajatunnus";
+        }
+
+        if(register.password !== login.password) {
+            passwordError = "Vale parool";
+        }
+
+        if(userError) {
+            setLoginError({...loginError, userError: userError});
+            return false;
+        }
+
+        if(passwordError) {
+            setLoginError({...loginError, passwordError: passwordError});
+            return false;
+        }
+        return true;
+    }
+
+    const handleSubmitLogin = (e: React.MouseEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        let isValid = loginValidate();
+
+        if(isValid) {
+            setLoginError({...loginError, userError: '', passwordError: ''});
+            navigate("/");
+        }
+    }
+
     return (
         <div className="login-main-container">
             <Design />
@@ -13,7 +65,9 @@ function Login() {
                 <div className="enterprise-logo-container">
                     <img src="../assets/logo/logo-light.png" alt="logo" />
                 </div>
-                <div className="login-input-container">
+                <form onSubmit={handleSubmitLogin} className="login-input-container">
+                    {loginError.userError ? <p id="error-validate">{loginError.userError}</p> : null}
+                    {loginError.passwordError ? <p id="error-validate">{loginError.passwordError}</p> : null}
                     <div className="login-fields">
                         <div className="input-icon">
                             <FaUserAlt />
@@ -23,6 +77,7 @@ function Login() {
                                 type="text"
                                 name="username"
                                 placeholder="e.g Shooters"
+                                onChange={handleLoginChange}
                             />
                         </div>
                     </div>
@@ -31,10 +86,14 @@ function Login() {
                             <RiLockPasswordFill />
                         </div>
                         <div className="input-field">
-                            <input type="password" name="password" />
+                            <input
+                                type="password"
+                                name="password"
+                                onChange={handleLoginChange}
+                            />
                         </div>
                     </div>
-                    <button id="login">
+                    <button type="submit" id="login">
                         Login
                     </button>
                     <div className="nav-to-register">
@@ -43,7 +102,7 @@ function Login() {
                             Register
                         </Link>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

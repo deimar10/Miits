@@ -25,6 +25,11 @@ export interface feedback {
 export interface register {
     username: string,
     password: string,
-    password_repeat: string,
+    password_repeat: string
+}
+
+export interface login {
+    username: string,
+    password: string
 }
 
