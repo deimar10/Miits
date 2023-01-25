@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 
-function Login({register}: any) {
+function Login({register, setAuth, auth}: any) {
 
     const navigate = useNavigate();
 
@@ -54,7 +54,9 @@ function Login({register}: any) {
 
         if(isValid) {
             setLoginError({...loginError, userError: '', passwordError: ''});
-            navigate("/");
+            setAuth({...auth, login: true});
+
+            navigate("/enterprise/menu", {state: login.username});
         }
     }
 
