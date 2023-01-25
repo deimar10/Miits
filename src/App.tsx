@@ -5,6 +5,7 @@ import Favorites from "./pages/user/Favorites";
 import Register from "./pages/enterprise/Register";
 import Login from "./pages/enterprise/Login";
 import OfferDetails from './pages/user/OfferDetails';
+import Menu from './pages/enterprise/Menu';
 import {OfferInterface} from "./Interfaces/interface";
 import {register} from './Interfaces/interface';
 import data from './data.json';
@@ -21,6 +22,7 @@ function App() {
         password: '',
         password_repeat: ''
     });
+    const [auth, setAuth] = useState<object>({ login: false});
 
     useEffect(() => {
         setCount(favorites.length);
@@ -101,8 +103,13 @@ function App() {
                   setRegister={setRegister} />}
               />
               <Route path="/enterprise/login" element={<Login
-                  register={register} />}
+                  register={register}
+                  setAuth={setAuth}
+                  auth={auth} />}
               />
+              <Route path="/enterprise/menu" element={<Menu
+                  theme={theme}
+                  handleThemeSwitch={handleThemeSwitch} />} />
           </Routes>
       </BrowserRouter>
   );
