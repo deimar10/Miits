@@ -1,0 +1,43 @@
+.enterpriseSidebar-container {
+    width: 16.5%;
+    height: 100%;
+    background: #F1F0F0;
+}
+
+.sidebar-links-container {
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+}
+
+#link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: black;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 75%;
+    background: #5EFFB1;
+    margin-top: 1.5rem;
+}
+
+#setting-icon {
+    padding-left: 0.25rem;
+    font-size: 1.65rem;
+}
+
+#sidebar-plus-icon {
+    padding-left: 0.25rem;
+    font-size: 1.45rem;
+}
+
+#link:hover {
+    background: #A9E6C8;
+}

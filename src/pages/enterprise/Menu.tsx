@@ -2,6 +2,9 @@ import React, {useEffect} from 'react';
 import './Menu.css';
 import Footer from '../../Components/Footer/Footer';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
+import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
+import {BiDrink} from 'react-icons/bi';
+import {AiFillCalendar} from 'react-icons/ai';
 
 function Menu({theme, handleThemeSwitch}: any) {
 
@@ -12,6 +15,16 @@ function Menu({theme, handleThemeSwitch}: any) {
     return (
         <div>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            <div className="menu-container">
+                <EnterpriseSidebar theme={theme} />
+                <div className="menu-introduction" style={{color: theme ? 'white' : 'black'}}>
+                    <h1>
+                        Siin menüüs saad hallata enda pakkumisi
+                    </h1>
+                    <BiDrink id="menu-icon" />
+                    <AiFillCalendar id="menu-icon" />
+                </div>
+            </div>
             <Footer theme={theme} />
         </div>
     );

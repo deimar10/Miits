@@ -1,1 +1,18 @@
+.menu-container {
+    display: flex;
+    width: 100%;
+    height: 86.5vh;
+}
 
+.menu-introduction {
+    width: 73.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5.5rem;
+    font-size: 1rem;
+}
+
+#menu-icon {
+    font-size: 2rem;
+}
