@@ -2,6 +2,7 @@ export interface OfferInterface {
     id: number,
     upcoming: boolean,
     favorite: boolean,
+    enterprise: string,
     title: string,
     category: string,
     slug: string,
@@ -21,7 +22,6 @@ export interface feedback {
     nameError: string,
     commentError: string
 }
-
 export interface register {
     username: string,
     password: string,
