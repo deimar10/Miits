@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Login.css';
 import {login} from '../../Interfaces/interface';
 import Design from '../../Components/Design/Design';
@@ -59,6 +59,10 @@ function Login({register, setAuth, auth}: any) {
             navigate("/enterprise/menu", {state: login.username});
         }
     }
+
+    useEffect(() => {
+        document.body.style.backgroundColor = 'white';
+    }, [])
 
     return (
         <div className="login-main-container">
