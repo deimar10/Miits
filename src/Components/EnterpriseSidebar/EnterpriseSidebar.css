@@ -1,7 +1,7 @@
 .enterpriseSidebar-container {
     width: 16.5%;
-    height: 100%;
-    background: #F1F0F0;
+    height: 92.5%;
+    border-radius: 0px 15px 15px 0px;
 }
 
 .sidebar-links-container {
@@ -15,15 +15,15 @@
 
 #link {
     text-decoration: none;
-    font-size: 1.15rem;
+    font-size: 1.10rem;
     color: black;
     font-weight: bold;
     border-radius: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    width: 75%;
+    padding: 0.70rem;
+    width: 70%;
     background: #5EFFB1;
     margin-top: 1.5rem;
 }
