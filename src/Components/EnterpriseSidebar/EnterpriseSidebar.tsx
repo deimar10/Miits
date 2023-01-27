@@ -1,13 +1,26 @@
 import React from 'react';
-import {useLocation} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import './EnterpriseSidebar.css';
-import {Link} from 'react-router-dom';
 import {IoIosSettings} from 'react-icons/io';
 import {AiFillPlusCircle} from 'react-icons/ai';
+import {BiMenu} from 'react-icons/bi';
 
 function EnterpriseSidebar({theme}: any) {
 
+    let navigate = useNavigate();
+
     const enterpriseLoginInfo = useLocation();
+    const { pathname } = useLocation();
+
+    const location = pathname.split('/');
+
+    const handleNavigateToMenu = () => {
+        navigate('/enterprise/menu', {state: enterpriseLoginInfo.state});
+    }
+
+    const handleNavigateToManagement = () => {
+        navigate(`/enterprise/management/${enterpriseLoginInfo.state}`, {state: enterpriseLoginInfo.state});
+    }
 
     return (
         <div className="enterpriseSidebar-container" style={{
@@ -15,12 +28,18 @@ function EnterpriseSidebar({theme}: any) {
             border: theme ? '1px solid #cccccc' : '1px solid #cccccc'
         }}>
             <div className="sidebar-links-container">
-                <Link id="link" to={`/enterprise/management/${enterpriseLoginInfo.state}`}>Kuva pakkumisi
-                    <IoIosSettings id="setting-icon" />
-                </Link>
-                <Link id="link" to={""}>Loo pakkumine
+                {location[2] === 'management' ?
+                    <button id="link" onClick={handleNavigateToMenu}>Menüü
+                        <BiMenu id="setting-icon" />
+                    </button>
+                    :
+                    <button id="link" onClick={handleNavigateToManagement}>Kuva Pakkumisi
+                        <IoIosSettings id="setting-icon" />
+                    </button>
+                }
+                <button id="link">Loo pakkumine
                     <AiFillPlusCircle id="sidebar-plus-icon" />
-                </Link>
+                </button>
             </div>
         </div>
     );
