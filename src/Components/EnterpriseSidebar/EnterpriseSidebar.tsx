@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import './EnterpriseSidebar.css';
 import {IoIosSettings} from 'react-icons/io';
 import {AiFillPlusCircle} from 'react-icons/ai';
 import {BiMenu} from 'react-icons/bi';
+import {RiLogoutBoxRLine} from 'react-icons/ri';
 
-function EnterpriseSidebar({theme}: any) {
+function EnterpriseSidebar({theme, auth, setAuth}: any) {
 
     let navigate = useNavigate();
 
@@ -21,6 +22,14 @@ function EnterpriseSidebar({theme}: any) {
     const handleNavigateToManagement = () => {
         navigate(`/enterprise/management/${enterpriseLoginInfo.state}`, {state: enterpriseLoginInfo.state});
     }
+
+    const handleUserLogout = () => {
+        setAuth({...auth, login: false});
+    }
+
+    useEffect(() => {
+        if (!auth.login) { navigate('/enterprise/login'); }
+    }, [auth])
 
     return (
         <div className="enterpriseSidebar-container" style={{
@@ -40,6 +49,12 @@ function EnterpriseSidebar({theme}: any) {
                 <button id="link">Loo pakkumine
                     <AiFillPlusCircle id="sidebar-plus-icon" />
                 </button>
+            </div>
+            <div className="logout-container">
+                <div className="logout" style={{color: theme ? 'white' : 'black'}}>
+                    <RiLogoutBoxRLine id="logout-icon" />
+                    <h1 onClick={handleUserLogout}>Logi Välja</h1>
+                </div>
             </div>
         </div>
     );

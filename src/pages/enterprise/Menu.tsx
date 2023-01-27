@@ -6,7 +6,7 @@ import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSide
 import {BiDrink} from 'react-icons/bi';
 import {AiFillCalendar} from 'react-icons/ai';
 
-function Menu({theme, handleThemeSwitch}: any) {
+function Menu({theme, handleThemeSwitch, auth, setAuth}: any) {
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
@@ -14,9 +14,9 @@ function Menu({theme, handleThemeSwitch}: any) {
 
     return (
         <div>
-            <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} auth={auth} setAuth={setAuth} />
             <div className="menu-container">
-                <EnterpriseSidebar theme={theme} />
+                <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
                 <div className="menu-introduction" style={{color: theme ? 'white' : 'black'}}>
                     <h1>
                         Siin menüüs saad hallata enda pakkumisi

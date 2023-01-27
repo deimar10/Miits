@@ -6,7 +6,7 @@ import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSide
 import Footer from "../../Components/Footer/Footer";
 import {OfferInterface} from '../../Interfaces/interface';
 
-function Management({offersData, theme, handleThemeSwitch}: any) {
+function Management({offersData, theme, handleThemeSwitch, auth, setAuth}: any) {
 
     let { name } = useParams();
 
@@ -20,7 +20,7 @@ function Management({offersData, theme, handleThemeSwitch}: any) {
         <div>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
             <div className="enterprise-offers-container">
-                <EnterpriseSidebar theme={theme} />
+                <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
                     <div className="management-header">
                         <h1>Loodud Pakkumised</h1>

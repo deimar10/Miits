@@ -23,7 +23,7 @@ function App() {
         password: '',
         password_repeat: ''
     });
-    const [auth, setAuth] = useState<object>({ login: false});
+    const [auth, setAuth] = useState<{login: boolean}>({login: false});
 
     useEffect(() => {
         setCount(favorites.length);
@@ -110,11 +110,15 @@ function App() {
               />
               <Route path="/enterprise/menu" element={<Menu
                   theme={theme}
+                  auth={auth}
+                  setAuth={setAuth}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
               <Route path="/enterprise/management/:name" element={<Management
                   offersData={offersData}
                   theme={theme}
+                  auth={auth}
+                  setAuth={setAuth}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
           </Routes>
