@@ -42,7 +42,7 @@ function Management({offersData, theme, handleThemeSwitch}: any) {
                                 <tr id="table-row" key={offer.id}>
                                     <td id="table-date">{offer.date}</td>
                                     <td>
-                                        <img id="image" src={offer.image} alt="offer" />
+                                        <img id="offer-image" src={offer.image} alt="offer" />
                                     </td>
                                     <td>{offer.title}</td>
                                     <td>{offer.price}</td>
@@ -57,8 +57,10 @@ function Management({offersData, theme, handleThemeSwitch}: any) {
                                     })}
                                     </div>
                                     <td>
-                                        <button id="deleteBtn">Delete</button>
-                                        <button id="editBtn">Edit</button>
+                                        <div id="actions-cell">
+                                            <button id="deleteBtn">Delete</button>
+                                            <button id="editBtn">Edit</button>
+                                        </div>
                                     </td>
                                 </tr>
                             );
