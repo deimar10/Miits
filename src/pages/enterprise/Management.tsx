@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import './Management.css';
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
@@ -6,15 +6,25 @@ import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSide
 import Footer from "../../Components/Footer/Footer";
 import {OfferInterface} from '../../Interfaces/interface';
 
-function Management({offersData, theme, handleThemeSwitch, auth, setAuth}: any) {
+function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setAuth}: any) {
 
     let { name } = useParams();
 
-    const enterpriseOffers = offersData.filter((offer: OfferInterface) => offer.enterprise === name);
+    const offers = offersData.filter((offer: OfferInterface) => offer.enterprise === name);
+
+    const [enterpriseOffers, setEnterpriseOffers] = useState<OfferInterface[]>(offers);
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
+
+    const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+        const removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
+        setEnterpriseOffers(removedOffer);
+
+        const filterOffers = offersData.filter((offer: OfferInterface) => offer.id !== id);
+        setOffers(filterOffers);
+    }
 
     return (
         <div>
@@ -58,7 +68,7 @@ function Management({offersData, theme, handleThemeSwitch, auth, setAuth}: any) 
                                     </div>
                                     <td>
                                         <div id="actions-cell">
-                                            <button id="deleteBtn">Delete</button>
+                                            <button id="deleteBtn" onClick={ e => handleDeleteOffer(e, offer.id)}>Delete</button>
                                             <button id="editBtn">Edit</button>
                                         </div>
                                     </td>

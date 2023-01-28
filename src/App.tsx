@@ -62,7 +62,7 @@ function App() {
         })
 
         setOffers(data);
-    }, [offersData])
+    }, [])
 
   return (
       <BrowserRouter>
@@ -119,6 +119,7 @@ function App() {
                   theme={theme}
                   auth={auth}
                   setAuth={setAuth}
+                  setOffers={setOffers}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
           </Routes>
