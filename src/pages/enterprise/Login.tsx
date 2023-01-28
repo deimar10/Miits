@@ -29,11 +29,11 @@ function Login({register, setAuth, auth}: any) {
         let userError;
         let passwordError;
 
-        if(register.username !== login.username) {
+        if(!register.username || register.username !== login.username) {
             userError = "Vale kasutajatunnus";
         }
 
-        if(register.password !== login.password) {
+        if(!register.password || register.password !== login.password) {
             passwordError = "Vale parool";
         }
 
