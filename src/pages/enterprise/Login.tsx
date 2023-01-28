@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Login.css';
 import {login} from '../../Interfaces/interface';
 import Design from '../../Components/Design/Design';
@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
+import {HiOutlineArrowNarrowRight} from 'react-icons/hi';
 
 function Login({register, setAuth, auth}: any) {
 
@@ -61,16 +62,16 @@ function Login({register, setAuth, auth}: any) {
     }
 
     useEffect(() => {
-        document.body.style.backgroundColor = 'white';
+        document.body.style.background = 'linear-gradient(to bottom right, #19b471, #00d1e2)';
+        document.body.style.overflowY = 'hidden';
     }, [])
 
     return (
         <div className="login-main-container">
-            <Design />
+            <div className="login-illustration-container">
+                <img src="../assets/logo/logo-dark.png" alt="logo" />
+            </div>
             <div className="login-form-container">
-                <div className="enterprise-logo-container">
-                    <img src="../assets/logo/logo-light.png" alt="logo" />
-                </div>
                 <form onSubmit={handleSubmitLogin} className="login-input-container">
                     {loginError.userError ? <p id="error-validate">{loginError.userError}</p> : null}
                     {loginError.passwordError ? <p id="error-validate">{loginError.passwordError}</p> : null}
@@ -103,9 +104,8 @@ function Login({register, setAuth, auth}: any) {
                         Login
                     </button>
                     <div className="nav-to-register">
-                        <p>Ei ole kontot juba registreerinud?</p>
                         <Link id="navigate" to={"/enterprise/register"}>
-                            Register
+                            Loo konto <span><HiOutlineArrowNarrowRight /></span>
                         </Link>
                     </div>
                 </form>

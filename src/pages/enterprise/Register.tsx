@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import './Register.css';
-import Design from '../../Components/Design/Design';
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {BsArrowRepeat} from 'react-icons/bs';
@@ -64,13 +63,13 @@ function Register({register, setRegister}: any) {
         return true;
     }
 
+    useEffect(() => {
+        document.body.style.background = 'linear-gradient(to bottom right, #19b471, #00d1e2)';
+    }, [])
+
     return (
         <div className="register-main-container">
-            <Design />
             <div className="register-form-container">
-                <div className="enterprise-logo-container">
-                    <img id="enterprise-logo" src="../assets/logo/logo-light.png" alt="logo" />
-                </div>
                 <form onSubmit={handleSubmitRegister} className="register-input-container">
                     {registerError.usernameError ? <p id="error-validate">{registerError.usernameError}</p> : null}
                     {registerError.passwordError ? <p id="error-validate">{registerError.passwordError}</p> : null}

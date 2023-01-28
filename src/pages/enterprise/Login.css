@@ -1,28 +1,32 @@
 .login-main-container {
     display: flex;
-    max-height: 100vh;
-    width: 100%;
-    overflow-y: hidden;
+    padding: 1.5rem;
+    width: 40%;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 10rem;
+    background: rgba(0, 0, 0, 0.13);
+    backdrop-filter: blur(4.7px);
+    -webkit-backdrop-filter: blur(4.7px);
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.login-illustration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3.5rem;
+    width: 55%;
+}
+
+.login-illustration-container img {
+    padding-right: 3.5rem;
 }
 
 .login-form-container {
-    width: 30%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.enterprise-logo-container {
-    height: 15rem;
-    display: flex;
-    padding-right: 5rem;
-    margin-top: 5rem;
-    justify-content: end;
-}
-
-.enterprise-logo-container > img {
-    width: 100%;
-    height: 65%;
+    padding-right: 3.5rem;
+    width: 45%;
 }
 
 .login-input-container {
@@ -30,7 +34,8 @@
     height: 40rem;
     flex-direction: column;
     margin: 0 auto;
-    width: 65%;
+    margin-top: 2rem;
+    width: 100%;
 }
 
 .login-fields {
@@ -43,11 +48,12 @@
 }
 
 .input-icon {
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 15%;
-    font-size: 1.85rem;
+    font-size: 1.5rem;
     height: 100%;
 }
 
@@ -59,37 +65,52 @@
 }
 
 .input-field > input {
+    color: white;
+    background: transparent;
     width: 100%;
     height: 50%;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     border: 0;
 }
 
 #login {
-    padding: 0.75rem;
+    padding: 0.5rem;
     font-weight: bold;
     background: #5EFFB1;
     border: 0;
-    font-size: 1.25rem;
+    font-size: 1.10rem;
     margin-top: 1.25rem;
     border-radius: 5rem;
-}
-
-#login:hover {
     color: white;
 }
 
+#login:hover {
+    cursor: pointer;
+    color: black;
+}
+
 .nav-to-register {
-    font-size: 1.25rem;
-    margin-top: 1.25rem;
+    font-size: 1.1rem;
+    margin-top: 7.5rem;
     height: 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #navigate {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: #5EFFB1;
-    font-weight: bold;
-    margin-left: 0.5rem;
+    color: #cccccc;
+}
+
+#navigate:hover {
+    color: black;
+}
+
+#navigate span{
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
 }
