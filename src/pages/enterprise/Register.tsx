@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import './Register.css';
 import {FaUserAlt} from 'react-icons/fa';
@@ -63,50 +63,61 @@ function Register({register, setRegister}: any) {
         return true;
     }
 
-    useEffect(() => {
-        document.body.style.background = 'linear-gradient(to bottom right, #19b471, #00d1e2)';
-    }, [])
-
     return (
-        <div className="register-main-container">
-            <div className="register-form-container">
-                <form onSubmit={handleSubmitRegister} className="register-input-container">
-                    {registerError.usernameError ? <p id="error-validate">{registerError.usernameError}</p> : null}
-                    {registerError.passwordError ? <p id="error-validate">{registerError.passwordError}</p> : null}
-                    {registerError.passwordRepeatError ? <p id="error-validate">{registerError.passwordRepeatError}</p> : null}
-                    <div className="register-fields">
-                        <div className="input-icon">
-                            <FaUserAlt />
+        <div className="register-parent">
+            <div className="register-main-container">
+                <div className="register-form-container">
+                    <form onSubmit={handleSubmitRegister} className="register-input-container">
+                        <div className="register-fields">
+                            <div className="input-icon">
+                                <FaUserAlt />
+                            </div>
+                            <div className="input-field">
+                                <label>Nimi:</label>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    placeholder="e.g Shooters"
+                                    onChange={handleRegisterChange}
+                                />
+                            </div>
                         </div>
-                        <div className="input-field">
-                            <input
-                                type="text"
-                                name="username"
-                                placeholder="e.g Shooters"
-                                onChange={handleRegisterChange}
-                            />
+                        <div className="register-fields">
+                            <div className="input-icon">
+                                <RiLockPasswordFill />
+                            </div>
+                            <div className="input-field">
+                                <label>Salasõna:</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    onChange={handleRegisterChange}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="register-fields">
-                        <div className="input-icon">
-                            <RiLockPasswordFill />
+                        <div className="register-fields">
+                            <div className="input-icon">
+                                <BsArrowRepeat />
+                            </div>
+                            <div className="input-field">
+                                <label>Salasõna(u):</label>
+                                <input
+                                    type="password"
+                                    name="password_repeat"
+                                    onChange={handleRegisterChange}
+                                />
+                            </div>
                         </div>
-                        <div className="input-field">
-                            <input type="password" name="password" onChange={handleRegisterChange} />
+                        <button id="register" type="submit">
+                            Register
+                        </button>
+                        <div className="error-container">
+                            {registerError.usernameError ? <p>{registerError.usernameError}</p> : null}
+                            {registerError.passwordError ? <p>{registerError.passwordError}</p> : null}
+                            {registerError.passwordRepeatError ? <p>{registerError.passwordRepeatError}</p> : null}
                         </div>
-                    </div>
-                    <div className="register-fields">
-                        <div className="input-icon">
-                            <BsArrowRepeat />
-                        </div>
-                        <div className="input-field">
-                            <input type="password" name="password_repeat" onChange={handleRegisterChange} />
-                        </div>
-                    </div>
-                    <button id="register" type="submit">
-                        Register
-                    </button>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );

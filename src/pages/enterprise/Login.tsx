@@ -62,53 +62,58 @@ function Login({register, setAuth, auth}: any) {
     }
 
     useEffect(() => {
-        document.body.style.background = 'linear-gradient(to bottom right, #19b471, #00d1e2)';
         document.body.style.overflowY = 'hidden';
     }, [])
 
     return (
-        <div className="login-main-container">
-            <div className="login-illustration-container">
-                <img src="../assets/logo/logo-dark.png" alt="logo" />
-            </div>
-            <div className="login-form-container">
-                <form onSubmit={handleSubmitLogin} className="login-input-container">
-                    {loginError.userError ? <p id="error-validate">{loginError.userError}</p> : null}
-                    {loginError.passwordError ? <p id="error-validate">{loginError.passwordError}</p> : null}
-                    <div className="login-fields">
-                        <div className="input-icon">
-                            <FaUserAlt />
+        <div className="login-parent">
+            <div className="login-main-container">
+                <div className="login-illustration-container">
+                    <img src="../assets/logo/logo-dark.png" alt="logo" />
+                </div>
+                <div className="login-form-container">
+                    <form onSubmit={handleSubmitLogin} className="login-input-container">
+                        <div className="login-error-container">
+                            {loginError.userError ? <p>{loginError.userError}</p> : null}
+                            {loginError.passwordError ? <p id="password-error">{loginError.passwordError}</p> : null}
                         </div>
-                        <div className="input-field">
-                            <input
-                                type="text"
-                                name="username"
-                                placeholder="e.g Shooters"
-                                onChange={handleLoginChange}
-                            />
+                        <div className="login-fields">
+                            <div className="input-icon">
+                                <FaUserAlt />
+                            </div>
+                            <div className="input-field">
+                                <label>Nimi:</label>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    placeholder="e.g Shooters"
+                                    onChange={handleLoginChange}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="login-fields">
-                        <div className="input-icon">
-                            <RiLockPasswordFill />
+                        <div className="login-fields">
+                            <div className="input-icon">
+                                <RiLockPasswordFill />
+                            </div>
+                            <div className="input-field">
+                                <label>Salasõna:</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    onChange={handleLoginChange}
+                                />
+                            </div>
                         </div>
-                        <div className="input-field">
-                            <input
-                                type="password"
-                                name="password"
-                                onChange={handleLoginChange}
-                            />
+                        <button type="submit" id="login">
+                            Login
+                        </button>
+                        <div className="nav-to-register">
+                            <Link id="navigate" to={"/enterprise/register"}>
+                                Loo konto <span><HiOutlineArrowNarrowRight /></span>
+                            </Link>
                         </div>
-                    </div>
-                    <button type="submit" id="login">
-                        Login
-                    </button>
-                    <div className="nav-to-register">
-                        <Link id="navigate" to={"/enterprise/register"}>
-                            Loo konto <span><HiOutlineArrowNarrowRight /></span>
-                        </Link>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );
