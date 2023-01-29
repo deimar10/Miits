@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import './Management.css';
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
@@ -47,7 +47,7 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
                         </tr>
                         </thead>
                         <tbody className="table-body">
-                        {enterpriseOffers.map((offer: OfferInterface) => {
+                        {enterpriseOffers.length !== 0 ? enterpriseOffers.map((offer: OfferInterface) => {
                             return (
                                 <tr id="table-row" key={offer.id}>
                                     <td id="table-date">{offer.date}</td>
@@ -74,7 +74,14 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
                                     </td>
                                 </tr>
                             );
-                        })}
+                        }) : <div className="management-offers-empty">
+                                <p id="offers-empty-text" style={{
+                                    color: theme ? 'white' : '#161616'
+                                }}>
+                                    Paistab, et ühtegi pakkumist ei ole loodud.
+                                </p>
+                            </div>
+                        }
                         </tbody>
                     </table>
                 </div>
