@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Login.css';
 import {login} from '../../Interfaces/interface';
-import Design from '../../Components/Design/Design';
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 import {FaUserAlt} from 'react-icons/fa';
