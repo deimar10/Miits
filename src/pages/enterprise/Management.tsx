@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams, Link} from 'react-router-dom';
+import {useParams, useNavigate, useLocation} from 'react-router-dom';
 import './Management.css';
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
@@ -9,14 +9,12 @@ import {OfferInterface} from '../../Interfaces/interface';
 function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setAuth}: any) {
 
     let { name } = useParams();
+    let { state } = useLocation();
+    let navigate = useNavigate();
 
     const offers = offersData.filter((offer: OfferInterface) => offer.enterprise === name);
 
     const [enterpriseOffers, setEnterpriseOffers] = useState<OfferInterface[]>(offers);
-
-    useEffect(() => {
-        document.body.style.backgroundColor = theme ? '#161616' : 'white';
-    }, [theme]);
 
     const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
         const removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
@@ -25,6 +23,14 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
         const filterOffers = offersData.filter((offer: OfferInterface) => offer.id !== id);
         setOffers(filterOffers);
     }
+
+    const handleEditOffer = (e: React.MouseEvent<HTMLButtonElement>, title: string) => {
+        navigate(`/enterprise/edit/${title}`, {state: state});
+    }
+
+    useEffect(() => {
+        document.body.style.backgroundColor = theme ? '#161616' : 'white';
+    }, [theme]);
 
     return (
         <div>
@@ -68,8 +74,8 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
                                     </div>
                                     <td>
                                         <div id="actions-cell">
-                                            <button id="deleteBtn" onClick={ e => handleDeleteOffer(e, offer.id)}>Delete</button>
-                                            <button id="editBtn">Edit</button>
+                                            <button id="deleteBtn" onClick={e => handleDeleteOffer(e, offer.id)}>Delete</button>
+                                            <button id="editBtn" onClick={e => handleEditOffer(e, offer.title)}>Edit</button>
                                         </div>
                                     </td>
                                 </tr>

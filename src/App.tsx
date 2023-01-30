@@ -7,6 +7,7 @@ import Login from "./pages/enterprise/Login";
 import OfferDetails from './pages/user/OfferDetails';
 import Menu from './pages/enterprise/Menu';
 import Management from "./pages/enterprise/Management";
+import EditOffer from "./pages/enterprise/EditOffer";
 import {OfferInterface} from "./Interfaces/interface";
 import {register} from './Interfaces/interface';
 import data from './data.json';
@@ -115,6 +116,14 @@ function App() {
                   handleThemeSwitch={handleThemeSwitch} />}
               />
               <Route path="/enterprise/management/:name" element={<Management
+                  offersData={offersData}
+                  theme={theme}
+                  auth={auth}
+                  setAuth={setAuth}
+                  setOffers={setOffers}
+                  handleThemeSwitch={handleThemeSwitch} />}
+              />
+              <Route path="/enterprise/edit/:title" element={<EditOffer
                   offersData={offersData}
                   theme={theme}
                   auth={auth}

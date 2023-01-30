@@ -1,0 +1,87 @@
+.enterprise-edit-container {
+    display: flex;
+    height: 86.5vh;
+    width: 100%;
+}
+
+.edit-offer-container {
+    margin: 0 auto;
+    width: 73.5%;
+}
+
+.edit-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.edit-form-container label {
+    padding-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.edit-form-container input {
+    padding: 0.75rem;
+    border: 1px solid #cccccc;
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    width: 93.25%;
+    color: #cccccc;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.edit-small-container {
+    display: flex;
+    width: 100%;
+}
+
+#edit-small-input {
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+}
+
+#edit-small-input input{
+    width: 80%;
+}
+
+textarea {
+    font-family: Rubik;
+    padding: 2.5rem;
+    border: 1px solid #cccccc;
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    width: 85%;
+    color: #cccccc;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea::-webkit-scrollbar {
+    width: 0.40rem;
+    background: #cccccc;
+    border-radius: 1rem;
+}
+
+select {
+    font-family: Rubik;
+    padding: 0.75rem;
+    border: 1px solid #cccccc;
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    width: 30%;
+    color: #cccccc;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
+
+
