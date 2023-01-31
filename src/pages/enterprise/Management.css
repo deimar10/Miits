@@ -23,7 +23,6 @@
     height: 20rem;
     text-align: center;
     font-weight: 600;
-    border-radius: 0.35rem;
     border-collapse: collapse;
     border: 0;
 }
@@ -91,14 +90,21 @@
 }
 
 #deleteBtn {
+    display: flex;
+    align-items: center;
     font-size: 1rem;
     font-weight: 600;
     width: 5rem;
-    padding: 0.75rem;
+    padding: 0.45rem;
     border: 0;
     border-radius: 0.5rem;
     color: white;
     background: #DC5757;
+}
+
+#delete-icon {
+    margin-right: 0.15rem;
+    font-size: 2rem;
 }
 
 #deleteBtn:hover {
@@ -107,15 +113,22 @@
 }
 
 #editBtn {
+    display: flex;
+    align-items: center;
     font-size: 1rem;
     font-weight: 600;
     width: 5rem;
-    padding: 0.75rem;
+    padding: 0.45rem;
     border: 0;
     border-radius: 0.5rem;
     color: white;
     background: #275F88;
     margin-left: 0.5rem;
+}
+
+#edit-icon {
+    margin-right: 0.15rem;
+    font-size: 1.25rem;
 }
 
 #editBtn:hover {

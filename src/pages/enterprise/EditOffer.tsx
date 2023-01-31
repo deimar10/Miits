@@ -133,8 +133,8 @@ function EditOffer({offersData, setOffers, theme, handleThemeSwitch, auth, setAu
                             <option value="Event">Event</option>
                             <option value="Drinks">Drinks</option>
                         </select>
-                        <div>
-                            <button id="form-submit" type="submit">Muuda</button>
+                        <div className="form-submit-container">
+                            <button type="submit">Muuda</button>
                         </div>
                     </form>
                 </div>

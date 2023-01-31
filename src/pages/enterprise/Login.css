@@ -29,8 +29,8 @@
 
 .login-illustration-container img {
     padding-right: 3.5rem;
-    width: 15rem;
-    height: 7.5rem;
+    width: 17.5rem;
+    height: 8.75rem;
 }
 
 .login-form-container {
@@ -75,6 +75,7 @@
 
 .input-field > label {
     font-weight: bold;
+    font-size: 1.15rem;
 }
 
 .input-field > input {
@@ -88,7 +89,7 @@
 }
 
 #login {
-    padding: 0.5rem;
+    padding: 0.75rem;
     font-weight: bold;
     background: #5EFFB1;
     border: 0;
@@ -104,9 +105,10 @@
 }
 
 .nav-to-register {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-top: 7.5rem;
     height: 1rem;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;

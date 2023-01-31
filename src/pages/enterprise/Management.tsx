@@ -5,6 +5,8 @@ import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from "../../Components/Footer/Footer";
 import {OfferInterface} from '../../Interfaces/interface';
+import {FaTrash} from 'react-icons/fa';
+import {MdEdit} from 'react-icons/md';
 
 interface Props {
     offersData: any,
@@ -83,8 +85,14 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
                                     </div>
                                     <td>
                                         <div id="actions-cell">
-                                            <button id="deleteBtn" onClick={e => handleDeleteOffer(e, offer.id)}>Delete</button>
-                                            <button id="editBtn" onClick={e => handleEditOffer(e, offer.title)}>Edit</button>
+                                            <button id="deleteBtn" onClick={e => handleDeleteOffer(e, offer.id)}>
+                                                <FaTrash id="delete-icon" />
+                                                Delete
+                                            </button>
+                                            <button id="editBtn" onClick={e => handleEditOffer(e, offer.title)}>
+                                                <MdEdit id="edit-icon" />
+                                                Edit
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>
