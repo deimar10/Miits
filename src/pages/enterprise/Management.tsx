@@ -6,7 +6,16 @@ import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSide
 import Footer from "../../Components/Footer/Footer";
 import {OfferInterface} from '../../Interfaces/interface';
 
-function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setAuth}: any) {
+interface Props {
+    offersData: any,
+    setOffers: (offers: any) => void,
+    theme: boolean,
+    handleThemeSwitch(): void,
+    auth: object,
+    setAuth: (auth: any) => void,
+}
+
+function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setAuth}: Props) {
 
     let { name } = useParams();
     let { state } = useLocation();

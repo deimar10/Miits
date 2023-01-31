@@ -5,7 +5,12 @@ import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {BsArrowRepeat} from 'react-icons/bs';
 
-function Register({register, setRegister}: any) {
+interface Props {
+    register: {username: string, password: string, password_repeat: string},
+    setRegister: (register: any) => void
+}
+
+function Register({register, setRegister}: Props) {
 
     const navigate = useNavigate();
 

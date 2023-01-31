@@ -9,7 +9,19 @@ import {FaRegHeart, FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
 import {AiFillPlusCircle} from 'react-icons/ai';
 
-function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotificationModal, notification, favoriteCount, favorites, setFavorites, setOffers}: any) {
+interface Props {
+    theme: boolean,
+    handleThemeSwitch(): void,
+    handleNotificationModal(): void,
+    notification: boolean,
+    favorites: Array<any>,
+    favoriteCount: any,
+    setFavorites: (favorites: any) => void,
+    offersData: any,
+    setOffers: (offers: any) => void
+}
+
+function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotificationModal, notification, favoriteCount, favorites, setFavorites, setOffers}: Props) {
 
     const navigate = useNavigate();
     let { slug } = useParams();

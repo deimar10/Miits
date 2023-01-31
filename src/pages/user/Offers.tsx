@@ -10,7 +10,19 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
 
-function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, notification, favorites, setFavorites, favoriteCount, setOffers} : any) {
+interface Props {
+    theme: boolean,
+    handleThemeSwitch(): void,
+    handleNotificationModal(): void,
+    notification: boolean,
+    favorites: Array<any>,
+    favoriteCount: any,
+    setFavorites: (favorites: any) => void,
+    offersData: any,
+    setOffers: (offers: any) => void
+}
+
+function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, notification, favorites, setFavorites, favoriteCount, setOffers}: Props) {
 
     const [selected, setSelected] = useState<string>();
     const [locationMenu, setLocationMenu] = useState<boolean>(false);

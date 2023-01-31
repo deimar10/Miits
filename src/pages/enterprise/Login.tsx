@@ -7,7 +7,13 @@ import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi';
 
-function Login({register, setAuth, auth}: any) {
+interface Props {
+    register: {username: string, password: string},
+    setAuth: (auth: any) => void,
+    auth: object
+}
+
+function Login({register, setAuth, auth}: Props) {
 
     const navigate = useNavigate();
 

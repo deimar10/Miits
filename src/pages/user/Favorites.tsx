@@ -8,7 +8,18 @@ import Footer from '../../Components/Footer/Footer';
 import {FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
 
-function Favorites({theme, handleThemeSwitch, handleNotificationModal, notification, favorites, setFavorites, offersData, setOffers}: any) {
+interface Props {
+    theme: boolean,
+    handleThemeSwitch(): void,
+    handleNotificationModal(): void,
+    notification: boolean,
+    favorites: Array<any>,
+    setFavorites: (favorites: any) => void,
+    offersData: any,
+    setOffers: (offers: any) => void
+}
+
+function Favorites({theme, handleThemeSwitch, handleNotificationModal, notification, favorites, setFavorites, offersData, setOffers}: Props) {
 
     let navigate = useNavigate();
 
