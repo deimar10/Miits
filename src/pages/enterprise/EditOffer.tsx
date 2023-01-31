@@ -4,6 +4,7 @@ import './EditOffer.css';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from '../../Components/Footer/Footer';
+import ActionModal from '../../Components/ActionModal/ActionModal';
 import {OfferInterface} from "../../Interfaces/interface";
 
 interface Props {
@@ -25,6 +26,10 @@ function EditOffer({offersData, setOffers, theme, handleThemeSwitch, auth, setAu
     const [editError, setEditError] = useState<{errorMessage: string}>({
         errorMessage: ''
     });
+    const [viewEditModal, setViewEditModal] = useState({
+        view: false,
+        offer: 0
+    })
 
     useEffect(() => {
         setEditOffer({...offer});
@@ -57,16 +62,25 @@ function EditOffer({offersData, setOffers, theme, handleThemeSwitch, auth, setAu
 
             let offers = offersData.filter((offer: OfferInterface) => offer.id !== editOffer.id);
             setOffers([...offers, editOffer]);
+
+            setViewEditModal({...viewEditModal, view: true, offer: editOffer.id});
         }
+    }
+
+    const handleModalClose = () => {
+        setViewEditModal({...viewEditModal, view: false, offer: 0});
     }
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
+    const settings = [`Offer (${viewEditModal.offer}) has been successfully edited`, '#275F88'];
+
     return (
         <div>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            {viewEditModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
             <div className="enterprise-edit-container">
                 <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
                 <div className="edit-offer-container" style={{color: theme ? 'white' : 'black'}}>

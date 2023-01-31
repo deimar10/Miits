@@ -4,6 +4,7 @@ import './Management.css';
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from "../../Components/Footer/Footer";
+import ActionModal from "../../Components/ActionModal/ActionModal";
 import {OfferInterface} from '../../Interfaces/interface';
 import {FaTrash} from 'react-icons/fa';
 import {MdEdit} from 'react-icons/md';
@@ -26,6 +27,10 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
     const offers = offersData.filter((offer: OfferInterface) => offer.enterprise === name);
 
     const [enterpriseOffers, setEnterpriseOffers] = useState<OfferInterface[]>(offers);
+    const [viewDeleteModal, setViewDeleteModal] = useState({
+        view: false,
+        offer: 0,
+    });
 
     const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
         const removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
@@ -33,19 +38,28 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
 
         const filterOffers = offersData.filter((offer: OfferInterface) => offer.id !== id);
         setOffers(filterOffers);
+
+        setViewDeleteModal({...viewDeleteModal, view: true, offer: id});
     }
 
     const handleEditOffer = (e: React.MouseEvent<HTMLButtonElement>, title: string) => {
         navigate(`/enterprise/edit/${title}`, {state: state});
     }
 
+    const handleModalClose = () => {
+        setViewDeleteModal({...viewDeleteModal, view: false, offer: 0});
+    }
+
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
+    const settings = [`Offer (${viewDeleteModal.offer}) has been successfully deleted`, '#DC5757'];
+
     return (
         <div>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            {viewDeleteModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
             <div className="enterprise-offers-container">
                 <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
