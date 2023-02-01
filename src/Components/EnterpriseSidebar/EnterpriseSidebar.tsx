@@ -50,9 +50,15 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
                         <IoIosSettings id="setting-icon" />
                     </button>
                 }
-                <button id="link" onClick={handleNavigateToCreate}>Loo pakkumine
-                    <AiFillPlusCircle id="sidebar-plus-icon" />
-                </button>
+                {location[2] === 'create-offer' ?
+                    <button id="link" onClick={handleNavigateToMenu}>Menüü
+                        <BiMenu id="setting-icon"/>
+                    </button>
+                    :
+                    <button id="link" onClick={handleNavigateToCreate}>Loo pakkumine
+                        <AiFillPlusCircle id="sidebar-plus-icon"/>
+                    </button>
+                }
             </div>
             <div className="logout-container">
                 <div className="logout" style={{color: theme ? 'white' : 'black'}}>
