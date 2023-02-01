@@ -23,6 +23,10 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
         navigate(`/enterprise/management/${enterpriseLoginInfo.state}`, {state: enterpriseLoginInfo.state});
     }
 
+    const handleNavigateToCreate = () => {
+        navigate(`/enterprise/create-offer`, {state: enterpriseLoginInfo.state});
+    }
+
     const handleUserLogout = () => {
         setAuth({...auth, login: false});
     }
@@ -46,7 +50,7 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
                         <IoIosSettings id="setting-icon" />
                     </button>
                 }
-                <button id="link">Loo pakkumine
+                <button id="link" onClick={handleNavigateToCreate}>Loo pakkumine
                     <AiFillPlusCircle id="sidebar-plus-icon" />
                 </button>
             </div>

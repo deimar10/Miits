@@ -1,0 +1,127 @@
+.enterprise-create-container {
+    display: flex;
+    height: 86.5vh;
+    width: 100%;
+}
+
+.create-offer-container {
+    margin: 0 auto;
+    width: 73.5%;
+}
+
+.create-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    height: 55vh;
+    margin: 0 auto;
+}
+
+.create-form-container label {
+    padding-bottom: 0.25rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-top: 1rem;
+}
+
+.create-form-container input {
+    padding: 1.15rem;
+    border: 1px solid #cccccc;
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    width: 93.25%;
+    color: #cccccc;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.create-small-container {
+    display: flex;
+    width: 100%;
+}
+
+#create-small-input {
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+}
+
+#create-small-input input{
+    width: 80%;
+}
+
+textarea {
+    font-family: Rubik;
+    padding: 2.5rem;
+    border: 1px solid #cccccc;
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    width: 87.5%;
+    color: #cccccc;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea::-webkit-scrollbar {
+    width: 0.40rem;
+    background: #cccccc;
+    border-radius: 1rem;
+}
+
+.create-container {
+    display: flex;
+    width: 100%;
+}
+
+.create-select-input {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-right: 0.5rem;
+}
+
+#select {
+    font-family: Rubik;
+    padding: 1.15rem;
+    border: 1px solid #cccccc;
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    width: 100%;
+    color: #cccccc;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.create-file-input {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.form-submit-container {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-submit-container > button {
+    width: 20%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+    font-weight: bold;
+    border: 0;
+    background: #5EFFB1;
+}
+
+.form-submit-container > button:hover {
+    background: #A9E6C8;
+}
