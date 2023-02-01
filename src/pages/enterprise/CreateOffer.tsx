@@ -38,7 +38,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
         description: "",
         feedback: []
     });
-    const [viewEditModal, setViewEditModal] = useState({
+    const [viewCreateModal, setViewCreateModal] = useState({
         view: false,
         offer: 0
     });
@@ -76,24 +76,24 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
             setCreateError({...createError, errorMessage: ""});
 
             setOffers([...offersData, createOffer]);
-            setViewEditModal({...viewEditModal, view: true, offer: createOffer.id});
+            setViewCreateModal({...viewCreateModal, view: true, offer: createOffer.id});
         }
     }
 
     const handleModalClose = () => {
-        setViewEditModal({...viewEditModal, view: false, offer: 0});
+        setViewCreateModal({...viewCreateModal, view: false, offer: 0});
     }
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
-    const settings = [`Offer (${viewEditModal.offer}) has been successfully created`, '#5EFFB1'];
+    const settings = [`Offer (${viewCreateModal.offer}) has been successfully created`, '#5EFFB1'];
 
     return (
         <div>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
-            {viewEditModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
+            {viewCreateModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
             <div className="enterprise-create-container">
                 <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
                 <div className="create-offer-container" style={{color: theme ? 'white' : 'black'}}>
