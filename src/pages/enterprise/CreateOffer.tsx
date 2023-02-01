@@ -30,7 +30,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
         enterprise: location.state,
         title: "",
         category: "",
-        slug: "empty",
+        slug: "",
         location: "",
         date: "",
         price: 0,
@@ -44,7 +44,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
     });
 
     const handleOfferChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
-        setCreateOffer({...createOffer, [e.target.name]: e.target.value});
+        setCreateOffer({...createOffer, [e.target.name]: e.target.value, slug: createOffer.title});
     }
 
     const handleImageUploadChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
