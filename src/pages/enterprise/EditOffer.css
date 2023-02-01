@@ -12,14 +12,17 @@
 .edit-form-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 40%;
+    height: 55vh;
     margin: 0 auto;
 }
 
 .edit-form-container label {
-    padding-bottom: 1rem;
+    padding-bottom: 0.25rem;
     font-weight: 600;
     font-size: 1.05rem;
+    margin-top: 1rem;
 }
 
 .edit-form-container input {
@@ -31,6 +34,7 @@
     color: #cccccc;
     font-weight: 500;
     font-size: 1rem;
+    margin-top: 1rem;
 }
 
 .edit-small-container {
@@ -58,6 +62,7 @@ textarea {
     color: #cccccc;
     font-weight: 500;
     font-size: 1rem;
+    margin-top: 1rem;
 }
 
 textarea:focus {
@@ -80,6 +85,7 @@ select {
     color: #cccccc;
     font-weight: 500;
     font-size: 1rem;
+    margin-top: 1rem;
 }
 
 .form-submit-container {
