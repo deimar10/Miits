@@ -4,6 +4,7 @@ import './CreateOffer.css';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
 import Footer from '../../Components/Footer/Footer';
+import ActionModal from '../../Components/ActionModal/ActionModal';
 import {OfferInterface} from '../../Interfaces/interface';
 
 interface Props {
@@ -36,6 +37,10 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
         image: "",
         description: "",
         feedback: []
+    });
+    const [viewEditModal, setViewEditModal] = useState({
+        view: false,
+        offer: 0
     });
 
     const handleOfferChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
@@ -71,16 +76,24 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
             setCreateError({...createError, errorMessage: ""});
 
             setOffers([...offersData, createOffer]);
+            setViewEditModal({...viewEditModal, view: true, offer: createOffer.id});
         }
+    }
+
+    const handleModalClose = () => {
+        setViewEditModal({...viewEditModal, view: false, offer: 0});
     }
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
+    const settings = [`Offer (${viewEditModal.offer}) has been successfully created`, '#5EFFB1'];
+
     return (
         <div>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
+            {viewEditModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
             <div className="enterprise-create-container">
                 <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
                 <div className="create-offer-container" style={{color: theme ? 'white' : 'black'}}>
