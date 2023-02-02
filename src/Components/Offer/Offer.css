@@ -93,11 +93,16 @@
 #upcoming {
     position: absolute;
     text-transform: uppercase;
-    top: 1rem;
-    left: 2.5rem;
-    font-size: 1.15rem;
-    float: left;
-    color: #A9E6C8;
+    top: -2.75rem;
+    left: 2rem;
+    font-size: 0.9rem;
+    color: white;
+    background: #349868;
+    padding-top: 1.35rem;
+    padding-bottom: 1.35rem;
+    padding-left: 0.50rem;
+    padding-right: 0.50rem;
+    border-radius: 100%;
 }
 
 #offers-empty-text {
