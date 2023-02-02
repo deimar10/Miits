@@ -136,6 +136,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
                                 <input style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
                                        type="number"
+                                       step="0.01"
                                        name="price"
                                        placeholder="e.g 4.99"
                                        onChange={handleOfferChange}
