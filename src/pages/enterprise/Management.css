@@ -93,8 +93,8 @@
     align-items: center;
     font-size: 1rem;
     font-weight: 600;
-    width: 5rem;
-    padding: 0.45rem;
+    width: 7rem;
+    padding: 0.75rem;
     border: 0;
     border-radius: 0.5rem;
     color: white;
@@ -103,7 +103,7 @@
 
 #delete-icon {
     margin-right: 0.15rem;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 #deleteBtn:hover {
