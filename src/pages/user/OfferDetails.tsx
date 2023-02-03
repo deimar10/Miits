@@ -5,6 +5,7 @@ import {OfferInterface} from "../../Interfaces/interface";
 import {feedback} from "../../Interfaces/interface";
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
+import FeedbackSuccess from '../../Components/FeedbackSuccess/FeedbackSuccess';
 import {FaRegHeart, FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
 import {AiFillPlusCircle} from 'react-icons/ai';
@@ -36,6 +37,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
         nameError: "",
         commentError: ""
     });
+    const [success, setSuccess] = useState<boolean>(false);
 
     const handleNavigateBack = () => {
         navigate(-1);
@@ -90,6 +92,8 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
             })
             setOffers(offers);
             setFeedback({...feedback, commentError: "", nameError: ""});
+
+            setSuccess(true);
         }
     }
 
@@ -112,6 +116,10 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
         }
         return true;
     }
+
+    useEffect(() => {
+        setTimeout(() => setSuccess(false), 1250);
+    }, [offerSelected.feedback.length])
 
     return (
         <div style={{color: theme ? 'white' : 'black'}}>
@@ -160,6 +168,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                 </div>
                 <div className="details-feedback-container">
                     <h2>Kasutaja Tagasiside</h2>
+                    {success ? <FeedbackSuccess /> : null}
                     <div className="user-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
                         {offerSelected.feedback.length !== 0 ? offerSelected.feedback.map((feedback: {comment: string, name: string}) => {
                             return (

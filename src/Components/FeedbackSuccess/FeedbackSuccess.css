@@ -1,0 +1,23 @@
+#feedback-success-notification {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    color: #5EFFB1;
+    top: 41.5rem;
+    right: 45rem;
+    animation: growAndFade 1s ease-in-out forwards;
+}
+
+@keyframes growAndFade {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 3rem;
+        height: 3rem;
+        opacity: 1;
+    }
+}
