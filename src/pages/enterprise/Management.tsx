@@ -54,7 +54,7 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
-    const settings = [`Offer (${viewDeleteModal.offer}) has been successfully deleted`, '#DC5757'];
+    const settings = [`Pakkumine (${viewDeleteModal.offer}) edukalt eemaldatud`, '#DC5757'];
 
     return (
         <div>
@@ -69,12 +69,12 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
                     <table className="offers-table">
                         <thead>
                         <tr id="tableHeadings">
-                            <th>Date</th>
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Price (€)</th>
-                            <th>Feedback</th>
-                            <th>Actions</th>
+                            <th>Kuupäev</th>
+                            <th>Pilt</th>
+                            <th>Tiitel</th>
+                            <th>Hind (€)</th>
+                            <th>Tagasiside</th>
+                            <th>Toimingud</th>
                         </tr>
                         </thead>
                         <tbody className="table-body">
@@ -101,11 +101,11 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
                                         <div id="actions-cell">
                                             <button id="deleteBtn" onClick={e => handleDeleteOffer(e, offer.id)}>
                                                 <FaTrash id="delete-icon" />
-                                                Delete
+                                                Eemalda
                                             </button>
                                             <button id="editBtn" onClick={e => handleEditOffer(e, offer.title)}>
                                                 <MdEdit id="edit-icon" />
-                                                Edit
+                                                Muuda
                                             </button>
                                         </div>
                                     </td>

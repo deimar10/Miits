@@ -62,13 +62,13 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
             <div className="header-container">
                 <FaHeart id="favorite-icon" />
                 <h2 style={{color: theme ? 'white' : 'black'}}>
-                    Favorites({favorites.length})
+                    Lemmikud({favorites.length})
                 </h2>
             </div>
             <div className="nav-back-container" style={{color: theme ? 'white' : 'black'}}>
                <span onClick={handleNavigateBack}>
                     <HiChevronLeft id="back-icon" />
-                    <h3>Go Back</h3>
+                    <h3>Tagasi</h3>
                </span>
             </div>
             {typeof favorites !== "undefined" && favorites.length !== 0 ?
@@ -81,19 +81,19 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                             </div>
                             <div className="offer-description-container">
                                 <div className="offer-description" style={{color: theme ? 'white' : 'black'}}>
-                                    <h3>Location:
+                                    <h3>Asukoht:
                                         <span> {favorite.location}</span>
                                     </h3>
-                                    <h3>Description:
+                                    <h3>Kirjeldus:
                                         <span> {favorite.description}</span>
                                     </h3>
                                 </div>
                                 <div className="offer-date-container">
-                                    <p>Date: {favorite.date}</p>
+                                    <p>Kuupäev: {favorite.date}</p>
                                     <Link id="read-more" to={`/offers/offer-details/${favorite.slug}`}>
-                                        Read More
+                                        Loe lähemalt
                                     </Link>
-                                    <button onClick={e => handleRemoveFavorite(favorite.id)}>Remove</button>
+                                    <button onClick={e => handleRemoveFavorite(favorite.id)}>Eemalda</button>
                                 </div>
                             </div>
                         </div>

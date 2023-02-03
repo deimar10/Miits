@@ -75,7 +75,7 @@ function EditOffer({offersData, setOffers, theme, handleThemeSwitch, auth, setAu
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
-    const settings = [`Offer (${viewEditModal.offer}) has been successfully edited`, '#275F88'];
+    const settings = [`Pakkumine (${viewEditModal.offer}) edukalt muudetud`, '#275F88'];
 
     return (
         <div>

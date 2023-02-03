@@ -125,7 +125,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
             <div className="details-nav-back-container" >
                 <span onClick={handleNavigateBack}>
                     <HiChevronLeft id="back-icon" />
-                    <h3>Go Back</h3>
+                    <h3>Tagasi</h3>
                 </span>
             </div>
             <div className="details-main-container">
@@ -136,30 +136,30 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                     <div className="addToFavorites-container">
                         <span>
                             {isFavorite ? <FaHeart id="fav-icon" /> : <FaRegHeart id="fav-icon" onClick={handleAddToFavorites} />}
-                            <h3>Add to favorites</h3>
+                            <h3>Lisa lemmikuks</h3>
                          </span>
-                        <p>Date: {offerSelected.date}</p>
+                        <p>Kuupäev: {offerSelected.date}</p>
                     </div>
                     <div className="details-description">
                         <h3>
-                            Title:<span> {offerSelected.title}</span>
+                            Tiitel:<span> {offerSelected.title}</span>
                         </h3>
                         <h3>
-                            Category:<span> {offerSelected.category}</span>
+                            Kategooria:<span> {offerSelected.category}</span>
                         </h3>
                         <h3>
-                            Location:<span> {offerSelected.location}</span>
+                            Asukoht:<span> {offerSelected.location}</span>
                         </h3>
                         <h3>
-                            Description:<span> {offerSelected.description}</span>
+                            Kirjeldus:<span> {offerSelected.description}</span>
                         </h3>
                         <h3>
-                            Price:<span> {offerSelected.price}€</span>
+                            Hind:<span> {offerSelected.price}€</span>
                         </h3>
                     </div>
                 </div>
                 <div className="details-feedback-container">
-                    <h2>Users Feedback</h2>
+                    <h2>Kasutaja Tagasiside</h2>
                     <div className="user-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
                         {offerSelected.feedback.length !== 0 ? offerSelected.feedback.map((feedback: {comment: string, name: string}) => {
                             return (
@@ -171,7 +171,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                         }) : <p id="empty-feedback">Tundub, et ühtegi tagasisidet ei ole lisatud. Julgelt lisage kommentaar.</p>}
                     </div>
                     <div className="details-form-container">
-                        <label>First Name</label>
+                        <label>Eesnimi</label>
                         {feedback.nameError ? <p id="error-validate">{feedback.nameError}</p> : null}
                         <input
                             id="form-name"
@@ -182,7 +182,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
                         />
-                        <label>Feedback</label>
+                        <label>Tagasiside</label>
                         {feedback.commentError ? <p id="error-validate">{feedback.commentError}</p> : null}
                         <input
                             id="form-feedback"

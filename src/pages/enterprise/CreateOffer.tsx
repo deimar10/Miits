@@ -88,7 +88,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
-    const settings = [`Offer (${viewCreateModal.offer}) has been successfully created`, '#5EFFB1'];
+    const settings = [`Pakkumine (${viewCreateModal.offer}) edukalt loodud`, '#5EFFB1'];
 
     return (
         <div>

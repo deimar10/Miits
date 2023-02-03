@@ -114,7 +114,7 @@ function Register({register, setRegister}: Props) {
                             </div>
                         </div>
                         <button id="register" type="submit">
-                            Register
+                            Registreeri
                         </button>
                         <div className="error-container">
                             {registerError.usernameError ? <p>{registerError.usernameError}</p> : null}

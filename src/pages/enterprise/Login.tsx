@@ -110,7 +110,7 @@ function Login({register, setAuth, auth}: Props) {
                             </div>
                         </div>
                         <button type="submit" id="login">
-                            Login
+                            Sisene
                         </button>
                         <div className="nav-to-register">
                             <Link id="navigate" to={"/enterprise/register"}>
