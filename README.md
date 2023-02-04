@@ -13,18 +13,18 @@ The aim was to create a web application (as a <strong>final</strong> project) th
 The main functionality of the application is to allow companies to create new offers and display them to the user. Users can bookmark offers, give feedback to companies and receive a notification when a bookmarked offer expires.
 ## Project Management
 <div style="display: flex; justify-content: start;">
-  <img src="https://img.shields.io/badge/toggl-blue?style=for-the-badge&logo=toggl&logoColor=white" alt="Toggl Badge"/>
-  <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/jira-blue?style=for-the-badge&logo=jira&logoColor=white" alt="Jira Badge"/>
-  <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/figma-blue?style=for-the-badge&logo=figma&logoColor=white" alt="Figma Badge"/>
+  <img src="https://img.shields.io/badge/toggl-white?style=for-the-badge&logo=toggl&logoColor=purple" alt="Toggl Badge"/>
+  <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/jira-white?style=for-the-badge&logo=jira&logoColor=blue" alt="Jira Badge"/>
+  <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/figma-white?style=for-the-badge&logo=figma&logoColor=red" alt="Figma Badge"/>
 </div>
 
 ## Stack
 <div id="badges" style="display: flex; justify-content: start;">
-        <img src="https://img.shields.io/badge/React-blue?style=for-the-badge&logo=react&logoColor=white" alt="React Badge"/>
-        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/NodeJs-blue?style=for-the-badge&logo=express&logoColor=white" alt="Express Badge"/>
-        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript&logoColor=white" alt="Ts Badge"/>
-        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/Cypress-blue?style=for-the-badge&logo=cypress&logoColor=white" alt="Cypress Badge"/>
-        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/MySQL-blue?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Badge"/>
+        <img src="https://img.shields.io/badge/React-white?style=for-the-badge&logo=react&logoColor=blue" alt="React Badge"/>
+        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/NodeJs-white?style=for-the-badge&logo=express&logoColor=gray" alt="Express Badge"/>
+        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/TypeScript-white?style=for-the-badge&logo=typescript&logoColor=blue" alt="Ts Badge"/>
+        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/Cypress-white?style=for-the-badge&logo=cypress&logoColor=blue" alt="Cypress Badge"/>
+        <img style="margin-left: 0.5rem;" src="https://img.shields.io/badge/MySQL-white?style=for-the-badge&logo=mysql&logoColor=black" alt="MySQL Badge"/>
     </div>
 
 ## Team
@@ -74,6 +74,7 @@ The main functionality of the application is to allow companies to create new of
 ![image](https://user-images.githubusercontent.com/89903354/216791262-c097f206-2c19-4458-847e-4fe2c1af0509.png)
 ![image](https://user-images.githubusercontent.com/89903354/216791290-5baad8c9-6e61-4095-afd4-a9346505bc18.png)
 ![image](https://user-images.githubusercontent.com/89903354/216791305-10aa11f8-03d4-462a-8383-c105d29c8d65.png)
+![image](https://user-images.githubusercontent.com/89903354/216791810-0ba1502a-5b2e-4543-967f-bd87a70d661e.png)
 ![image](https://user-images.githubusercontent.com/89903354/216791325-d5ea4f23-ac42-4129-b877-d3f9579ac407.png)
 ![image](https://user-images.githubusercontent.com/89903354/216791347-d4c92858-5767-4225-b474-e16fabc17530.png)
 ![image](https://user-images.githubusercontent.com/89903354/216791360-5b904122-28e1-4e71-81b9-aa237ee638b3.png)
