@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import '../../Responsive/components/Footer.css';
 import {FaFacebookSquare, FaTwitter} from 'react-icons/fa';
 
 function Footer ({theme} : any) {

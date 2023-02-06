@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Offers.css';
+import '../../Responsive/pages/Offers.css';
 import {FaWallet} from 'react-icons/fa';
 import {AiFillCalendar} from 'react-icons/ai';
 import {BiDrink} from 'react-icons/bi';
@@ -45,6 +46,16 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme])
 
+    const locationFilterStyles = {
+        width: locationMenu ? '7.5rem' : '0',
+        height: locationMenu ? 'auto' : '0'
+    };
+
+    const mobileLocationFilterStyles = {
+        width: locationMenu ? '7.5rem' : '0',
+        height: locationMenu ? '6.5rem' : '0',
+    };
+
     return (
         <div>
             <Nav
@@ -64,9 +75,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                 </div>
                 <div className="grid-wrapper">
                     <div className="sideBar-container">
-                        <div  className="location-filter" style={{
-                            width: locationMenu ? '5%' : '0'
-                        }}>
+                        <div  className="location-filter" style={window.innerWidth <= 400 ? mobileLocationFilterStyles : locationFilterStyles}>
                             <ul style={{ display: locationMenu ? '' : 'none'}}>
                                 <li onClick={e => handleLocation('Tartu')}>Tartu</li>
                                 <li onClick={e => handleLocation('Tallinn')}>Tallinn</li>

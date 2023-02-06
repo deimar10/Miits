@@ -1,4 +1,4 @@
-.offers-section {
+ .offers-section {
     padding: 7.5rem;
 }
 
@@ -59,7 +59,7 @@
     color: white;
     background: rgba(33, 33, 33, 0.85);
     border-radius: 0rem 1rem 1rem 0rem;
-    width: 0%;
+    width: 0rem;
     transition: width 0.75s;
     position: fixed;
     top: 28rem;

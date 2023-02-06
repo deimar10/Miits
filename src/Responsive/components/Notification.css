@@ -1,0 +1,6 @@
+@media only screen and (max-width: 400px) {
+    .notification-container {
+        width: 24.5rem;
+        right: 0;
+    }
+}

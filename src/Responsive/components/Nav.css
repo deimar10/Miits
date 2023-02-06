@@ -1,0 +1,78 @@
+@media only screen and (max-width: 400px) {
+    .nav-container {
+        z-index: 40;
+        position: fixed;
+        width: 100%;
+        height: 6rem;
+        display: flex;
+        background: rgba(0, 0, 0, 0.76);
+        backdrop-filter: blur(5.5px);
+        -webkit-backdrop-filter: blur(5.5px);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #theme {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .nav-logo {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .nav-input-container {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #search {
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #search-icon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #social-icons {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .nav-icons-container {
+        padding-right: 0.75rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #nav-icons {
+        font-size: 1.20rem;
+        color: #5EFFB1;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #fav-count {
+        top: 2.25rem;
+        right: 3rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #notification-count {
+        top: 2.75rem;
+        right: 0.6rem;
+    }
+}

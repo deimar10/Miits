@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Nav.css';
+import '../../Responsive/components/Nav.css';
 import {OfferInterface} from "../../Interfaces/interface";
 import Notifcation from '../Notification/Notification';
 import {Link} from 'react-router-dom';
