@@ -82,3 +82,5 @@ The main functionality of the application is to allow companies to create new of
 ![image](https://user-images.githubusercontent.com/89903354/216791416-c650bdc5-2b32-405c-9e22-ce539737126e.png)
 ![image](https://user-images.githubusercontent.com/89903354/216791444-73f3b56d-d130-4b2e-9b80-1dd6d891fac4.png)
 ![image](https://user-images.githubusercontent.com/89903354/216791479-69d30ba7-c0bc-4cf3-a567-09917188ac70.png)
+![image](https://user-images.githubusercontent.com/89903354/217348537-4afa4d16-82e2-4b00-b1aa-d87b7267535b.png)
+![image](https://user-images.githubusercontent.com/89903354/217349081-0b8436ca-b8ba-40cb-a9e1-ce0cf58a14c1.png)
