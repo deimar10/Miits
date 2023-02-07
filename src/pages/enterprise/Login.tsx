@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Login.css';
+import '../../Responsive/pages/Login.css';
 import {login} from '../../Interfaces/interface';
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
