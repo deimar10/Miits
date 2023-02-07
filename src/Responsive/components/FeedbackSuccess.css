@@ -1,0 +1,6 @@
+@media only screen and (max-width: 400px) {
+    #feedback-success-notification {
+        top: 23rem;
+        right: 8rem;
+    }
+}

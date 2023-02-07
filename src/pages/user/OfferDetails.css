@@ -4,14 +4,14 @@
     padding-top: 5.25rem;
 }
 
-.details-nav-back-container span{
+.details-nav-back-container span {
     cursor: pointer;
     display: flex;
     align-items: center;
     width: 7.5%;
 }
 
-.details-nav-back-container span:hover > #back-icon{
+.details-nav-back-container span:hover > #back-icon {
     color: #5EFFB1;
 }
 
@@ -35,7 +35,7 @@
     width: 100%;
 }
 
-.details-image img{
+.details-image img {
     height: 100%;
     width: 87.5%;
     border-radius: 2rem;
@@ -46,11 +46,11 @@
     padding-left: 1.5rem;
 }
 
-.details-description span{
+.details-description span {
     font-weight: 500;
 }
 
-.details-description h3:nth-child(5){
+.details-description h3:nth-child(5) {
     margin-top: 4rem;
 }
 
@@ -61,13 +61,13 @@
     width: 87.5%;
 }
 
-.addToFavorites-container p{
+.addToFavorites-container p {
     color: #cccccc;
     font-weight: 600;
     font-size: 1.05rem;
 }
 
-.addToFavorites-container span{
+.addToFavorites-container span {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -80,7 +80,7 @@
     padding-right: 1rem;
 }
 
-.addToFavorites-container p{
+.addToFavorites-container p {
     margin-left: auto;
     float: right;
 }
@@ -117,13 +117,13 @@
     flex-direction: column;
 }
 
-.details-form-container label{
+.details-form-container label {
     padding-bottom: 1rem;
     font-weight: 600;
     font-size: 1.05rem;
 }
 
-.details-form-container input{
+.details-form-container input {
     border: 1px solid #cccccc;
     margin-bottom: 1.5rem;
     border-radius: 0.75rem;

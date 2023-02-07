@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import './OfferDetails.css';
+import '../../Responsive/pages/OfferDetails.css';
 import {OfferInterface} from "../../Interfaces/interface";
 import {feedback} from "../../Interfaces/interface";
 import Nav from '../../Components/Nav/Nav';
