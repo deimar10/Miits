@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import './Register.css';
+import '../../Responsive/pages/Register.css';
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {BsArrowRepeat} from 'react-icons/bs';
