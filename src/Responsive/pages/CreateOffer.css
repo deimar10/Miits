@@ -48,15 +48,7 @@
 
 @media only screen and (max-width: 400px) {
     textarea {
-        padding: 2.5rem;
-        border: 1px solid #cccccc;
-        margin-bottom: 1.5rem;
-        border-radius: 0.75rem;
         width: 70%;
-        color: #cccccc;
-        font-weight: 500;
-        font-size: 1rem;
-        margin-top: 1rem;
     }
 }
 
