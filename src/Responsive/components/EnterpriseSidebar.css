@@ -1,0 +1,56 @@
+@media only screen and (max-width: 400px) {
+    .enterpriseSidebar-container {
+        width: 100%;
+        height: 5rem;
+        position: absolute;
+        bottom: 0;
+        border-radius: 0;
+        margin-bottom: -0.45rem;
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .sidebar-links-container {
+        flex-direction: row;
+        padding-top: 0rem;
+        width: 72.5%;
+        height: 5rem;
+        padding-left: 0.25rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #link {
+        font-size: 0.95rem;
+        height: 2.75rem;
+        width: 46.5%;
+        margin-top: 0;
+        border: 0;
+        margin-right: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .logout-container {
+        height: 5rem;
+        width: 25%;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .logout {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.5rem;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #logout-icon {
+        font-size: 1.35rem;
+        margin-right: 0.25rem;
+    }
+}

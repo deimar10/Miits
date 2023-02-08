@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import './Menu.css';
+import '../../Responsive/pages/Menu.css';
 import Footer from '../../Components/Footer/Footer';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';

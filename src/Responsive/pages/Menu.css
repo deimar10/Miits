@@ -1,0 +1,15 @@
+@media only screen and (max-width: 400px) {
+    .menu-introduction {
+        width: 90%;
+        flex-direction: column;
+        font-size: 0.85rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #menu-icon {
+        font-size: 1.75rem;
+    }
+}

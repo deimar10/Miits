@@ -1,6 +1,7 @@
 import React from 'react';
 import {useLocation} from 'react-router-dom';
 import './EnterpriseNav.css';
+import '../../Responsive/components/EnterpriseNav.css';
 import {FaMoon} from 'react-icons/fa';
 import {HiSun} from 'react-icons/hi';
 

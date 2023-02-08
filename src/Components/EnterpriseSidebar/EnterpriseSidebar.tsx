@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import './EnterpriseSidebar.css';
+import '../../Responsive/components/EnterpriseSidebar.css';
 import {IoIosSettings} from 'react-icons/io';
 import {AiFillPlusCircle} from 'react-icons/ai';
 import {BiMenu} from 'react-icons/bi';
