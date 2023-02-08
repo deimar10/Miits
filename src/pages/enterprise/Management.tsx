@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate, useLocation} from 'react-router-dom';
 import './Management.css';
+import '../../Responsive/pages/Management.css';
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from "../../Components/Footer/Footer";
