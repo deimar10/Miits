@@ -1,5 +1,6 @@
 import React from 'react';
 import './ActionModal.css';
+import '../../Responsive/components/ActionModal.css';
 import {MdClose} from 'react-icons/md';
 
 function ActionModal({modal, handleModalClose}: any) {

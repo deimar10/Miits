@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import './CreateOffer.css';
+import '../../Responsive/pages/CreateOffer.css';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
 import Footer from '../../Components/Footer/Footer';
