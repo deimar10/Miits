@@ -13,16 +13,14 @@ function Notification({isExpiring, theme}: any) {
         }}>
             <div className="notification-header">
                 <h1>Aegub päeva pärast</h1>
-                <div className="header-icons">
-                    <BiDrink />
-                    <AiFillCalendar />
-                </div>
             </div>
             {typeof isExpiring !== "undefined" && isExpiring.length !== 0 ? isExpiring.map((favorite: OfferInterface) => {
                 return (
                     <div className="notification-item" key={favorite.id}>
                         <div className="notification-img">
                             <img src={favorite.image} alt="offer" />
+                            {favorite.category === 'Drinks' ? <span id="expiring-category"><BiDrink /></span> :
+                                <span id="expiring-category"><AiFillCalendar /></span>}
                         </div>
                         <div className="notification-details">
                             <h3>{favorite.location}</h3>
