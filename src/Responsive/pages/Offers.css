@@ -58,3 +58,28 @@
     }
 }
 
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .headings {
+        gap: 10.5rem;
+        width: 67.5%;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .headings h2 {
+        margin-left: -10rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .sideBar {
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .location-filter {
+        left: 12.5rem;
+    }
+}
+

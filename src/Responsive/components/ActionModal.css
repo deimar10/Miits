@@ -7,3 +7,9 @@
         top: 7rem;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .action-container {
+        width: 17.5%;
+    }
+}

@@ -110,3 +110,10 @@
         font-size: 0.95rem;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .details-image {
+        height: 22.5rem;
+        width: 100%;
+    }
+}

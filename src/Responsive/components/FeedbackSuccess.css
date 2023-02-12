@@ -4,3 +4,9 @@
         right: 8rem;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    #feedback-success-notification {
+        right: 35rem;
+    }
+}

@@ -76,3 +76,9 @@
         right: 0.6rem;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    #search-icon {
+        left: 20rem;
+    }
+}

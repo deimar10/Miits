@@ -32,4 +32,17 @@
     }
 }
 
+@media (min-width: 1700px) and (max-width: 2050px) {
+    .offers-grid-container {
+        grid-template-columns: auto auto auto;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1700px) and (max-width: 2050px) {
+    .sideBar {
+        width: 4.5%;
+    }
+}
+
 
