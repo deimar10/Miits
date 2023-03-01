@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import './Register.css';
 import '../../Responsive/pages/Register.css';
+import axios from 'axios';
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {BsArrowRepeat} from 'react-icons/bs';
@@ -29,7 +30,14 @@ function Register({register, setRegister}: Props) {
         e.preventDefault();
         let isValid = validate();
 
-        if(isValid) {
+        if(isValid && process.env.REACT_APP_REGISTER) {
+            axios.post(process.env.REACT_APP_REGISTER, {
+                username: register.username,
+                password: register.password
+            }).catch(error => {
+                console.log(error);
+            });
+
             setRegisterError({...registerError, passwordError: '', passwordRepeatError: '', usernameError: ''});
             navigate('/enterprise/login');
         }
