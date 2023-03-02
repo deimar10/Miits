@@ -106,7 +106,6 @@ function App() {
                   setRegister={setRegister} />}
               />
               <Route path="/enterprise/login" element={<Login
-                  register={register}
                   setAuth={setAuth}
                   auth={auth} />}
               />

@@ -10,7 +10,6 @@ import {RiLockPasswordFill} from 'react-icons/ri';
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi';
 
 interface Props {
-    register: {username: string, password: string},
     setAuth: (auth: any) => void,
     auth: object
 }
