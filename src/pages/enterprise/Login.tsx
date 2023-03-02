@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Login.css';
 import '../../Responsive/pages/Login.css';
+import axios from 'axios';
 import {login} from '../../Interfaces/interface';
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
@@ -14,7 +15,7 @@ interface Props {
     auth: object
 }
 
-function Login({register, setAuth, auth}: Props) {
+function Login({setAuth, auth}: Props) {
 
     const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ function Login({register, setAuth, auth}: Props) {
         password: ''
     });
     const [loginError, setLoginError] = useState({
-        userError: '',
+        usernameError: '',
         passwordError: ''
     });
 
@@ -32,19 +33,19 @@ function Login({register, setAuth, auth}: Props) {
     }
 
     const loginValidate = () => {
-        let userError;
+        let nameError;
         let passwordError;
 
-        if(!register.username || register.username !== login.username) {
-            userError = "Vale kasutajatunnus";
+        if(!login.username) {
+            nameError = 'Kasutajanimi ei saa olla tühi';
         }
 
-        if(!register.password || register.password !== login.password) {
-            passwordError = "Vale parool";
+        if(!login.password || !login.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)) {
+            passwordError = 'Parool ei saa ola tühi. Parool peab sisaldama 8 tähemärki ja numbrit';
         }
 
-        if(userError) {
-            setLoginError({...loginError, userError: userError});
+        if(nameError) {
+            setLoginError({...loginError, usernameError: nameError});
             return false;
         }
 
@@ -59,11 +60,22 @@ function Login({register, setAuth, auth}: Props) {
         e.preventDefault();
         let isValid = loginValidate();
 
-        if(isValid) {
-            setLoginError({...loginError, userError: '', passwordError: ''});
-            setAuth({...auth, login: true});
+        if(isValid && process.env.REACT_APP_LOGIN) {
+            axios.post(process.env.REACT_APP_LOGIN, {
+                username: login.username,
+                password: login.password
+            }).then(response => {
+                if (response.data.auth) {
+                    setAuth({...auth, login: response.data.auth});
 
-            navigate("/enterprise/menu", {state: login.username});
+                    navigate("/enterprise/menu", {state: login.username});
+                } else {
+                    setAuth({...auth, login: response.data.auth});
+                }
+            }).catch(error => {
+                console.log(error);
+                setLoginError({...loginError, passwordError: 'Paroolid ei ühti. Sissepääs keelatud.'});
+            });
         }
     }
 
@@ -80,7 +92,7 @@ function Login({register, setAuth, auth}: Props) {
                 <div className="login-form-container">
                     <form onSubmit={handleSubmitLogin} className="login-input-container">
                         <div className="login-error-container">
-                            {loginError.userError ? <p>{loginError.userError}</p> : null}
+                            {loginError.usernameError ? <p>{loginError.usernameError}</p> : null}
                             {loginError.passwordError ? <p id="password-error">{loginError.passwordError}</p> : null}
                         </div>
                         <div className="login-fields">
