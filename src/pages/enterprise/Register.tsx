@@ -26,24 +26,7 @@ function Register({register, setRegister}: Props) {
         setRegister({...register, [e.target.name]: e.target.value});
     }
 
-    const handleSubmitRegister = (e: React.MouseEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        let isValid = validate();
-
-        if(isValid && process.env.REACT_APP_REGISTER) {
-            axios.post(process.env.REACT_APP_REGISTER, {
-                username: register.username,
-                password: register.password
-            }).catch(error => {
-                console.log(error);
-            });
-
-            setRegisterError({...registerError, passwordError: '', passwordRepeatError: '', usernameError: ''});
-            navigate('/enterprise/login');
-        }
-    }
-
-    const validate = () => {
+    const registerValidate = () => {
         let userNameError;
         let passwordError;
         let passwordRepeatError;
@@ -75,6 +58,22 @@ function Register({register, setRegister}: Props) {
             return false;
         }
         return true;
+    }
+
+    const handleSubmitRegister = (e: React.MouseEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        let isValid = registerValidate();
+
+        if(isValid && process.env.REACT_APP_REGISTER) {
+            axios.post(process.env.REACT_APP_REGISTER, {
+                username: register.username,
+                password: register.password
+            }).then(() => {
+                navigate('/enterprise/login');
+            }).catch(error => {
+               console.log(error);
+            });
+        }
     }
 
     return (
