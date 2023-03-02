@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate, useLocation} from 'react-router-dom';
 import './Management.css';
 import '../../Responsive/pages/Management.css';
+import axios from "axios";
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from "../../Components/Footer/Footer";
@@ -25,13 +26,25 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
     let { state } = useLocation();
     let navigate = useNavigate();
 
-    const offers = offersData.filter((offer: OfferInterface) => offer.enterprise === name);
-
-    const [enterpriseOffers, setEnterpriseOffers] = useState<OfferInterface[]>(offers);
+    const [enterpriseOffers, setEnterpriseOffers] = useState<OfferInterface[]>([]);
     const [viewDeleteModal, setViewDeleteModal] = useState({
         view: false,
         offer: 0,
     });
+
+    useEffect(() => {
+        handleGetEnterpriseOffers();
+    }, []);
+
+    const handleGetEnterpriseOffers = () => {
+      axios.get(`http://localhost:3002/miits/api/enterprise/offers/?enterprise=${name}`)
+          .then(response => {
+              setEnterpriseOffers(response.data);
+          })
+          .catch(error => {
+              console.log(error);
+          });
+    };
 
     const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
         const removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
