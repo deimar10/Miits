@@ -2,42 +2,37 @@ import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import './CreateOffer.css';
 import '../../Responsive/pages/CreateOffer.css';
+import axios from 'axios';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
 import Footer from '../../Components/Footer/Footer';
 import ActionModal from '../../Components/ActionModal/ActionModal';
-import {OfferInterface} from '../../Interfaces/interface';
 
 interface Props {
     theme: boolean,
     auth: object,
     setAuth: (auth: any) => void,
     handleThemeSwitch(): void,
-    offersData: any,
-    setOffers: (offers: any) => void,
 }
 
-function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOffers}: Props) {
+function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
 
     let location = useLocation();
 
     const [createError, setCreateError] = useState<{errorMessage: string}>({
         errorMessage: ''
     });
-    const [createOffer, setCreateOffer] = useState<OfferInterface>({
-        id: Math.floor(Math.random() * 300) + 1,
+    const [createOffer, setCreateOffer] = useState({
         upcoming: false,
         favorite: false,
         enterprise: location.state,
         title: "",
         category: "",
-        slug: "",
         location: "",
         date: "",
         price: 0,
         image: "",
         description: "",
-        feedback: []
     });
     const [viewCreateModal, setViewCreateModal] = useState({
         view: false,
@@ -45,7 +40,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
     });
 
     const handleOfferChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
-        setCreateOffer({...createOffer, [e.target.name]: e.target.value, slug: createOffer.title});
+        setCreateOffer({...createOffer, [e.target.name]: e.target.value});
     }
 
     const handleImageUploadChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
@@ -74,10 +69,25 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch, offersData, setOf
         let isValid = validate();
 
         if (isValid) {
-            setCreateError({...createError, errorMessage: ""});
-
-            setOffers([...offersData, createOffer]);
-            setViewCreateModal({...viewCreateModal, view: true, offer: createOffer.id});
+            axios.post('http://localhost:3002/miits/api/enterprise/offer/create', {
+                upcoming: createOffer.upcoming,
+                favorite: createOffer.favorite,
+                enterprise: createOffer.enterprise,
+                title: createOffer.title,
+                category: createOffer.category,
+                location: createOffer.location,
+                date: createOffer.date,
+                price: createOffer.price,
+                image: createOffer.image,
+                description: createOffer.description
+            })
+                .then((response) => {
+                    setCreateError({...createError, errorMessage: ''});
+                    setViewCreateModal({...viewCreateModal, view: true, offer: response.data.id});
+                })
+                .catch(error => {
+                   console.log(error);
+                });
         }
     }
 

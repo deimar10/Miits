@@ -133,8 +133,6 @@ function App() {
                   theme={theme}
                   auth={auth}
                   setAuth={setAuth}
-                  setOffers={setOffers}
-                  offersData={offersData}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
           </Routes>
