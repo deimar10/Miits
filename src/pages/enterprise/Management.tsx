@@ -12,15 +12,13 @@ import {FaTrash} from 'react-icons/fa';
 import {MdEdit} from 'react-icons/md';
 
 interface Props {
-    offersData: any,
-    setOffers: (offers: any) => void,
     theme: boolean,
     handleThemeSwitch(): void,
     auth: object,
     setAuth: (auth: any) => void,
 }
 
-function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setAuth}: Props) {
+function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
 
     let { name } = useParams();
     let { state } = useLocation();
@@ -47,11 +45,14 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
     };
 
     const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
-        const removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
-        setEnterpriseOffers(removedOffer);
-
-        const filterOffers = offersData.filter((offer: OfferInterface) => offer.id !== id);
-        setOffers(filterOffers);
+        axios.delete(`http://localhost:3002/miits/api/enterprise/offer/delete/${id}`)
+            .then(() => {
+                let removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
+                setEnterpriseOffers(removedOffer);
+            })
+            .catch(error => {
+                console.log(error);
+            });
 
         setViewDeleteModal({...viewDeleteModal, view: true, offer: id});
     }
@@ -102,9 +103,9 @@ function Management({offersData, setOffers, theme, handleThemeSwitch, auth, setA
                                     <td>{offer.title}</td>
                                     <td>{offer.price}</td>
                                     <div className="feedback-cell-container">
-                                    {offer.feedback.map((feedback:{comment: string, name: string}, index: number) => {
+                                    {offer.feedback.map((feedback:{comment: string, name: string, tagasiside_id?: number}) => {
                                         return (
-                                            <div className="feedback-cell" key={index}>
+                                            <div className="feedback-cell" key={feedback.tagasiside_id}>
                                                 <td id="offer-feedbackName">{feedback.name}</td>
                                                 <td>{feedback.comment}</td>
                                             </div>

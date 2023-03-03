@@ -116,11 +116,9 @@ function App() {
                   handleThemeSwitch={handleThemeSwitch} />}
               />
               <Route path="/enterprise/management/:name" element={<Management
-                  offersData={offersData}
                   theme={theme}
                   auth={auth}
                   setAuth={setAuth}
-                  setOffers={setOffers}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
               <Route path="/enterprise/edit/:title" element={<EditOffer
