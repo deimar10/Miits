@@ -131,7 +131,6 @@ function App() {
                   theme={theme}
                   auth={auth}
                   setAuth={setAuth}
-                  setOffers={setOffers}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
               <Route path="/enterprise/create-offer" element={<CreateOffer

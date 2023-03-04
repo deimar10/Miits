@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import './EditOffer.css';
 import '../../Responsive/pages/EditOffer.css';
+import axios from 'axios';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from '../../Components/Footer/Footer';
@@ -10,14 +11,13 @@ import {OfferInterface} from "../../Interfaces/interface";
 
 interface Props {
     offersData: any,
-    setOffers: (offers: any) => void,
     theme: boolean,
     handleThemeSwitch(): void,
     auth: object,
     setAuth: (auth: any) => void
 }
 
-function EditOffer({offersData, setOffers, theme, handleThemeSwitch, auth, setAuth}: Props) {
+function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props) {
 
     const { title } = useParams();
 
@@ -33,8 +33,18 @@ function EditOffer({offersData, setOffers, theme, handleThemeSwitch, auth, setAu
     })
 
     useEffect(() => {
-        setEditOffer({...offer});
-    }, [title])
+        handleGetSingleOffer();
+    }, [])
+
+    const handleGetSingleOffer = () => {
+        axios.get(`http://localhost:3002/miits/api/user/offers/offer-details/${title}`)
+            .then(response => {
+                setEditOffer(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     const handleOfferChange = (e:React.ChangeEvent<HTMLInputElement> | any) => {
         setEditOffer({...editOffer, [e.target.name]: e.target.valueAsNumber || e.target.value});
@@ -59,12 +69,21 @@ function EditOffer({offersData, setOffers, theme, handleThemeSwitch, auth, setAu
         let isValid = validate();
 
         if (isValid) {
-            setEditError({...editError, errorMessage: ""});
-
-            let offers = offersData.filter((offer: OfferInterface) => offer.id !== editOffer.id);
-            setOffers([...offers, editOffer]);
-
-            setViewEditModal({...viewEditModal, view: true, offer: editOffer.id});
+            axios.put(`http://localhost:3002/miits/api/enterprise/offer/edit/${editOffer.id}`, {
+                title: editOffer.title,
+                category: editOffer.category,
+                location: editOffer.location,
+                date: editOffer.date,
+                price: editOffer.price,
+                description: editOffer.description
+            })
+                .then(() => {
+                    setViewEditModal({...viewEditModal, view: true, offer: editOffer.id});
+                    setEditError({...editError, errorMessage: ""});
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 
