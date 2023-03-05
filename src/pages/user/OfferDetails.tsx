@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import './OfferDetails.css';
 import '../../Responsive/pages/OfferDetails.css';
+import axios from 'axios';
 import {OfferInterface} from "../../Interfaces/interface";
 import {feedback} from "../../Interfaces/interface";
 import Nav from '../../Components/Nav/Nav';
@@ -30,7 +31,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
 
     const offer = offersData.find((offer: OfferInterface) => offer.slug === slug);
 
-    const [offerSelected, setOfferSelected] = useState<OfferInterface>({...offer});
+    const [offerSelected, setOfferSelected] = useState<OfferInterface | any>({...offer});
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const [feedback, setFeedback] = useState<feedback>({
         name: "",
@@ -67,8 +68,18 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
             setIsFavorite(true);
         }
 
-        setOfferSelected({...offer});
+        handleGetSingleOffer();
     }, [slug, offersData])
+
+    const handleGetSingleOffer = () => {
+        axios.get(`http://localhost:3002/miits/api/user/offers/offer-details/${slug}`)
+            .then(response => {
+                setOfferSelected(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
@@ -82,17 +93,21 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
         let isValid = handleValidate();
 
         if(isValid) {
-            let offers = [...offersData];
             let offerFeedback = [...offerSelected.feedback];
 
-            offerFeedback.push(feedback);
-            setOfferSelected({...offerSelected, feedback: offerFeedback});
-
-            offers.map((offer: OfferInterface) => {
-                if (offer.slug === offerSelected.slug) {return offer.feedback = offerFeedback;}
+            axios.post(`http://localhost:3002/miits/api/user/feedback/${slug}`, {
+                name: feedback.name,
+                comment: feedback.comment
             })
-            setOffers(offers);
-            setFeedback({...feedback, commentError: "", nameError: ""});
+                .then(response => {
+                    setFeedback({...feedback, commentError: "", nameError: ""});
+
+                    offerFeedback.push(response.data);
+                    setOfferSelected({...offerSelected, feedback: offerFeedback});
+                })
+                .catch(error => {
+                    console.log(error);
+                });
 
             setSuccess(true);
         }
@@ -171,9 +186,9 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                     <h2>Kasutaja Tagasiside</h2>
                     {success ? <FeedbackSuccess /> : null}
                     <div className="user-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
-                        {offerSelected.feedback.length !== 0 ? offerSelected.feedback.map((feedback: {comment: string, name: string}) => {
+                        {offerSelected.feedback.length !== 0 ? offerSelected.feedback.map((feedback: {comment: string, name: string, tagasiside_id: string}) => {
                             return (
-                                <div className="user-feedback" key={feedback.comment}>
+                                <div className="user-feedback" key={feedback.tagasiside_id}>
                                     <h3>{feedback.name}</h3>
                                     <p>{feedback.comment}</p>
                                 </div>
