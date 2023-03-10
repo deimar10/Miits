@@ -77,15 +77,15 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                     <div className="sideBar-container">
                         <div className="location-filter" style={window.innerWidth <= 400 ? mobileLocationFilterStyles : locationFilterStyles}>
                             <ul style={{ display: locationMenu ? '' : 'none'}}>
-                                <li onClick={e => handleLocation('Tartu')}>Tartu</li>
-                                <li onClick={e => handleLocation('Tallinn')}>Tallinn</li>
-                                <li onClick={e => handleLocation('Pärnu')}>Pärnu</li>
+                                <li data-cy="Tartu" onClick={e => handleLocation('Tartu')}>Tartu</li>
+                                <li data-cy="Pärnu" onClick={e => handleLocation('Tallinn')}>Tallinn</li>
+                                <li data-cy="Tallinn" onClick={e => handleLocation('Pärnu')}>Pärnu</li>
                             </ul>
                         </div>
                         <div className="sideBar">
                             <ImLocation2 id="sideBar-icons" name="location" onClick={e => handleLocationSelect() } />
-                            <AiFillCalendar id="sideBar-icons" onClick={e => handleSelected('events')} />
-                            <BiDrink id="sideBar-icons" onClick={e => handleSelected('drinks')} />
+                            <AiFillCalendar id="sideBar-icons" data-cy="events" onClick={e => handleSelected('events')} />
+                            <BiDrink id="sideBar-icons" data-cy="drinks" onClick={e => handleSelected('drinks')} />
                             <FaWallet id="sideBar-icons" data-cy="price" onClick={e => handleSelected('price')} />
                             <HiClock id="sideBar-icons" data-cy="date" onClick={e => handleSelected('date')} />
                         </div>
