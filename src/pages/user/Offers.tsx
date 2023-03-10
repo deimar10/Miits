@@ -75,7 +75,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                 </div>
                 <div className="grid-wrapper">
                     <div className="sideBar-container">
-                        <div  className="location-filter" style={window.innerWidth <= 400 ? mobileLocationFilterStyles : locationFilterStyles}>
+                        <div className="location-filter" style={window.innerWidth <= 400 ? mobileLocationFilterStyles : locationFilterStyles}>
                             <ul style={{ display: locationMenu ? '' : 'none'}}>
                                 <li onClick={e => handleLocation('Tartu')}>Tartu</li>
                                 <li onClick={e => handleLocation('Tallinn')}>Tallinn</li>
@@ -86,8 +86,8 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                             <ImLocation2 id="sideBar-icons" name="location" onClick={e => handleLocationSelect() } />
                             <AiFillCalendar id="sideBar-icons" onClick={e => handleSelected('events')} />
                             <BiDrink id="sideBar-icons" onClick={e => handleSelected('drinks')} />
-                            <FaWallet id="sideBar-icons" onClick={e => handleSelected('price')} />
-                            <HiClock id="sideBar-icons" onClick={e => handleSelected('date')} />
+                            <FaWallet id="sideBar-icons" data-cy="price" onClick={e => handleSelected('price')} />
+                            <HiClock id="sideBar-icons" data-cy="date" onClick={e => handleSelected('date')} />
                         </div>
                     </div>
                     <Offer
