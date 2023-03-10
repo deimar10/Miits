@@ -67,7 +67,7 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                 </h2>
             </div>
             <div className="nav-back-container" style={{color: theme ? 'white' : 'black'}}>
-               <span onClick={handleNavigateBack}>
+               <span data-cy="nav-back" onClick={handleNavigateBack}>
                     <HiChevronLeft id="back-icon" />
                     <h3>Tagasi</h3>
                </span>

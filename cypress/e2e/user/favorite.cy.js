@@ -21,7 +21,7 @@ describe('Check that offers can be marked as favorite', () => {
 
         cy.get('.favorites-grid-item').should('contain.text', 'Tänavune suurim üritus, kus Dj Matrix & Lulle astuvad taas kord Shoortersis lavale.');
     });
-
+    
 })
 
 describe('Check that offers marked as favorite can be removed from favorites', () => {
@@ -38,6 +38,24 @@ describe('Check that offers marked as favorite can be removed from favorites', (
         cy.get('button').should('contain.text', 'Eemalda').click();
 
         cy.get('.favorites-grid-item').should('not.exist');
+    });
+
+})
+
+describe('Check the count displayed under the icon', () => {
+
+    it('Checks the displayed number of offers marked as favorite', () => {
+        cy.visit('/');
+
+        cy.get('.offers-grid-container').find('.grid-item').first().click();
+
+        cy.get('[data-cy="unmarked"]').click();
+
+        cy.get('[data-cy="favorites"]').click();
+
+        cy.get('[data-cy="nav-back"]').click();
+        
+        cy.get('#fav-count').should('contain.text', '1');
     });
 
 })
