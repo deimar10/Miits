@@ -46,7 +46,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
             <img src="../../assets/logo/logo-dark.png" alt="logo-dark" />
           </div>
           <div className="nav-input-container">
-              {!theme ? <FaMoon id="theme" onClick={handleThemeSwitch} /> : <HiSun id="theme" onClick={handleThemeSwitch} />}
+              {!theme ? <FaMoon id="theme" data-cy="dark" onClick={handleThemeSwitch} /> : <HiSun id="theme" onClick={handleThemeSwitch} />}
               <TbSearch id="search-icon" />
               <input
                   type="text"
@@ -60,7 +60,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
           </div>
           <div className="nav-icons-container">
               <Link to={'/offers/favorites'}>
-                  <FaRegHeart id="nav-icons" />
+                  <FaRegHeart data-cy="favorites" id="nav-icons" />
                   {favoriteCount !== 0 ? <p id="fav-count">{favoriteCount}</p> : null}
               </Link>
               <FaRegBell className="bell-icon" id="nav-icons" onClick={handleNotificationModal} />
