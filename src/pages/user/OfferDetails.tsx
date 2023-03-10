@@ -165,19 +165,19 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                         <p>Kuupäev: {offerSelected.date}</p>
                     </div>
                     <div className="details-description">
-                        <h3>
+                        <h3 data-cy="title">
                             Tiitel:<span> {offerSelected.title}</span>
                         </h3>
-                        <h3>
+                        <h3 data-cy="category">
                             Kategooria:<span> {offerSelected.category}</span>
                         </h3>
-                        <h3>
+                        <h3 data-cy="location">
                             Asukoht:<span> {offerSelected.location}</span>
                         </h3>
-                        <h3>
+                        <h3 data-cy="description">
                             Kirjeldus:<span> {offerSelected.description}</span>
                         </h3>
-                        <h3>
+                        <h3 data-cy="price">
                             Hind:<span> {offerSelected.price}€</span>
                         </h3>
                     </div>
