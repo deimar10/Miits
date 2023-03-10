@@ -100,7 +100,7 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                                 </p>
                             </div>
                             <div className="offer-icon">
-                                {info.favorite ? <FaHeart id="fav-icon" /> : <FaRegHeart id="fav-icon" onClick={e => handleAddToFavorites(info)} />}
+                                {info.favorite ? <FaHeart data-cy="marked" id="fav-icon" /> : <FaRegHeart data-cy="unmarked" id="fav-icon" onClick={e => handleAddToFavorites(info)} />}
                             </div>
                         </div>
                     </div>
