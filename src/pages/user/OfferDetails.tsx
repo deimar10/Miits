@@ -190,14 +190,14 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             return (
                                 <div className="user-feedback" key={feedback.tagasiside_id}>
                                     <h3>{feedback.name}</h3>
-                                    <p>{feedback.comment}</p>
+                                    <p data-cy="comment">{feedback.comment}</p>
                                 </div>
                             )
                         }) : <p id="empty-feedback">Tundub, et ühtegi tagasisidet ei ole lisatud. Julgelt lisage kommentaar.</p>}
                     </div>
                     <div className="details-form-container">
                         <label>Eesnimi</label>
-                        {feedback.nameError ? <p id="error-validate">{feedback.nameError}</p> : null}
+                        {feedback.nameError ? <p data-cy="name-error" id="error-validate">{feedback.nameError}</p> : null}
                         <input
                             id="form-name"
                             type="text"
