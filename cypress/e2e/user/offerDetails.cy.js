@@ -18,3 +18,19 @@ describe('Check that correct offer info is displayed on the offer-details page',
     });
 
 })
+
+describe('Check that offer-details page can be accessed from favorites', () => {
+   
+    it('Navigates to detailed view from favorites', () => {
+        cy.visit('/');
+
+        cy.get('.offers-grid-container').find('.grid-item').first().find('[data-cy="unmarked"]').click();
+
+        cy.get('[data-cy="favorites"]').click();
+        
+        cy.get('#read-more').click();
+
+        cy.get('[data-cy="title"]').should('contain.text', 'GigaBang-Shooters');
+    });
+
+})
