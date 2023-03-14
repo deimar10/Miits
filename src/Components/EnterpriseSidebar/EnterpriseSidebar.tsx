@@ -53,18 +53,18 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
                 }
                 {location[2] === 'create-offer' ?
                     <button id="link" onClick={handleNavigateToMenu}>Menüü
-                        <BiMenu id="setting-icon"/>
+                        <BiMenu id="setting-icon" />
                     </button>
                     :
                     <button id="link" onClick={handleNavigateToCreate}>Loo pakkumine
-                        <AiFillPlusCircle id="sidebar-plus-icon"/>
+                        <AiFillPlusCircle id="sidebar-plus-icon" />
                     </button>
                 }
             </div>
             <div className="logout-container">
                 <div className="logout" style={{color: theme ? 'white' : 'black'}}>
                     <RiLogoutBoxRLine id="logout-icon" />
-                    <h1 onClick={handleUserLogout}>Logi Välja</h1>
+                    <h1 data-cy="logout" onClick={handleUserLogout}>Logi Välja</h1>
                 </div>
             </div>
         </div>
