@@ -16,7 +16,7 @@ function EnterpriseNav({theme, handleThemeSwitch}: any) {
             </div>
             <div className="enterpriseName-container">
                 {!theme ? <FaMoon id="theme" onClick={handleThemeSwitch} /> : <HiSun id="theme" onClick={handleThemeSwitch} />}
-                <h1>{enterpriseLoginInfo.state}</h1>
+                <h1 data-cy="login-info">{enterpriseLoginInfo.state}</h1>
             </div>
         </nav>
     )
