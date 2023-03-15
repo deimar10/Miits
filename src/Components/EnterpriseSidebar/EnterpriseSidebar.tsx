@@ -56,7 +56,7 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
                         <BiMenu id="setting-icon" />
                     </button>
                     :
-                    <button id="link" onClick={handleNavigateToCreate}>Loo pakkumine
+                    <button data-cy="nav-to-create-offer" id="link" onClick={handleNavigateToCreate}>Loo pakkumine
                         <AiFillPlusCircle id="sidebar-plus-icon" />
                     </button>
                 }
