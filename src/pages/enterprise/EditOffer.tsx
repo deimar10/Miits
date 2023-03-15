@@ -168,7 +168,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <option value="Drinks">Drinks</option>
                         </select>
                         <div className="form-submit-container">
-                            <button type="submit">Muuda</button>
+                            <button data-cy="edit-submit" type="submit">Muuda</button>
                         </div>
                     </form>
                 </div>
