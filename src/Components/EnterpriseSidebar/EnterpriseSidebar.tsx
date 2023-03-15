@@ -47,7 +47,7 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
                         <BiMenu id="setting-icon" />
                     </button>
                     :
-                    <button id="link" onClick={handleNavigateToManagement}>Kuva Pakkumisi
+                    <button data-cy="nav-to-offers" id="link" onClick={handleNavigateToManagement}>Kuva Pakkumisi
                         <IoIosSettings id="setting-icon" />
                     </button>
                 }

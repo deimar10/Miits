@@ -100,8 +100,8 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                                     <td>
                                         <img id="offer-image" src={offer.image} alt="offer" />
                                     </td>
-                                    <td>{offer.title}</td>
-                                    <td>{offer.price}</td>
+                                    <td data-cy="offer-title">{offer.title}</td>
+                                    <td data-cy="offer-price">{offer.price}</td>
                                     <div className="feedback-cell-container">
                                     {offer.feedback.map((feedback:{comment: string, name: string, tagasiside_id?: number}) => {
                                         return (
