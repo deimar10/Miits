@@ -179,12 +179,13 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 <input style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
                                     type="file"
+                                    data-cy="image-upload"
                                     onChange={handleImageUploadChange}
                                 />
                             </div>
                         </div>
                         <div className="form-submit-container">
-                            <button type="submit">Loo pakkumine</button>
+                            <button data-cy="create-submit" type="submit">Loo pakkumine</button>
                         </div>
                     </form>
                 </div>
