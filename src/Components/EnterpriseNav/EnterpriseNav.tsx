@@ -12,11 +12,20 @@ function EnterpriseNav({theme, handleThemeSwitch}: any) {
     return (
         <nav className="enterprise-nav-container">
             <div className="enterpriseLogo-container">
-                <img src="../../assets/logo/logo-dark.png" alt="logo-dark" />
+                <img 
+                    src="../../assets/logo/logo-dark.png" 
+                    alt="logo-dark" 
+                />
             </div>
             <div className="enterpriseName-container">
-                {!theme ? <FaMoon id="theme" onClick={handleThemeSwitch} /> : <HiSun id="theme" onClick={handleThemeSwitch} />}
-                <h1 data-cy="login-info">{enterpriseLoginInfo.state}</h1>
+                {!theme ? 
+                    <FaMoon id="theme" onClick={handleThemeSwitch} /> 
+                    : 
+                    <HiSun id="theme" onClick={handleThemeSwitch} />
+                }
+                <h1 data-cy="login-info">
+                    {enterpriseLoginInfo.state}
+                </h1>
             </div>
         </nav>
     )

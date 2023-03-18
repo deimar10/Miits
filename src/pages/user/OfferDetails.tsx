@@ -155,11 +155,18 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
             <div className="details-main-container">
                 <div className="details-grid-item">
                     <div className="details-image">
-                        <img src={offerSelected.image} alt="offer" />
+                        <img 
+                            src={offerSelected.image} 
+                            alt="offer" 
+                        />
                     </div>
                     <div className="addToFavorites-container">
                         <span>
-                            {isFavorite ? <FaHeart id="fav-icon" /> : <FaRegHeart data-cy="unmarked" id="fav-icon" onClick={handleAddToFavorites} />}
+                            {isFavorite ? 
+                                <FaHeart id="fav-icon" /> 
+                                : 
+                                <FaRegHeart data-cy="unmarked" id="fav-icon" onClick={handleAddToFavorites} />
+                            }
                             <h3>Lisa lemmikuks</h3>
                          </span>
                         <p>Kuupäev: {offerSelected.date}</p>

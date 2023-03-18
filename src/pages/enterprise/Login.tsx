@@ -86,13 +86,25 @@ function Login({setAuth, auth}: Props) {
         <div className="login-parent">
             <div className="login-main-container">
                 <div className="login-illustration-container">
-                    <img src="../assets/logo/logo-dark.png" alt="logo" />
+                    <img 
+                        src="../assets/logo/logo-dark.png" 
+                        alt="logo" 
+                    />
                 </div>
                 <div className="login-form-container">
-                    <form onSubmit={handleSubmitLogin} className="login-input-container">
+                    <form 
+                        onSubmit={handleSubmitLogin} 
+                        className="login-input-container"
+                    >
                         <div className="login-error-container">
-                            {loginError.usernameError ? <p>{loginError.usernameError}</p> : null}
-                            {loginError.passwordError ? <p id="password-error">{loginError.passwordError}</p> : null}
+                            {loginError.usernameError ? 
+                                <p>{loginError.usernameError}</p> 
+                                : null
+                            }
+                            {loginError.passwordError ? 
+                                <p id="password-error">{loginError.passwordError}</p> 
+                                : null
+                            }
                         </div>
                         <div className="login-fields">
                             <div className="input-icon">

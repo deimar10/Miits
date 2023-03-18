@@ -73,8 +73,14 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
 
     return (
         <>
-            <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
-            {viewDeleteModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
+            <EnterpriseNav 
+                theme={theme} 
+                handleThemeSwitch={handleThemeSwitch} 
+            />
+            {viewDeleteModal.view ? 
+                <ActionModal modal={settings} handleModalClose={handleModalClose} /> 
+                : null
+            }
             <div className="enterprise-offers-container">
                 <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>

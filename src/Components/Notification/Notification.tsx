@@ -18,14 +18,28 @@ function Notification({isExpiring, theme}: any) {
                 return (
                     <div className="notification-item" key={favorite.id}>
                         <div className="notification-img">
-                            <img src={favorite.image} alt="offer" />
-                            {favorite.category === 'Drinks' ? <span id="expiring-category"><BiDrink /></span> :
-                                <span id="expiring-category"><AiFillCalendar /></span>}
+                            <img 
+                                src={favorite.image} 
+                                alt="offer" 
+                            />
+                            {favorite.category === 'Drinks' ? 
+                                <span id="expiring-category">
+                                    <BiDrink />
+                                </span>
+                                :
+                                <span id="expiring-category">
+                                    <AiFillCalendar />
+                                </span>
+                            }
                         </div>
                         <div className="notification-details">
                             <h3>{favorite.location}</h3>
-                            <h3 id="notification-title">{favorite.title}</h3>
-                            <p id="notification-price">{favorite.price}€</p>
+                            <h3 id="notification-title">
+                                {favorite.title}
+                            </h3>
+                            <p id="notification-price">
+                                {favorite.price}€
+                            </p>
                         </div>
                     </div>
                     )

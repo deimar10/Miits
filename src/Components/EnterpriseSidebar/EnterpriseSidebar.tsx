@@ -64,7 +64,9 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
             <div className="logout-container">
                 <div className="logout" style={{color: theme ? 'white' : 'black'}}>
                     <RiLogoutBoxRLine id="logout-icon" />
-                    <h1 data-cy="logout" onClick={handleUserLogout}>Logi Välja</h1>
+                    <h1 data-cy="logout" onClick={handleUserLogout}>
+                        Logi Välja
+                    </h1>
                 </div>
             </div>
         </div>

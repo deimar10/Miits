@@ -103,10 +103,20 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
 
     return (
         <>
-            <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
-            {viewCreateModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
+            <EnterpriseNav 
+                theme={theme} 
+                handleThemeSwitch={handleThemeSwitch} 
+            />
+            {viewCreateModal.view ? 
+                <ActionModal modal={settings} handleModalClose={handleModalClose} /> 
+                : null
+            }
             <div className="enterprise-create-container">
-                <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
+                <EnterpriseSidebar 
+                    theme={theme} 
+                    auth={auth} 
+                    setAuth={setAuth} 
+                />
                 <div className="create-offer-container" style={{color: theme ? 'white' : 'black'}}>
                     <div className="management-header">
                         <h1>Loo pakkumine</h1>

@@ -80,7 +80,10 @@ function Register({register, setRegister}: Props) {
         <div className="register-parent">
             <div className="register-main-container">
                 <div className="register-form-container">
-                    <form onSubmit={handleSubmitRegister} className="register-input-container">
+                    <form 
+                        onSubmit={handleSubmitRegister} 
+                        className="register-input-container"
+                    >
                         <div className="register-fields">
                             <div className="input-icon">
                                 <FaUserAlt />

@@ -67,7 +67,10 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                 </h2>
             </div>
             <div className="nav-back-container" style={{color: theme ? 'white' : 'black'}}>
-               <span data-cy="nav-back" onClick={handleNavigateBack}>
+               <span 
+                   data-cy="nav-back" 
+                   onClick={handleNavigateBack}
+               >
                     <HiChevronLeft id="back-icon" />
                     <h3>Tagasi</h3>
                </span>
@@ -78,7 +81,10 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                     return (
                         <div className="favorites-grid-item" key={favorite.id}>
                             <div className="offer-image">
-                                <img src={favorite.image} alt="offer" />
+                                <img 
+                                    src={favorite.image} 
+                                    alt="offer" 
+                                />
                             </div>
                             <div className="offer-description-container">
                                 <div className="offer-description" style={{color: theme ? 'white' : 'black'}}>
@@ -94,7 +100,9 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                                     <Link id="read-more" to={`/offers/offer-details/${favorite.slug}`}>
                                         Loe lähemalt
                                     </Link>
-                                    <button onClick={e => handleRemoveFavorite(favorite.id)}>Eemalda</button>
+                                    <button onClick={e => handleRemoveFavorite(favorite.id)}>
+                                        Eemalda
+                                    </button>
                                 </div>
                             </div>
                         </div>

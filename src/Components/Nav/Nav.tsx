@@ -43,10 +43,17 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
     return (
       <nav className="nav-container">
           <div className="nav-logo">
-            <img src="../../assets/logo/logo-dark.png" alt="logo-dark" />
+            <img 
+                src="../../assets/logo/logo-dark.png" 
+                alt="logo-dark" 
+            />
           </div>
           <div className="nav-input-container">
-              {!theme ? <FaMoon id="theme" data-cy="dark" onClick={handleThemeSwitch} /> : <HiSun id="theme" onClick={handleThemeSwitch} />}
+              {!theme ? 
+                  <FaMoon id="theme" data-cy="dark" onClick={handleThemeSwitch} /> 
+                  : 
+                  <HiSun id="theme" onClick={handleThemeSwitch} />
+              }
               <TbSearch id="search-icon" />
               <input
                   type="text"
@@ -63,9 +70,19 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                   <FaRegHeart data-cy="favorites" id="nav-icons" />
                   {favoriteCount !== 0 ? <p id="fav-count">{favoriteCount}</p> : null}
               </Link>
-              <FaRegBell className="bell-icon" id="nav-icons" onClick={handleNotificationModal} />
-              {!isEmpty ? <span id="notification-count"></span> : null}
-              {notification ? <Notifcation isExpiring={isExpiring} theme={theme} notification={notification} /> : null}
+              <FaRegBell 
+                  className="bell-icon" 
+                  id="nav-icons" 
+                  onClick={handleNotificationModal} 
+              />
+              {!isEmpty ? 
+                  <span id="notification-count"></span> 
+                  : null
+              }
+              {notification ? 
+                  <Notifcation isExpiring={isExpiring} theme={theme} notification={notification} /> 
+                  : null
+              }
           </div>
       </nav>
     );

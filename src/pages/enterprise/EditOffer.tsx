@@ -99,16 +99,29 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
 
     return (
         <>
-            <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
-            {viewEditModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
+            <EnterpriseNav 
+                theme={theme} 
+                handleThemeSwitch={handleThemeSwitch}
+            />
+            {viewEditModal.view ? 
+                <ActionModal modal={settings} handleModalClose={handleModalClose} /> 
+                : null
+            }
             <div className="enterprise-edit-container">
-                <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
+                <EnterpriseSidebar 
+                    theme={theme} 
+                    auth={auth} 
+                    setAuth={setAuth}
+                />
                 <div className="edit-offer-container" style={{color: theme ? 'white' : 'black'}}>
                     <div className="management-header">
                         <h1>Muuda pakkumist</h1>
                     </div>
                     <form onSubmit={handleEditSubmit} className="edit-form-container">
-                        {editError.errorMessage ? <p id="error-validate">{editError.errorMessage}</p> : null}
+                        {editError.errorMessage ? 
+                            <p id="error-validate">{editError.errorMessage}</p> 
+                            : null
+                        }
                         <label>Tiitel</label>
                         <input style={{backgroundColor: theme ? '#161616' : 'white',
                             color: theme ? 'white' : 'black'}}
@@ -168,7 +181,9 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <option value="Drinks">Drinks</option>
                         </select>
                         <div className="form-submit-container">
-                            <button data-cy="edit-submit" type="submit">Muuda</button>
+                            <button data-cy="edit-submit" type="submit">
+                                Muuda
+                            </button>
                         </div>
                     </form>
                 </div>

@@ -15,9 +15,18 @@ function Menu({theme, handleThemeSwitch, auth, setAuth}: any) {
 
     return (
         <>
-            <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} auth={auth} setAuth={setAuth} />
+            <EnterpriseNav 
+                theme={theme} 
+                handleThemeSwitch={handleThemeSwitch} 
+                auth={auth} 
+                setAuth={setAuth} 
+            />
             <div className="menu-container">
-                <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
+                <EnterpriseSidebar 
+                    theme={theme} 
+                    auth={auth} 
+                    setAuth={setAuth} 
+                />
                 <div className="menu-introduction" style={{color: theme ? 'white' : 'black'}}>
                     <h1>
                         Siin menüüs saad hallata enda pakkumisi
