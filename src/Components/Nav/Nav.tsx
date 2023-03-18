@@ -51,7 +51,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
               <input
                   type="text"
                   name="search"
-                  placeholder="e.g Triple-Effect"
+                  placeholder="Otsi pakkumiste seast"
                   id="search"
                   onChange={handleSearch}
               />
