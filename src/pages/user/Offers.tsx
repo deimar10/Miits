@@ -57,7 +57,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
     };
 
     return (
-        <div>
+        <>
             <Nav
                 theme={theme}
                 handleThemeSwitch={handleThemeSwitch}
@@ -103,7 +103,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                 </div>
             </div>
             <Footer theme={theme} />
-        </div>
+        </>
     );
 }
 

@@ -53,7 +53,7 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
     }, [theme])
 
     return (
-        <div>
+        <>
             <Nav
                 theme={theme}
                 handleThemeSwitch={handleThemeSwitch}
@@ -109,7 +109,7 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                  </div>
             }
             <Footer theme={theme} />
-        </div>
+        </>
     );
 }
 export default Favorites;

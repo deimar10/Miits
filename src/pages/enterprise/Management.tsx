@@ -72,7 +72,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     const settings = [`Pakkumine (${viewDeleteModal.offer}) edukalt eemaldatud`, '#DC5757'];
 
     return (
-        <div>
+        <>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
             {viewDeleteModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
             <div className="enterprise-offers-container">
@@ -139,7 +139,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                 </div>
             </div>
             <Footer theme={theme} />
-        </div>
+        </>
     )
 }
 

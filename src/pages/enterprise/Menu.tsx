@@ -14,7 +14,7 @@ function Menu({theme, handleThemeSwitch, auth, setAuth}: any) {
     }, [theme])
 
     return (
-        <div>
+        <>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} auth={auth} setAuth={setAuth} />
             <div className="menu-container">
                 <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
@@ -27,7 +27,7 @@ function Menu({theme, handleThemeSwitch, auth, setAuth}: any) {
                 </div>
             </div>
             <Footer theme={theme} />
-        </div>
+        </>
     );
 }
 

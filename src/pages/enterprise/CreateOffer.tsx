@@ -102,7 +102,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
     const settings = [`Pakkumine (${viewCreateModal.offer}) edukalt loodud`, '#5EFFB1'];
 
     return (
-        <div>
+        <>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
             {viewCreateModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
             <div className="enterprise-create-container">
@@ -191,7 +191,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                 </div>
             </div>
             <Footer theme={theme} />
-        </div>
+        </>
     );
 }
 

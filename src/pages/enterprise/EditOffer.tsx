@@ -98,7 +98,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
     const settings = [`Pakkumine (${viewEditModal.offer}) edukalt muudetud`, '#275F88'];
 
     return (
-        <div>
+        <>
             <EnterpriseNav theme={theme} handleThemeSwitch={handleThemeSwitch} />
             {viewEditModal.view ? <ActionModal modal={settings} handleModalClose={handleModalClose} /> : null}
             <div className="enterprise-edit-container">
@@ -174,7 +174,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                 </div>
             </div>
             <Footer theme={theme} />
-        </div>
+        </>
     );
 }
 
