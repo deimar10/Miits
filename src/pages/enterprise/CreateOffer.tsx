@@ -180,7 +180,6 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 <select id="select" style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
                                         name="category"
-                                        className="w-full p-2 rounded-md bg-slate-800 border border-gray-700 text-white mt-4 bg-blend-color-dodge"
                                         onChange={handleOfferChange}
                                 >
                                     <option value="Event">Event</option>
