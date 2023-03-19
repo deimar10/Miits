@@ -5,7 +5,12 @@ import '../../Responsive/components/EnterpriseNav.css';
 import {FaMoon} from 'react-icons/fa';
 import {HiSun} from 'react-icons/hi';
 
-function EnterpriseNav({theme, handleThemeSwitch}: any) {
+interface Props {
+    theme: boolean,
+    handleThemeSwitch(): void
+}
+
+function EnterpriseNav({theme, handleThemeSwitch}: Props) {
 
     const enterpriseLoginInfo = useLocation();
 

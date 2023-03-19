@@ -3,7 +3,12 @@ import './ActionModal.css';
 import '../../Responsive/components/ActionModal.css';
 import {MdClose} from 'react-icons/md';
 
-function ActionModal({modal, handleModalClose}: any) {
+interface Props {
+    modal: string[],
+    handleModalClose(): void,
+}
+
+function ActionModal({modal, handleModalClose}: Props) {
     return (
         <div className="action-container" style={{backgroundColor: modal[1]}}>
             <p data-cy="action-description">

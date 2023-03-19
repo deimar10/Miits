@@ -8,7 +8,16 @@ import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell, FaRegHeart} from 'react-
 import {HiSun} from 'react-icons/hi';
 import {TbSearch} from 'react-icons/tb';
 
-function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, setSearch, favoriteCount}: any) {
+interface Props {
+    theme: boolean,
+    handleThemeSwitch(): void,
+    handleNotificationModal(): void,
+    notification: boolean,
+    setSearch?: any;
+    favoriteCount?: number
+}
+
+function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, setSearch, favoriteCount}: Props) {
 
     const [isEmpty, setIsEmpty] = useState<boolean>(true);
     const [isExpiring, setExpiring] = useState<OfferInterface[]>();
@@ -86,7 +95,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                   : null
               }
               {notification ? 
-                  <Notifcation isExpiring={isExpiring} theme={theme} notification={notification} /> 
+                  <Notifcation isExpiring={isExpiring} theme={theme} /> 
                   : null
               }
           </div>

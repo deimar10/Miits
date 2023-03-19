@@ -7,7 +7,14 @@ import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSide
 import {BiDrink} from 'react-icons/bi';
 import {AiFillCalendar} from 'react-icons/ai';
 
-function Menu({theme, handleThemeSwitch, auth, setAuth}: any) {
+interface Props {
+    theme: boolean,
+    handleThemeSwitch(): void,
+    auth: any,
+    setAuth: (auth: any) => void,
+}
+
+function Menu({theme, handleThemeSwitch, auth, setAuth}: Props) {
 
     useEffect(() => {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
@@ -17,9 +24,7 @@ function Menu({theme, handleThemeSwitch, auth, setAuth}: any) {
         <>
             <EnterpriseNav 
                 theme={theme} 
-                handleThemeSwitch={handleThemeSwitch} 
-                auth={auth} 
-                setAuth={setAuth} 
+                handleThemeSwitch={handleThemeSwitch}
             />
             <div className="menu-container">
                 <EnterpriseSidebar 

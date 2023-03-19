@@ -6,7 +6,18 @@ import {OfferInterface} from "../../Interfaces/interface";
 import {FaRegHeart,FaHeart} from 'react-icons/fa';
 import offers from "../../pages/user/Offers";
 
-function Offer({offersData, selected, location, theme, search, favorites, setFavorites, setOffers}: any ) {
+interface Props {
+    offersData: OfferInterface[],
+    selected: string | undefined,
+    location: string | undefined,
+    theme: boolean,
+    search: string | undefined,
+    favorites: OfferInterface[],
+    setFavorites: (favorites: any) => void,
+    setOffers: (offers: any) => void
+}
+
+function Offer({offersData, selected, location, theme, search, favorites, setFavorites, setOffers}: Props) {
 
     const handleSortOffers = (): OfferInterface[] => {
         switch (selected) {

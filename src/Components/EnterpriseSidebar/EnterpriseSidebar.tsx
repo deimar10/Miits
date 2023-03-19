@@ -7,7 +7,13 @@ import {AiFillPlusCircle} from 'react-icons/ai';
 import {BiMenu} from 'react-icons/bi';
 import {RiLogoutBoxRLine} from 'react-icons/ri';
 
-function EnterpriseSidebar({theme, auth, setAuth}: any) {
+interface Props {
+    theme: boolean,
+    auth: any,
+    setAuth: (auth: any) => void,
+}
+
+function EnterpriseSidebar({theme, auth, setAuth}: Props) {
 
     let navigate = useNavigate();
 

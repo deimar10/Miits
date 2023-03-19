@@ -5,7 +5,12 @@ import {OfferInterface} from "../../Interfaces/interface";
 import {BiDrink} from 'react-icons/bi';
 import {AiFillCalendar} from 'react-icons/ai';
 
-function Notification({isExpiring, theme}: any) {
+interface Props {
+    isExpiring: OfferInterface[] | undefined,
+    theme: boolean
+}
+
+function Notification({isExpiring, theme}: Props) {
     return (
         <div className="notification-container" style={{
             backgroundColor: theme ? 'rgba(73, 73, 73, 0.37)' : 'rgba(0, 0, 0, 0.6)',
