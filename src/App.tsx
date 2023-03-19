@@ -51,25 +51,25 @@ function App() {
 
         axios.get('http://localhost:3002/miits/api/user/offers')
             .then(response => {
-                response.data.map((object: OfferInterface) => {
+                const updatedOffers = response.data.map((object: OfferInterface) => {
                     if (date < new Date(object.date).getTime()) {
-                        return object.upcoming = true;
+                        return {...object, upcoming: true};
                     } else {
-                        return object.upcoming = false;
+                        return {...object, upcoming: false};
                     }
-                });
-
-                 response.data.map((object: OfferInterface) => {
+                }).map((object: OfferInterface) => {
                     if (localFavorites.find((favorite: OfferInterface) => favorite.id === object.id) !== undefined) {
-                        return object.favorite = true;
+                        return {...object, favorite: true};
+                    } else {
+                        return object;
                     }
                 });
-                setOffers(response.data);
+                setOffers(updatedOffers);
             })
             .catch(error => {
                 console.log(error);
             });
-    }, [])
+    }, []);
 
   return (
       <BrowserRouter>
