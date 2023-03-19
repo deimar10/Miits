@@ -40,3 +40,9 @@
         height: 9rem;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .register-form-container {
+        height: 52.5vh;
+    }
+}

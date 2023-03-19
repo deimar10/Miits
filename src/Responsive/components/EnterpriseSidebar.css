@@ -71,6 +71,12 @@
 
 @media (min-width: 1750px) and (max-width: 2050px) {
     .enterpriseSidebar-container {
-        height: 98%;
+        height: 92.5%;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .logout-container {
+        height: 60%;
     }
 }

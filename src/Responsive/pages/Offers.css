@@ -79,6 +79,12 @@
 
 @media (min-width: 1750px) and (max-width: 2050px) {
     .location-filter {
+        top: 22rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .location-filter {
         left: 12.5rem;
     }
 }

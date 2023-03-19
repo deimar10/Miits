@@ -11,13 +11,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15%;
+    width: 16.25%;
 }
 
 #footer-social-icons {
     color: black;
     font-size: 1.75rem;
-    padding-left: 1rem;
+    padding-left: 0.85rem;
 }
 
 #footer-social-icons:hover {
@@ -28,7 +28,7 @@
 .logo-container {
     display: flex;
     padding-right: 3rem;
-    width: 85%;
+    width: 83.75%;
     justify-content: end;
     align-items: center;
 }

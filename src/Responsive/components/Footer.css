@@ -9,3 +9,9 @@
         width: 7.5%;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .social-icons-container {
+        width: 19.5%;
+    }
+}

@@ -94,6 +94,12 @@
 
 @media (min-width: 1750px) and (max-width: 2050px) {
     .form-submit-container {
-        width: 47.5rem;
+        width: 50rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .create-form-container {
+        width: 50%;
     }
 }

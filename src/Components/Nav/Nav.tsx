@@ -67,7 +67,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
               <input
                   type="text"
                   name="search"
-                  placeholder="Otsi pakkumiste seast"
+                  placeholder={window.innerWidth <= 400 ? 'e.g Triple-Effect' : 'Otsi pakkumiste seast'}
                   id="search"
                   onChange={handleSearch}
               />
