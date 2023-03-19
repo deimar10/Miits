@@ -231,7 +231,6 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                         <input
                             id="form-feedback"
                             type="text"
-                            placeholder="e.g Väga lahe pakkumine. Kindlasti kaasan oma sõbrad"
                             name="comment"
                             value={feedback.comment}
                             onChange={handleFeedbackChange}
