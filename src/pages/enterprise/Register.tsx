@@ -128,9 +128,18 @@ function Register({register, setRegister}: Props) {
                             Registreeri
                         </button>
                         <div className="error-container">
-                            {registerError.usernameError ? <p>{registerError.usernameError}</p> : null}
-                            {registerError.passwordError ? <p>{registerError.passwordError}</p> : null}
-                            {registerError.passwordRepeatError ? <p data-cy="password_repeat">{registerError.passwordRepeatError}</p> : null}
+                            {registerError.usernameError ? 
+                                <p>{registerError.usernameError}</p> 
+                                : null
+                            }
+                            {registerError.passwordError ? 
+                                <p>{registerError.passwordError}</p>
+                                : null
+                            }
+                            {registerError.passwordRepeatError ? 
+                                <p data-cy="password_repeat">{registerError.passwordRepeatError}</p> 
+                                : null
+                            }
                         </div>
                     </form>
                 </div>

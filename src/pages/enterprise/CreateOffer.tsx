@@ -122,7 +122,10 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                         <h1>Loo pakkumine</h1>
                     </div>
                     <form onSubmit={handleCreateSubmit} className="create-form-container">
-                        {createError.errorMessage ? <p id="error-validate">{createError.errorMessage}</p> : null}
+                        {createError.errorMessage ? 
+                            <p id="error-validate">{createError.errorMessage}</p> 
+                            : null
+                        }
                         <label>Tiitel</label>
                         <input style={{backgroundColor: theme ? '#161616' : 'white',
                             color: theme ? 'white' : 'black'}}
@@ -195,7 +198,9 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             </div>
                         </div>
                         <div className="form-submit-container">
-                            <button data-cy="create-submit" type="submit">Loo pakkumine</button>
+                            <button data-cy="create-submit" type="submit">
+                                Loo pakkumine
+                            </button>
                         </div>
                     </form>
                 </div>

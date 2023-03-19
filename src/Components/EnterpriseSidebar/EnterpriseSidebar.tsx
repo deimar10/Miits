@@ -43,20 +43,24 @@ function EnterpriseSidebar({theme, auth, setAuth}: any) {
         }}>
             <div className="sidebar-links-container">
                 {location[2] === 'management' ?
-                    <button id="link" onClick={handleNavigateToMenu}>Menüü
+                    <button id="link" onClick={handleNavigateToMenu}>
+                        Menüü
                         <BiMenu id="setting-icon" />
                     </button>
                     :
-                    <button data-cy="nav-to-offers" id="link" onClick={handleNavigateToManagement}>Kuva Pakkumisi
+                    <button data-cy="nav-to-offers" id="link" onClick={handleNavigateToManagement}>
+                        Kuva Pakkumisi
                         <IoIosSettings id="setting-icon" />
                     </button>
                 }
                 {location[2] === 'create-offer' ?
-                    <button id="link" onClick={handleNavigateToMenu}>Menüü
+                    <button id="link" onClick={handleNavigateToMenu}>
+                        Menüü
                         <BiMenu id="setting-icon" />
                     </button>
                     :
-                    <button data-cy="nav-to-create-offer" id="link" onClick={handleNavigateToCreate}>Loo pakkumine
+                    <button data-cy="nav-to-create-offer" id="link" onClick={handleNavigateToCreate}>
+                        Loo pakkumine
                         <AiFillPlusCircle id="sidebar-plus-icon" />
                     </button>
                 }

@@ -204,7 +204,10 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                     </div>
                     <div className="details-form-container">
                         <label>Eesnimi</label>
-                        {feedback.nameError ? <p data-cy="name-error" id="error-validate">{feedback.nameError}</p> : null}
+                        {feedback.nameError ?
+                            <p data-cy="name-error" id="error-validate">{feedback.nameError}</p>
+                            : null
+                        }
                         <input
                             id="form-name"
                             type="text"
@@ -215,7 +218,10 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                                     color: theme ? 'white' : 'black'}}
                         />
                         <label>Tagasiside</label>
-                        {feedback.commentError ? <p id="error-validate">{feedback.commentError}</p> : null}
+                        {feedback.commentError ?
+                            <p id="error-validate">{feedback.commentError}</p>
+                            : null
+                        }
                         <input
                             id="form-feedback"
                             type="text"

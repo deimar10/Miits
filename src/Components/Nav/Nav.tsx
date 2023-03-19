@@ -67,8 +67,14 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
           </div>
           <div className="nav-icons-container">
               <Link to={'/offers/favorites'}>
-                  <FaRegHeart data-cy="favorites" id="nav-icons" />
-                  {favoriteCount !== 0 ? <p id="fav-count">{favoriteCount}</p> : null}
+                  <FaRegHeart 
+                      data-cy="favorites" 
+                      id="nav-icons" 
+                  />
+                  {favoriteCount !== 0 ? 
+                      <p id="fav-count">{favoriteCount}</p> 
+                      : null
+                  }
               </Link>
               <FaRegBell 
                   className="bell-icon" 

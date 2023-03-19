@@ -8,7 +8,7 @@ import {AiFillCalendar} from 'react-icons/ai';
 function Notification({isExpiring, theme}: any) {
     return (
         <div className="notification-container" style={{
-           backgroundColor: theme ? 'rgba(73, 73, 73, 0.37)' : 'rgba(0, 0, 0, 0.6)',
+            backgroundColor: theme ? 'rgba(73, 73, 73, 0.37)' : 'rgba(0, 0, 0, 0.6)',
             backdropFilter: theme ? 'blur(0.2rem)' : 'blur(0.3rem)',
         }}>
             <div className="notification-header">
