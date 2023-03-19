@@ -100,7 +100,12 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                 comment: feedback.comment
             })
                 .then(response => {
-                    setFeedback({...feedback, commentError: "", nameError: ""});
+                    setFeedback({...feedback,
+                        commentError: "",
+                        nameError: "",
+                        name: "",
+                        comment: ""
+                    });
 
                     offerFeedback.push(response.data);
                     setOfferSelected({...offerSelected, feedback: offerFeedback});
@@ -213,6 +218,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             type="text"
                             placeholder="e.g Mari"
                             name="name"
+                            value={feedback.name}
                             onChange={handleFeedbackChange}
                             style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
@@ -227,6 +233,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             type="text"
                             placeholder="e.g Väga lahe pakkumine. Kindlasti kaasan oma sõbrad"
                             name="comment"
+                            value={feedback.comment}
                             onChange={handleFeedbackChange}
                             style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
