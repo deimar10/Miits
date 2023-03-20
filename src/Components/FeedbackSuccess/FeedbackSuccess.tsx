@@ -5,9 +5,9 @@ import {BiMessageCheck} from 'react-icons/bi';
 
 function FeedbackSuccess() {
     return (
-        <div>
-            <BiMessageCheck id="feedback-success-notification"/>
-        </div>
+        <>
+            <BiMessageCheck id="feedback-success-notification" />
+        </>
     );
 }
 

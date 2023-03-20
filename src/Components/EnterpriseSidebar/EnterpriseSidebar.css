@@ -18,12 +18,12 @@
     font-size: 1.15rem;
     color: black;
     font-weight: bold;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.75rem;
-    width: 70%;
+    padding: 0.80rem;
+    width: 76.5%;
     background: #5EFFB1;
     margin-top: 1.5rem;
     border: 0;
@@ -40,7 +40,7 @@
 }
 
 #link:hover {
-    background: #A9E6C8;
+    color: white;
 }
 
 .logout-container {
@@ -59,7 +59,7 @@
 }
 
 .logout > h1:hover {
-    color: #afaeae;
+    color: #cccccc;
 }
 
 #logout-icon {

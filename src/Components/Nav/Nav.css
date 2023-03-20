@@ -18,7 +18,7 @@
 }
 
 #search {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     border: 0;
     font-family: 'Rubik';
     border-radius: 0.5rem;
@@ -37,9 +37,9 @@
 
 #search-icon {
     position: absolute;
-    top: 2.5rem;
-    left: 27.5rem;
-    font-size: 1.15rem;
+    top: 2.40rem;
+    left: 27rem;
+    font-size: 1.25rem;
     color: black;
 }
 

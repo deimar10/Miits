@@ -5,6 +5,12 @@
 }
 
 @media only screen and (max-width: 400px) {
+    .enterpriseLogo-container > img {
+        height: 47.5%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
     .enterpriseName-container {
         width: 60%;
         padding-right: 1.5rem;

@@ -63,9 +63,18 @@
 }
 
 @media only screen and (max-width: 400px) {
+    .logout > h1 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
     #logout-icon {
-        font-size: 1.35rem;
-        margin-right: 0.25rem;
+        font-size: 1.5rem;
+        margin-right: 0.20rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        background: #cccccc;
     }
 }
 
