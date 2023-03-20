@@ -6,7 +6,7 @@ import Notifcation from '../Notification/Notification';
 import {Link} from 'react-router-dom';
 import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell, FaRegHeart} from 'react-icons/fa';
 import {HiSun} from 'react-icons/hi';
-import {TbSearch} from 'react-icons/tb';
+import {IoSearchSharp} from 'react-icons/io5';
 
 interface Props {
     theme: boolean,
@@ -63,7 +63,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                   : 
                   <HiSun id="theme" onClick={handleThemeSwitch} />
               }
-              <TbSearch id="search-icon" />
+              <IoSearchSharp id="search-icon" />
               <input
                   type="text"
                   name="search"

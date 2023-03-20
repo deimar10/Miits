@@ -41,7 +41,7 @@
 @media only screen and (max-width: 400px) {
     #search-icon {
         left: 17rem;
-        font-size: 1rem;
+        font-size: 1.10rem;
         top: 2.5rem;
     }
 }
