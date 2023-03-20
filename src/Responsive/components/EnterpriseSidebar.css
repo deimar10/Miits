@@ -89,3 +89,9 @@
         height: 60%;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    #link {
+        padding: 0.65rem;
+    }
+}
