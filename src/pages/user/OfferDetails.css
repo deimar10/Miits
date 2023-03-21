@@ -144,22 +144,17 @@
     justify-content: center;
     align-items: center;
     border: 1px solid transparent;
-    border-radius: 0.75rem;
-    padding: 0.5rem;
+    border-radius: 1rem;
+    padding: 0.675rem;
     background: #5EFFB1;
     width: 15%;
     font-weight: bold;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 
 #form-submit:hover {
-    background: #A9E6C8;
+    color: white;
     cursor: pointer;
-}
-
-#plus-icon {
-    padding-right: 0.25rem;
-    font-size: 1.25rem;
 }
 
 #error-validate {

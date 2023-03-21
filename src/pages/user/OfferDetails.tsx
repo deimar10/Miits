@@ -237,8 +237,8 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             style={{backgroundColor: theme ? '#161616' : 'white',
                                     color: theme ? 'white' : 'black'}}
                         />
-                        <button id="form-submit" onClick={handleFormSubmit}><AiFillPlusCircle id="plus-icon" />
-                            submit
+                        <button id="form-submit" onClick={handleFormSubmit}>
+                            Salvesta
                         </button>
                     </div>
                 </div>

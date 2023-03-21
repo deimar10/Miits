@@ -123,3 +123,10 @@
         padding-bottom:7.5rem;
     }
 }
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    #form-submit {
+        width: 20%;
+        padding: 0.65rem;
+    }
+}
