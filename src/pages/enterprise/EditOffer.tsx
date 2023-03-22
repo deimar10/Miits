@@ -187,7 +187,6 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                     </form>
                 </div>
             </div>
-            <Footer theme={theme} />
         </>
     );
 }

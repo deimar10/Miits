@@ -40,7 +40,6 @@ function Menu({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     <AiFillCalendar id="menu-icon" />
                 </div>
             </div>
-            <Footer theme={theme} />
         </>
     );
 }

@@ -82,7 +82,11 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                 : null
             }
             <div className="enterprise-offers-container">
-                <EnterpriseSidebar theme={theme} auth={auth} setAuth={setAuth} />
+                <EnterpriseSidebar
+                    theme={theme}
+                    auth={auth}
+                    setAuth={setAuth}
+                />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
                     <div className="management-header">
                         <h1>Loodud Pakkumised</h1>
@@ -144,7 +148,6 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     </table>
                 </div>
             </div>
-            <Footer theme={theme} />
         </>
     )
 }

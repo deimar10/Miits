@@ -204,7 +204,6 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                     </form>
                 </div>
             </div>
-            <Footer theme={theme} />
         </>
     );
 }

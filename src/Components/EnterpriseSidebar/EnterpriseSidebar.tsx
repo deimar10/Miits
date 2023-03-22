@@ -3,9 +3,9 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import './EnterpriseSidebar.css';
 import '../../Responsive/components/EnterpriseSidebar.css';
 import {IoIosSettings} from 'react-icons/io';
-import {AiFillPlusCircle} from 'react-icons/ai';
 import {BiMenu} from 'react-icons/bi';
 import {RiLogoutBoxRLine} from 'react-icons/ri';
+import {BsPlus} from 'react-icons/bs';
 
 interface Props {
     theme: boolean,
@@ -21,7 +21,7 @@ function EnterpriseSidebar({theme, auth, setAuth}: Props) {
     const { pathname } = useLocation();
 
     const location = pathname.split('/');
-
+    
     const handleNavigateToMenu = () => {
         navigate('/enterprise/menu', {state: enterpriseLoginInfo.state});
     }
@@ -41,39 +41,38 @@ function EnterpriseSidebar({theme, auth, setAuth}: Props) {
     useEffect(() => {
         if (!auth.login) { navigate('/enterprise/login'); }
     }, [auth])
-
+    
     return (
-        <div className="enterpriseSidebar-container" style={{
-            backgroundColor: theme ? '#212121' : '#F1F0F0',
-            border: theme ? '1px solid #cccccc' : '1px solid #cccccc'
-        }}>
+        <div className="enterpriseSidebar-container">
             <div className="sidebar-links-container">
                 {location[2] === 'management' ?
                     <button id="link" onClick={handleNavigateToMenu}>
-                        Menüü
                         <BiMenu id="setting-icon" />
+                        Menüü
                     </button>
                     :
                     <button data-cy="nav-to-offers" id="link" onClick={handleNavigateToManagement}>
-                        Kuva Pakkumisi
                         <IoIosSettings id="setting-icon" />
+                        Pakkumised
                     </button>
                 }
                 {location[2] === 'create-offer' ?
                     <button id="link" onClick={handleNavigateToMenu}>
-                        Menüü
                         <BiMenu id="setting-icon" />
+                        Menüü
                     </button>
                     :
                     <button data-cy="nav-to-create-offer" id="link" onClick={handleNavigateToCreate}>
+                        <BsPlus id="sidebar-plus-icon" />
                         Loo pakkumine
-                        <AiFillPlusCircle id="sidebar-plus-icon" />
                     </button>
                 }
             </div>
             <div className="logout-container">
-                <div className="logout" style={{color: theme ? 'white' : 'black'}}>
-                    <RiLogoutBoxRLine id="logout-icon" />
+                <div className="logout">
+                    <RiLogoutBoxRLine
+                        id="logout-icon"
+                    />
                     <h1 data-cy="logout" onClick={handleUserLogout}>
                         Logi Välja
                     </h1>
