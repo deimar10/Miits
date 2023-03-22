@@ -1,18 +1,34 @@
 @media only screen and (max-width: 400px) {
-    .enterpriseLogo-container {
-        width: 40%;
+    .enterprise-nav-container {
+        width: 100%;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .enterpriseLogo-container > img {
-        height: 47.5%;
+    .enterprise-logo-container {
+        display: none;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .enterpriseName-container {
-        width: 60%;
-        padding-right: 1.5rem;
+    .enterprise-settings-container > h1 {
+        margin-right: 0.35rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #theme-light {
+        margin-left: 2rem;
+    }
+
+    #theme-dark {
+        margin-left: 2rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .enterprise-logo-container > img {
+        width: 7rem;
+        height: 3rem;
     }
 }

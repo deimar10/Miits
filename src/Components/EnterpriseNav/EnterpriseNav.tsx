@@ -13,22 +13,47 @@ interface Props {
 function EnterpriseNav({theme, handleThemeSwitch}: Props) {
 
     const enterpriseLoginInfo = useLocation();
+    const { pathname } = useLocation();
+
+    const navLocations = () => {
+        switch (pathname) {
+            case `/enterprise/menu`:
+                return location[0];
+            case `/enterprise/create-offer`:
+                return location[2];
+            case `/enterprise/management/${enterpriseLoginInfo.state}`:
+                return location[1];
+            default:
+                return 'Edit'
+        }
+    }
+
+    const location = ['Menu', 'Management', 'Create'];
 
     return (
-        <nav className="enterprise-nav-container">
-            <div className="enterpriseLogo-container">
-                <img 
-                    src="../../assets/logo/logo-dark.png" 
-                    alt="logo-dark" 
+        <nav className="enterprise-nav-container" style={{ boxShadow: theme ? '10px 0 10px 0 black' : '10px 0 10px 0 #494949'}}>
+            <div className="enterprise-logo-container">
+                <img
+                    src="../../assets/logo/logo-dark.png"
+                    alt="logo-dark"
                 />
             </div>
-            <div className="enterpriseName-container">
-                {!theme ? 
-                    <FaMoon id="theme" onClick={handleThemeSwitch} /> 
-                    : 
-                    <HiSun id="theme" onClick={handleThemeSwitch} />
+            <div className="enterprise-settings-container">
+                {!theme ?
+                    <FaMoon
+                        id="theme-light"
+                        onClick={handleThemeSwitch}
+                    />
+                    :
+                    <HiSun
+                        id="theme-dark"
+                        onClick={handleThemeSwitch}
+                    />
                 }
-                <h1 data-cy="login-info">
+                <p id="enterprise-nav-location">
+                    {navLocations()}
+                </p>
+                <h1 data-cy="login-info" style={{ color: theme ? 'white' : 'black'}}>
                     {enterpriseLoginInfo.state}
                 </h1>
             </div>
