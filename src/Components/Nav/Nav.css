@@ -42,7 +42,7 @@
     top: 2.40rem;
     left: 27rem;
     font-size: 1.25rem;
-    color: #5EFFB1;
+    color: #cccccc;
 }
 
 #theme {
@@ -53,7 +53,7 @@
 
 #theme:hover {
     cursor: pointer;
-    color: #b7b7b7;
+    color: #cccccc;
 }
 
 #social-icons {
