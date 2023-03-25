@@ -1,29 +1,12 @@
 @media only screen and (max-width: 400px) {
-    .management-header {
-        display: none;
+    .enterprise-offers-container {
+        height: 37.5rem;
+        overflow-y: scroll;
     }
 }
 
 @media only screen and (max-width: 400px) {
     .offers-container {
-        z-index: 0;
-        margin-top: 2.75rem;
-        overflow-x: scroll;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    #deleteBtn {
-        font-size: 0.85rem;
-        width: 6rem;
-        padding: 0.5rem;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    #editBtn {
-        font-size: 0.85rem;
-        width: 6rem;
-        padding: 0.5rem;
+        width: 92.5%;
     }
 }

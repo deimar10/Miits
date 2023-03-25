@@ -5,11 +5,9 @@ import '../../Responsive/pages/Management.css';
 import axios from "axios";
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
-import Footer from "../../Components/Footer/Footer";
+import EnterpriseOffers from "../../Components/EnterpriseOffers/EnterpriseOffers";
 import ActionModal from "../../Components/ActionModal/ActionModal";
 import {OfferInterface} from '../../Interfaces/interface';
-import {FaTrash} from 'react-icons/fa';
-import {MdEdit} from 'react-icons/md';
 
 interface Props {
     theme: boolean,
@@ -78,7 +76,10 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                 handleThemeSwitch={handleThemeSwitch} 
             />
             {viewDeleteModal.view ? 
-                <ActionModal modal={settings} handleModalClose={handleModalClose} /> 
+                <ActionModal 
+                    modal={settings} 
+                    handleModalClose={handleModalClose} 
+                /> 
                 : null
             }
             <div className="enterprise-offers-container">
@@ -88,64 +89,12 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     setAuth={setAuth}
                 />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
-                    <div className="management-header">
-                        <h1>Loodud Pakkumised</h1>
-                    </div>
-                    <table className="offers-table">
-                        <thead>
-                        <tr id="tableHeadings">
-                            <th>Kuupäev</th>
-                            <th>Pilt</th>
-                            <th>Tiitel</th>
-                            <th>Hind (€)</th>
-                            <th>Tagasiside</th>
-                            <th>Toimingud</th>
-                        </tr>
-                        </thead>
-                        <tbody className="table-body">
-                        {enterpriseOffers.length !== 0 ? enterpriseOffers.map((offer: OfferInterface) => {
-                            return (
-                                <tr id="table-row" key={offer.id}>
-                                    <td id="table-date">{offer.date}</td>
-                                    <td>
-                                        <img id="offer-image" src={offer.image} alt="offer" />
-                                    </td>
-                                    <td data-cy="offer-title">{offer.title}</td>
-                                    <td data-cy="offer-price">{offer.price}</td>
-                                    <div className="feedback-cell-container">
-                                    {offer.feedback.map((feedback:{comment: string, name: string, tagasiside_id?: number}) => {
-                                        return (
-                                            <div className="feedback-cell" key={feedback.tagasiside_id}>
-                                                <td id="offer-feedbackName">{feedback.name}</td>
-                                                <td>{feedback.comment}</td>
-                                            </div>
-                                        )
-                                    })}
-                                    </div>
-                                    <td>
-                                        <div id="actions-cell">
-                                            <button id="deleteBtn" onClick={e => handleDeleteOffer(e, offer.id)}>
-                                                <FaTrash id="delete-icon" />
-                                                Eemalda
-                                            </button>
-                                            <button id="editBtn" onClick={e => handleEditOffer(e, offer.title)}>
-                                                <MdEdit id="edit-icon" />
-                                                Muuda
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            );
-                        }) : <div className="management-offers-empty">
-                                <p id="offers-empty-text" style={{
-                                    color: theme ? 'white' : '#161616'
-                                }}>
-                                    Paistab, et ühtegi pakkumist ei ole loodud.
-                                </p>
-                            </div>
-                        }
-                        </tbody>
-                    </table>
+                    <EnterpriseOffers
+                        theme={theme}
+                        enterpriseOffers={enterpriseOffers}
+                        handleDeleteOffer={handleDeleteOffer}
+                        handleEditOffer={handleEditOffer}
+                    />
                 </div>
             </div>
         </>

@@ -1,0 +1,33 @@
+@media only screen and (max-width: 400px) {
+    .feedback-container {
+        width: 85%;
+        left: 50%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .offer-title {
+        display: flex;
+        height: 18.5%;
+        margin-top: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .feedback-comment {
+        word-wrap: anywhere;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .feedback-container {
+        width: 27.5%;
+        height: 52.5%;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .offer-title {
+        height: 17.5%;
+    }
+}
