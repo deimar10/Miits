@@ -111,7 +111,7 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteOffer, handleEdi
                     <p id="offers-empty-text" style={{color: theme ? 'white' : '#161616'}}>
                         Pakkumised on 
                         <span id="empty-text">
-                            tühjad.
+                            tühjad
                         </span>
                     </p>
                 </div>

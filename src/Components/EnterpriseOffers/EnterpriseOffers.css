@@ -112,10 +112,10 @@
     display: flex;
     align-items: center;
     text-align: center;
+    font-weight: bold;
 }
 
 #empty-text {
-    font-weight: bold;
     color: #5EFFB1;
     margin-left: 0.25rem;
 }
