@@ -35,6 +35,7 @@
 @media only screen and (max-width: 400px) {
     #offer-feedback {
         margin-left: 0;
+        margin-right: 0.40rem;
         float: none;
         font-size: 1.25rem;
     }
