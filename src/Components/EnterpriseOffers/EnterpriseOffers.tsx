@@ -7,6 +7,7 @@ import {BiDrink, BiCheck} from 'react-icons/bi';
 import {AiFillCalendar, AiOutlineClose, AiOutlineEdit} from 'react-icons/ai';
 import {MdOutlineFeedback} from 'react-icons/md';
 import {TfiTrash} from 'react-icons/tfi';
+import {handleOfferStatus} from '../../utils/index';
 
 interface Props {
     theme: boolean,
@@ -24,16 +25,9 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteOffer, handleEdi
         feedback: [],
     });
 
-    const date = new Date().getTime();
-
     const handleCheckOfferStatus = () => {
-        const checkOfferStatus = enterpriseOffers.map((object: OfferInterface) => {
-            if (date < new Date(object.date).getTime()) {
-                return {...object, upcoming: true};
-            } else {
-                return {...object, upcoming: false};
-            }
-        })
+        const checkOfferStatus = handleOfferStatus(enterpriseOffers);
+
         setProcessed(checkOfferStatus);
     }
 

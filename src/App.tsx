@@ -11,6 +11,7 @@ import EditOffer from "./pages/enterprise/EditOffer";
 import CreateOffer from "./pages/enterprise/CreateOffer";
 import {OfferInterface} from "./Interfaces/interface";
 import {register} from './Interfaces/interface';
+import {handleOfferStatus} from './utils/index';
 import axios from 'axios';
 
 function App() {
@@ -47,17 +48,10 @@ function App() {
 
     useEffect(() => {
         let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
-        const date = new Date().getTime();
 
         axios.get('http://localhost:3002/miits/api/user/offers')
             .then(response => {
-                const updatedOffers = response.data.map((object: OfferInterface) => {
-                    if (date < new Date(object.date).getTime()) {
-                        return {...object, upcoming: true};
-                    } else {
-                        return {...object, upcoming: false};
-                    }
-                }).map((object: OfferInterface) => {
+                const updatedOffers = handleOfferStatus(response.data).map((object: OfferInterface) => {
                     if (localFavorites.find((favorite: OfferInterface) => favorite.id === object.id) !== undefined) {
                         return {...object, favorite: true};
                     } else {
