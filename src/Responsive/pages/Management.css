@@ -8,5 +8,6 @@
 @media only screen and (max-width: 400px) {
     .offers-container {
         width: 92.5%;
+        overflow-y: unset;
     }
 }

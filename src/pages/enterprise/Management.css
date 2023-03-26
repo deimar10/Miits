@@ -6,9 +6,17 @@
 
 .offers-container {
     width: 80%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 5rem;
+    margin-top: 5rem;
+    overflow-y: scroll;
+}
+
+.offers-container::-webkit-scrollbar {
+    width: 0.35rem;
+    background: #cccccc;
+    border-radius: 1rem;
 }
