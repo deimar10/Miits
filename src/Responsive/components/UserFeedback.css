@@ -1,13 +1,14 @@
 @media only screen and (max-width: 400px) {
     .feedback-container {
-        width: 85%;
-        left: 50%;
+        width: 90%;
+        left: 49%;
     }
 }
 
 @media only screen and (max-width: 400px) {
     .offer-title {
         display: flex;
+        word-wrap: anywhere;
         height: 18.5%;
         margin-top: 0.5rem;
     }
@@ -22,7 +23,7 @@
 @media (min-width: 1750px) and (max-width: 2050px) {
     .feedback-container {
         width: 27.5%;
-        height: 52.5%;
+        height: 53.5%;
     }
 }
 
