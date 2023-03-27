@@ -31,7 +31,7 @@ function EnterpriseSidebar({theme, auth, setAuth}: Props) {
                 setCount(response.data.count);
             })
             .catch(error => {
-               console.log(error)
+               console.log(error);
             });
     }
 
@@ -44,11 +44,13 @@ function EnterpriseSidebar({theme, auth, setAuth}: Props) {
     }
 
     const handleNavigateToManagement = () => {
-        navigate(`/enterprise/management/${enterpriseLoginInfo.state}`, {state: enterpriseLoginInfo.state});
+        navigate(`/enterprise/management/${enterpriseLoginInfo.state}`, 
+            {state: enterpriseLoginInfo.state});
     }
 
     const handleNavigateToCreate = () => {
-        navigate(`/enterprise/create-offer`, {state: enterpriseLoginInfo.state});
+        navigate(`/enterprise/create-offer`, 
+            {state: enterpriseLoginInfo.state});
     }
 
     const handleUserLogout = () => {
