@@ -12,11 +12,11 @@ import {handleOfferStatus} from '../../utils/index';
 interface Props {
     theme: boolean,
     enterpriseOffers: OfferInterface[],
-    handleDeleteOffer(e: any, id: number): void,
+    handleDeleteNotification(e: any, id: number): void,
     handleEditOffer(e: any, title: string): void
 }
 
-function EnterpriseOffers({theme, enterpriseOffers, handleDeleteOffer, handleEditOffer}: Props) {
+function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, handleEditOffer}: Props) {
 
     const [processed, setProcessed] = useState<OfferInterface[]>([]);
     const [viewFeedbackModal, setView] = useState<boolean>(false);
@@ -98,7 +98,7 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteOffer, handleEdi
                         <div className="offer-action">
                             <TfiTrash
                                 id="offer-delete"
-                                onClick={e => handleDeleteOffer(e, offer.id)}
+                                onClick={e => handleDeleteNotification(e, offer.id)}
                             />
                             <AiOutlineEdit
                                 id="offer-edit"

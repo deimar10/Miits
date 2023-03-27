@@ -1,0 +1,77 @@
+.delete-notification-container {
+    position: absolute;
+    width: 25%;
+    left: 55%;
+    top: 40%;
+    height: 25%;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 15px 15px 15000px rgba(0, 0, 0, 0.53);
+    background: white;
+    border-radius: 1rem;
+    z-index: 20;
+}
+
+.modal-close-container {
+    display: flex;
+    height: 20%;
+    width: 87.5%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+#modal-close {
+    margin-left: auto;
+    float: right;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color: #d97575;
+}
+
+#modal-close:hover {
+    cursor: pointer;
+}
+
+.delete-warning {
+    width: 87.5%;
+    height: 50%;
+    margin-left: auto;
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.delete-warning > p {
+    font-size: 1.40rem;
+    font-weight: bold;
+}
+
+#bold {
+    color: #d97575;
+}
+
+.confirm-delete {
+    display: flex;
+    height: 25%;
+    width: 87.5%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+#delete-submit {
+    width: 100%;
+    height: 2.5rem;
+    color: white;
+    background: #d97575;
+    border-radius: 1rem;
+    font-size: 1rem;
+    border: none;
+    font-weight: bold;
+}
+
+#delete-submit:hover {
+    cursor: pointer;
+}

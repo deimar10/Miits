@@ -1,0 +1,26 @@
+@media only screen and (max-width: 400px) {
+    .delete-notification-container {
+        width: 90%;
+        height: 27.5%;
+        left: 50%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .delete-warning > p {
+        font-size: 1.10rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #delete-submit {
+       font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .delete-notification-container {
+        width: 27.5%;
+        height: 27.5%;
+    }
+}

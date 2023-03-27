@@ -7,6 +7,7 @@ import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import EnterpriseOffers from "../../Components/EnterpriseOffers/EnterpriseOffers";
 import ActionModal from "../../Components/ActionModal/ActionModal";
+import DeleteModal from '../../Components/DeleteModal/DeleteModal';
 import {OfferInterface} from '../../Interfaces/interface';
 
 interface Props {
@@ -23,6 +24,10 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     let navigate = useNavigate();
 
     const [enterpriseOffers, setEnterpriseOffers] = useState<OfferInterface[]>([]);
+    const [deleteNotification, setNotification] = useState<boolean>(false);
+    const [offerSelected, setSelected] = useState<{id: number}>({
+        id: 0
+    });
     const [viewDeleteModal, setViewDeleteModal] = useState({
         view: false,
         offer: 0,
@@ -41,8 +46,20 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
               console.log(error);
           });
     };
+    
+    const handleDeleteNotification = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+        setNotification(true);
+        
+        setSelected({...offerSelected, id});
+    }
+
+    const handleCloseNotification = () => {
+        setNotification(false);
+    }
 
     const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+        setNotification(false);
+
         axios.delete(`http://localhost:3002/miits/api/enterprise/offer/delete/${id}`)
             .then(() => {
                 let removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
@@ -89,10 +106,20 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     setAuth={setAuth}
                 />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
+                    {deleteNotification ?
+                        <DeleteModal 
+                            theme={theme} 
+                            handleDeleteOffer={handleDeleteOffer}
+                            handleCloseNotification={handleCloseNotification}
+                            offerSelected={offerSelected}
+                        /> 
+                        : 
+                        null
+                    }
                     <EnterpriseOffers
                         theme={theme}
                         enterpriseOffers={enterpriseOffers}
-                        handleDeleteOffer={handleDeleteOffer}
+                        handleDeleteNotification={handleDeleteNotification}
                         handleEditOffer={handleEditOffer}
                     />
                 </div>
