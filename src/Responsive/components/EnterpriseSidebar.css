@@ -48,6 +48,12 @@
 }
 
 @media only screen and (max-width: 400px) {
+    #offer-count {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
     .logout-container {
         height: 5rem;
         width: 25%;

@@ -26,6 +26,13 @@
     font-weight: bold;
 }
 
+#offer-count {
+    margin-left: auto;
+    float: right;
+    margin-right: 1rem;
+    color: #5EFFB1;
+}
+
 #setting-icon {
     font-size: 1.55rem;
     padding-right: 1.75rem;

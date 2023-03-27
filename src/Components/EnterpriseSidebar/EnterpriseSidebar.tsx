@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import './EnterpriseSidebar.css';
 import '../../Responsive/components/EnterpriseSidebar.css';
@@ -6,6 +6,7 @@ import {IoIosSettings} from 'react-icons/io';
 import {BiMenu} from 'react-icons/bi';
 import {RiLogoutBoxRLine} from 'react-icons/ri';
 import {BsPlus} from 'react-icons/bs';
+import axios from 'axios';
 
 interface Props {
     theme: boolean,
@@ -15,12 +16,28 @@ interface Props {
 
 function EnterpriseSidebar({theme, auth, setAuth}: Props) {
 
+    const [count, setCount] = useState<number>(0);
+
     let navigate = useNavigate();
 
     const enterpriseLoginInfo = useLocation();
     const { pathname } = useLocation();
 
     const location = pathname.split('/');
+
+    const handleEnterpriseOfferCount = () => {
+        axios.get(`http://localhost:3002/miits/api/enterprise/offers/${enterpriseLoginInfo.state}/count`)
+            .then(response => {
+                setCount(response.data.count);
+            })
+            .catch(error => {
+               console.log(error)
+            });
+    }
+
+    useEffect(() => {
+        handleEnterpriseOfferCount();
+    }, [])
     
     const handleNavigateToMenu = () => {
         navigate('/enterprise/menu', {state: enterpriseLoginInfo.state});
@@ -54,6 +71,9 @@ function EnterpriseSidebar({theme, auth, setAuth}: Props) {
                     <button data-cy="nav-to-offers" id="link" onClick={handleNavigateToManagement}>
                         <IoIosSettings id="setting-icon" />
                         Pakkumised
+                        <span id="offer-count">
+                            {count}
+                        </span>
                     </button>
                 }
                 {location[2] === 'create-offer' ?
