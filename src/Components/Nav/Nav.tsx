@@ -59,11 +59,20 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
           </div>
           <div className="nav-input-container">
               {!theme ? 
-                  <FaMoon id="theme" data-cy="dark" onClick={handleThemeSwitch} /> 
+                  <FaMoon
+                      id="theme"
+                      data-cy="dark"
+                      onClick={handleThemeSwitch}
+                  />
                   : 
-                  <HiSun id="theme" onClick={handleThemeSwitch} />
+                  <HiSun 
+                      id="theme"
+                      onClick={handleThemeSwitch}
+                  />
               }
-              <IoSearchSharp id="search-icon" />
+              <IoSearchSharp 
+                  id="search-icon" 
+              />
               <input
                   type="text"
                   name="search"
@@ -71,8 +80,12 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                   id="search"
                   onChange={handleSearch}
               />
-              <FaFacebookSquare id="social-icons" />
-              <FaTwitter id="social-icons" />
+              <FaFacebookSquare
+                  id="social-icons"
+              />
+              <FaTwitter
+                  id="social-icons"
+              />
           </div>
           <div className="nav-icons-container">
               <Link to={'/offers/favorites'}>
@@ -91,11 +104,14 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                   onClick={handleNotificationModal} 
               />
               {!isEmpty ? 
-                  <span id="notification-count"></span> 
+                  <span id="notification-count"></span>
                   : null
               }
               {notification ? 
-                  <Notifcation isExpiring={isExpiring} theme={theme} /> 
+                  <Notifcation
+                      isExpiring={isExpiring}
+                      theme={theme}
+                  />
                   : null
               }
           </div>
