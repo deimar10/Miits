@@ -95,7 +95,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
-    const settings = [`Pakkumine (${viewEditModal.offer}) edukalt muudetud`, '#275F88'];
+    const settings = [`Pakkumine (${viewEditModal.offer}) edukalt muudetud`, 'info'];
 
     return (
         <>
@@ -104,7 +104,11 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                 handleThemeSwitch={handleThemeSwitch}
             />
             {viewEditModal.view ? 
-                <ActionModal modal={settings} handleModalClose={handleModalClose} /> 
+                <ActionModal 
+                    modal={settings} 
+                    handleModalClose={handleModalClose}
+                    open={viewEditModal}
+                /> 
                 : null
             }
             <div className="enterprise-edit-container">

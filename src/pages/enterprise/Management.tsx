@@ -84,7 +84,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
-    const settings = [`Pakkumine (${viewDeleteModal.offer}) edukalt eemaldatud`, '#DC5757'];
+    const settings = [`Pakkumine (${viewDeleteModal.offer}) edukalt eemaldatud`, 'error'];
 
     return (
         <>
@@ -96,6 +96,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                 <ActionModal 
                     modal={settings} 
                     handleModalClose={handleModalClose} 
+                    open={viewDeleteModal}
                 /> 
                 : null
             }

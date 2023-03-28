@@ -1,24 +1,44 @@
 import React from 'react';
-import './ActionModal.css';
-import '../../Responsive/components/ActionModal.css';
-import {MdClose} from 'react-icons/md';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    props,
+    ref,
+) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 interface Props {
-    modal: string[],
+    modal: any,
     handleModalClose(): void,
+    open: {offer: number, view: boolean}
 }
 
-function ActionModal({modal, handleModalClose}: Props) {
+function ActionModal({modal, handleModalClose, open}: Props) {
+
+    const vertical = 'bottom';
+    const horizontal = 'right';
+
+    const modalStyle = {
+        width: '100%',
+        fontSize: '1.05rem'
+    }
+
     return (
-        <div className="action-container" style={{backgroundColor: modal[1]}}>
-            <p data-cy="action-description">
-                {modal[0]}
-            </p>
-            <MdClose 
-                id="icon-close" 
-                onClick={handleModalClose} 
-            />
-        </div>
+        <>
+            <Snackbar
+                open={open.view}
+                autoHideDuration={3000}
+                onClose={handleModalClose}
+                message={modal[0]}
+                anchorOrigin={{vertical, horizontal}}
+            >
+                <Alert onClose={handleModalClose} severity={modal[1]} sx={modalStyle}>
+                    {modal[0]}
+                </Alert>
+            </Snackbar>
+        </>
     );
 }
 

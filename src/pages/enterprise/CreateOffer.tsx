@@ -99,7 +99,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme]);
 
-    const settings = [`Pakkumine (${viewCreateModal.offer}) edukalt loodud`, '#5EFFB1'];
+    const settings = [`Pakkumine (${viewCreateModal.offer}) edukalt loodud`, 'success'];
 
     return (
         <>
@@ -108,7 +108,11 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                 handleThemeSwitch={handleThemeSwitch} 
             />
             {viewCreateModal.view ? 
-                <ActionModal modal={settings} handleModalClose={handleModalClose} /> 
+                <ActionModal
+                    modal={settings} 
+                    handleModalClose={handleModalClose} 
+                    open={viewCreateModal}
+                /> 
                 : null
             }
             <div className="enterprise-create-container">
