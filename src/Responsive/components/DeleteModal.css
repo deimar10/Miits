@@ -15,6 +15,7 @@
 @media only screen and (max-width: 400px) {
     #delete-submit {
        font-size: 0.85rem;
+        height: 2.15rem;
     }
 }
 
@@ -22,5 +23,17 @@
     .delete-notification-container {
         width: 27.5%;
         height: 27.5%;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .delete-warning > p {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    #delete-submit {
+        height: 2.30rem;
     }
 }
