@@ -12,9 +12,10 @@ interface Props {
     theme: boolean,
     auth: any,
     setAuth: (auth: any) => void,
+    created?: boolean
 }
 
-function EnterpriseSidebar({theme, auth, setAuth}: Props) {
+function EnterpriseSidebar({theme, auth, setAuth, created}: Props) {
 
     const [count, setCount] = useState<number>(0);
 
@@ -37,7 +38,7 @@ function EnterpriseSidebar({theme, auth, setAuth}: Props) {
 
     useEffect(() => {
         handleEnterpriseOfferCount();
-    }, [])
+    }, [created])
     
     const handleNavigateToMenu = () => {
         navigate('/enterprise/menu', {state: enterpriseLoginInfo.state});

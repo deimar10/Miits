@@ -105,7 +105,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
         <>
             <EnterpriseNav 
                 theme={theme} 
-                handleThemeSwitch={handleThemeSwitch} 
+                handleThemeSwitch={handleThemeSwitch}
             />
             {viewCreateModal.view ? 
                 <ActionModal
@@ -120,6 +120,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                     theme={theme} 
                     auth={auth} 
                     setAuth={setAuth} 
+                    created={viewCreateModal.view}
                 />
                 <div className="create-offer-container" style={{color: theme ? 'white' : 'black'}}>
                     <div className="management-header">
