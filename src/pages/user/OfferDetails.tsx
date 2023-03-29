@@ -170,7 +170,11 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             {isFavorite ? 
                                 <FaHeart id="fav-icon" /> 
                                 : 
-                                <FaRegHeart data-cy="unmarked" id="fav-icon" onClick={handleAddToFavorites} />
+                                <FaRegHeart 
+                                    data-cy="unmarked" 
+                                    id="fav-icon" 
+                                    onClick={handleAddToFavorites} 
+                                />
                             }
                             <h3>Lisa lemmikuks</h3>
                          </span>
@@ -178,40 +182,53 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                     </div>
                     <div className="details-description">
                         <h3 data-cy="title">
-                            Tiitel:<span> {offerSelected.title}</span>
+                            Tiitel: <span>{offerSelected.title}</span>
                         </h3>
                         <h3 data-cy="category">
-                            Kategooria:<span> {offerSelected.category}</span>
+                            Kategooria: <span>{offerSelected.category}</span>
                         </h3>
                         <h3 data-cy="location">
-                            Asukoht:<span> {offerSelected.location}</span>
+                            Asukoht: <span>{offerSelected.location}</span>
                         </h3>
                         <h3 data-cy="description">
-                            Kirjeldus:<span> {offerSelected.description}</span>
+                            Kirjeldus: <span>{offerSelected.description}</span>
                         </h3>
                         <h3 data-cy="price">
-                            Hind:<span> {offerSelected.price}€</span>
+                            Hind: <span>{offerSelected.price}€</span>
                         </h3>
                     </div>
                 </div>
                 <div className="details-feedback-container">
                     <h2>Kasutaja Tagasiside</h2>
-                    {success ? <FeedbackSuccess /> : null}
+                    {success ? 
+                        <FeedbackSuccess /> 
+                        : 
+                        null
+                    }
                     <div className="user-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
                         {offerSelected.feedback.length !== 0 ? offerSelected.feedback.map((feedback: {comment: string, name: string, tagasiside_id: string}) => {
                             return (
                                 <div className="user-feedback" key={feedback.tagasiside_id}>
                                     <h3>{feedback.name}</h3>
-                                    <p data-cy="comment">{feedback.comment}</p>
+                                    <p data-cy="comment">
+                                        {feedback.comment}
+                                    </p>
                                 </div>
                             )
-                        }) : <p id="empty-feedback">Tundub, et ühtegi tagasisidet ei ole lisatud. Julgelt lisage kommentaar.</p>}
+                        }) : <p id="empty-feedback">
+                                Tundub, et ühtegi tagasisidet ei ole lisatud. 
+                                Julgelt lisage kommentaar.
+                            </p>
+                        }
                     </div>
                     <div className="details-form-container">
                         <label>Eesnimi</label>
                         {feedback.nameError ?
-                            <p data-cy="name-error" id="error-validate">{feedback.nameError}</p>
-                            : null
+                            <p data-cy="name-error" id="error-validate">
+                                {feedback.nameError}
+                            </p>
+                            : 
+                            null
                         }
                         <input
                             id="form-name"
@@ -220,13 +237,18 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             name="name"
                             value={feedback.name}
                             onChange={handleFeedbackChange}
-                            style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
+                            style={{
+                                backgroundColor: theme ? '#161616' : 'white',
+                                color: theme ? 'white' : 'black'
+                            }}
                         />
                         <label>Tagasiside</label>
                         {feedback.commentError ?
-                            <p id="error-validate">{feedback.commentError}</p>
-                            : null
+                            <p id="error-validate">
+                                {feedback.commentError}
+                            </p>
+                            : 
+                            null
                         }
                         <input
                             id="form-feedback"
@@ -234,8 +256,10 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             name="comment"
                             value={feedback.comment}
                             onChange={handleFeedbackChange}
-                            style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
+                            style={{
+                                backgroundColor: theme ? '#161616' : 'white',
+                                color: theme ? 'white' : 'black'
+                            }}
                         />
                         <button id="form-submit" onClick={handleFormSubmit}>
                             Salvesta

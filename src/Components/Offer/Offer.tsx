@@ -56,7 +56,8 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
 
         if (search) {
             filteredOffers = filteredOffers.filter(((offer: { title: string, location: string }) =>
-                offer.title.toLowerCase().includes(search.toLowerCase()) || offer.location.toLowerCase().includes(search.toLowerCase())));
+                offer.title.toLowerCase().includes(search.toLowerCase()) || 
+                offer.location.toLowerCase().includes(search.toLowerCase())));
         }
         return filteredOffers;
     }
@@ -102,7 +103,11 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                             }}>
                             </div>
                         </Link>
-                        {info.upcoming ? <h3 id="upcoming">Varsti</h3> : null}
+                        {info.upcoming ? 
+                            <h3 id="upcoming">Varsti</h3> 
+                            : 
+                            null
+                        }
                         <div className="offer-details-container">
                             <div className="offer-info">
                                 <h2>{info.title}</h2>
@@ -110,25 +115,33 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                             </div>
                             <div className="offer-icon">
                                 {info.favorite ? 
-                                    <FaHeart data-cy="marked" id="fav-icon" /> 
+                                    <FaHeart 
+                                        data-cy="marked" 
+                                        id="fav-icon" 
+                                    /> 
                                     : 
-                                    <FaRegHeart data-cy="unmarked" id="fav-icon" onClick={e => handleAddToFavorites(info)} />
+                                    <FaRegHeart 
+                                        data-cy="unmarked" 
+                                        id="fav-icon"
+                                        onClick={e => handleAddToFavorites(info)} 
+                                    />
                                 }
                             </div>
                         </div>
                     </div>
                 )
             }) : <div className="offers-empty">
-                <p  id="offers-empty-text" style={{
-                    color: theme ? 'white' : '#161616'
-                }}>
-                    Paistab, et pakkumisi ei ole saadaval. Kui olete ettevõte, kes soovib reklaamida oma üritusi või pakkumisi,
-                    palun registreeruge!
-                </p>
-                <Link to={"/enterprise/register"} id="redirect">
-                    Register Account
-                </Link>
-            </div>
+                     <p id="offers-empty-text" style={{
+                        color: theme ? 'white' : '#161616'
+                    }}>
+                        Paistab, et pakkumisi ei ole saadaval. Kui olete ettevõte, kes 
+                        soovib reklaamida oma üritusi või pakkumisi,
+                        palun registreeruge!
+                    </p>
+                    <Link to={"/enterprise/register"} id="redirect">
+                        Register Account
+                    </Link>
+                </div>
             }
         </div>
     );

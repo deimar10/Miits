@@ -68,9 +68,13 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
             />
             <div className="offers-section">
                 <div className="headings">
-                    <BiDrink id="heading-icons" />
+                    <BiDrink 
+                        id="heading-icons" 
+                    />
                     <h2>Pakkumised</h2>
-                    <AiFillCalendar id="heading-icons" />
+                    <AiFillCalendar 
+                        id="heading-icons"
+                    />
                     <h2>Üritused</h2>
                 </div>
                 <div className="grid-wrapper">

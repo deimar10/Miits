@@ -109,11 +109,11 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                     )
                 })}
             </div> : <div className="offers-empty">
-                    <p id="offers-empty-text" style={{
-                        color: theme ? 'white' : '#161616'
-                    }}>
-                        Ükski pakkumine ei ole valitud lemmikuks!
-                    </p>
+                        <p id="offers-empty-text" style={{color: theme ?
+                                'white' : '#161616'
+                        }}>
+                            Ükski pakkumine ei ole valitud lemmikuks!
+                        </p>
                  </div>
             }
             <Footer theme={theme} />
