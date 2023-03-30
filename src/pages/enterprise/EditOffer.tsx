@@ -3,6 +3,8 @@ import {useParams} from 'react-router-dom';
 import './EditOffer.css';
 import '../../Responsive/pages/EditOffer.css';
 import axios from 'axios';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from '../../Components/Footer/Footer';
@@ -97,6 +99,24 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
 
     const settings = [`Pakkumine (${viewEditModal.offer}) edukalt muudetud`, 'info'];
 
+    const variant = theme ? 'outlined' : 'standard';
+
+    const inputProps = {
+        style: {
+            color: theme ? 'white' : 'initial',
+            width: '95%',
+            border: `1px solid ${theme ? 'white' : null}`,
+            borderRadius: '4px',
+        },
+    };
+
+    const labelProps = {
+        style: {
+            color: theme ? '#5EFFB1' : 'initial',
+            shrink: true
+        },
+    };
+
     return (
         <>
             <EnterpriseNav 
@@ -117,75 +137,79 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                     auth={auth} 
                     setAuth={setAuth}
                 />
-                <div className="edit-offer-container" style={{color: theme ? 'white' : 'black'}}>
-                    <div className="management-header">
-                        <h1>Muuda pakkumist</h1>
-                    </div>
-                    <form onSubmit={handleEditSubmit} className="edit-form-container">
-                        {editError.errorMessage ? 
-                            <p id="error-validate">{editError.errorMessage}</p> 
-                            : null
+                <div className="edit-offer-container">
+                    <form onSubmit={handleEditSubmit}>
+                        {editError.errorMessage ?
+                            <p id="error-validate">
+                                {editError.errorMessage}
+                            </p>
+                            :
+                            null
                         }
-                        <label>Tiitel</label>
-                        <input style={{backgroundColor: theme ? '#161616' : 'white',
-                            color: theme ? 'white' : 'black'}}
-                            type="text"
-                            name="title"
-                            value={editOffer.title}
-                            onChange={handleOfferChange}
-                        />
-                        <div className="edit-small-container">
-                            <div id="edit-small-input">
-                                <label>Asukoht</label>
-                                <input style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                    type="text"
-                                    name="location"
-                                    value={editOffer.location}
-                                    onChange={handleOfferChange}
-                                />
-                            </div>
-                            <div id="edit-small-input">
-                                <label>Kuupäev (mm/dd/yy)</label>
-                                <input style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                    type="text"
-                                    name="date"
-                                    value={editOffer.date}
-                                    onChange={handleOfferChange}
-                                />
-                            </div>
-                            <div id="edit-small-input">
-                                <label>Hind (€)</label>
-                                <input style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                    type="number"
-                                    name="price"
-                                    value={editOffer.price}
-                                    onChange={handleOfferChange}
-                                />
-                            </div>
+                        <div className="edit-input-container">
+                            <TextField
+                                name="title"
+                                label="Tiitel"
+                                value={editOffer.title}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="location"
+                                label="Asukoht"
+                                value={editOffer.location}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="description"
+                                label="Kirjeldus"
+                                value={editOffer.description}
+                                multiline
+                                maxRows={4}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="date"
+                                label="Kuupäev"
+                                value={editOffer.date}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="price"
+                                label="Hind(€)"
+                                value={editOffer.price}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="category"
+                                label="Kategooria"
+                                select
+                                variant={variant}
+                                value={editOffer.category}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            >
+                                <MenuItem value="Event">
+                                    Event
+                                </MenuItem>
+                                <MenuItem value="Drinks">
+                                    Drinks
+                                </MenuItem>
+                            </TextField>
                         </div>
-                        <label>Kirjeldus</label>
-                        <textarea style={{backgroundColor: theme ? '#161616' : 'white',
-                            color: theme ? 'white' : 'black'}}
-                            name="description"
-                            value={editOffer.description}
-                            onChange={handleOfferChange}
-                        />
-                        <label>Kategooria</label>
-                        <select style={{backgroundColor: theme ? '#161616' : 'white',
-                            color: theme ? 'white' : 'black'}}
-                            name="category"
-                            value={editOffer.category}
-                            onChange={handleOfferChange}
-                        >
-                            <option value="Event">Event</option>
-                            <option value="Drinks">Drinks</option>
-                        </select>
-                        <div className="form-submit-container">
-                            <button data-cy="edit-submit" type="submit">
-                                Muuda
+                        <div className="edit-submit-container">
+                            <button id="edit-submit" type="submit">
+                                Salvesta
                             </button>
                         </div>
                     </form>
