@@ -84,12 +84,24 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                 description: createOffer.description
             })
                 .then((response) => {
-                    setCreateError({...createError, errorMessage: ''});
-                    setViewCreateModal({...viewCreateModal, view: true, offer: response.data.id});
+                    setCreateError({...createError,
+                        errorMessage: ''
+                    });
+                    setViewCreateModal({...viewCreateModal,
+                        view: true,
+                        offer: response.data.id
+                    });
                 })
                 .catch(error => {
                     console.log(error);
                 });
+
+            setCreateOffer({...createOffer, title: "", category: "",
+                location: "",
+                date: "",
+                price: 0,
+                description: ""
+            });
         }   
     }
 
@@ -156,6 +168,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 label="Tiitel"
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
+                                value={createOffer.title}
                                 onChange={handleOfferChange}
                             />
                             <TextField
@@ -163,6 +176,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 label="Asukoht"
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
+                                value={createOffer.location}
                                 onChange={handleOfferChange}
                             />
                             <TextField
@@ -172,6 +186,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 maxRows={4}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
+                                value={createOffer.description}
                                 onChange={handleOfferChange}
                             />
                             <TextField
@@ -179,6 +194,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 label="Kuupäev"
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
+                                value={createOffer.date}
                                 onChange={handleOfferChange}
                             />
                             <TextField
@@ -186,6 +202,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 label="Hind(€)"
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
+                                value={createOffer.price}
                                 onChange={handleOfferChange}
                             />
                             <TextField
