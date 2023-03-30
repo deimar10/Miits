@@ -3,6 +3,8 @@ import {useLocation} from 'react-router-dom';
 import './CreateOffer.css';
 import '../../Responsive/pages/CreateOffer.css';
 import axios from 'axios';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
 import Footer from '../../Components/Footer/Footer';
@@ -86,9 +88,9 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                     setViewCreateModal({...viewCreateModal, view: true, offer: response.data.id});
                 })
                 .catch(error => {
-                   console.log(error);
+                    console.log(error);
                 });
-        }
+        }   
     }
 
     const handleModalClose = () => {
@@ -101,109 +103,120 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
 
     const settings = [`Pakkumine (${viewCreateModal.offer}) edukalt loodud`, 'success'];
 
+    const variant = theme ? 'outlined' : 'standard';
+
+    const inputProps = {
+        style: {
+            color: theme ? 'white' : 'initial',
+            width: '95%',
+            border: `1px solid ${theme ? 'white' : null}`,
+            borderRadius: '4px',
+        },
+    };
+
+    const labelProps = {
+        style: {
+            color: theme ? '#5EFFB1' : 'initial',
+        },
+    };
+
     return (
         <>
-            <EnterpriseNav 
-                theme={theme} 
+            <EnterpriseNav
+                theme={theme}
                 handleThemeSwitch={handleThemeSwitch}
             />
-            {viewCreateModal.view ? 
+            {viewCreateModal.view ?
                 <ActionModal
-                    modal={settings} 
-                    handleModalClose={handleModalClose} 
+                    modal={settings}
+                    handleModalClose={handleModalClose}
                     open={viewCreateModal}
-                /> 
+                />
                 : null
             }
             <div className="enterprise-create-container">
-                <EnterpriseSidebar 
-                    theme={theme} 
-                    auth={auth} 
-                    setAuth={setAuth} 
+                <EnterpriseSidebar
+                    theme={theme}
+                    auth={auth}
+                    setAuth={setAuth}
                     created={viewCreateModal.view}
                 />
-                <div className="create-offer-container" style={{color: theme ? 'white' : 'black'}}>
-                    <div className="management-header">
-                        <h1>Loo pakkumine</h1>
-                    </div>
-                    <form onSubmit={handleCreateSubmit} className="create-form-container">
-                        {createError.errorMessage ? 
-                            <p id="error-validate">{createError.errorMessage}</p> 
-                            : null
+                <div className="create-offer-container">
+                    <form onSubmit={handleCreateSubmit}>
+                        {createError.errorMessage ?
+                            <p id="error-validate">
+                                {createError.errorMessage}
+                            </p>
+                            :
+                            null
                         }
-                        <label>Tiitel</label>
-                        <input style={{backgroundColor: theme ? '#161616' : 'white',
-                            color: theme ? 'white' : 'black'}}
-                               type="text"
-                               name="title"
-                               placeholder="e.g Shooters"
-                               onChange={handleOfferChange}
-                        />
-                        <div className="create-small-container">
-                            <div id="create-small-input">
-                                <label>Asukoht</label>
-                                <input style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                       type="text"
-                                       name="location"
-                                       placeholder="e.g Tartu"
-                                       onChange={handleOfferChange}
-                                />
-                            </div>
-                            <div id="create-small-input">
-                                <label>Kuupäev (mm/dd/yy)</label>
-                                <input style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                       type="text"
-                                       name="date"
-                                       placeholder="02.01.2023"
-                                       onChange={handleOfferChange}
-                                />
-                            </div>
-                            <div id="create-small-input">
-                                <label>Hind (€)</label>
-                                <input style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                       type="number"
-                                       step="0.01"
-                                       name="price"
-                                       placeholder="e.g 4.99"
-                                       onChange={handleOfferChange}
-                                />
-                            </div>
+                        <div className="create-input-container">
+                            <TextField
+                                name="title"
+                                label="Tiitel"
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="location"
+                                label="Asukoht"
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="description"
+                                label="Kirjeldus"
+                                multiline
+                                maxRows={4}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="date"
+                                label="Kuupäev"
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="price"
+                                label="Hind(€)"
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            />
+                            <TextField
+                                name="category"
+                                label="Kategooria"
+                                select
+                                variant={variant}
+                                value={createOffer.category}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleOfferChange}
+                            >
+                                <MenuItem value="Event">
+                                    Event
+                                </MenuItem>
+                                <MenuItem value="Drinks">
+                                    Drinks
+                                </MenuItem>
+                            </TextField>
+                            <TextField
+                                name="image"
+                                type="file"
+                                variant={variant}
+                                InputLabelProps={labelProps}
+                                InputProps={inputProps}
+                                onChange={handleImageUploadChange}
+                            />
                         </div>
-                        <label>Kirjeldus</label>
-                        <textarea style={{backgroundColor: theme ? '#161616' : 'white',
-                            color: theme ? 'white' : 'black'}}
-                                  name="description"
-                                  placeholder="e.g Vägev üritus!"
-                                  onChange={handleOfferChange}
-                        />
-                        <div className="create-container">
-                            <div className="create-select-input">
-                                <label>Kategooria</label>
-                                <select id="select" style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                        name="category"
-                                        onChange={handleOfferChange}
-                                >
-                                    <option value="Event">Event</option>
-                                    <option value="Drinks">Drinks</option>
-                                </select>
-                            </div>
-                            <div className="create-file-input">
-                                <label>Pilt</label>
-                                <input style={{backgroundColor: theme ? '#161616' : 'white',
-                                    color: theme ? 'white' : 'black'}}
-                                    type="file"
-                                    data-cy="image-upload"
-                                    onChange={handleImageUploadChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-submit-container">
-                            <button data-cy="create-submit" type="submit">
-                                Loo pakkumine
+                        <div className="create-submit-container">
+                            <button id="create-submit" type="submit">
+                                Salvesta
                             </button>
                         </div>
                     </form>

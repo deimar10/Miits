@@ -1,105 +1,48 @@
 @media only screen and (max-width: 400px) {
-    .enterprise-create-container {
-        width: 100%;
+    .create-offer-container {
+        margin-left: 4rem;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .management-header {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .create-form-container {
-        height: 15rem;
-        width: 100%;
-        margin-top: 26.5rem;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .create-form-container input {
-        padding: 0.8rem;
-        width: 90%;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .create-small-container {
-        display: grid;
-        grid-template-columns: auto;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    #create-small-input {
+    .create-input-container {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        row-gap: 2rem;
+        margin-top: 0;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    #create-small-input input{
-        width: 90%;
+    .create-submit-container {
+        margin-top: 2rem;
+        padding-bottom: 2rem;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    textarea {
-        width: 70%;
+    #create-submit {
+        width: 17.5rem;
+        height: 2.75rem;
+        margin-right: 0.5rem;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .create-container {
-        display: grid;
-        grid-template-columns: auto;
-        width: 100%;
+    #error-validate {
+        margin-top: 0.5rem;
     }
 }
 
-@media only screen and (max-width: 400px) {
-    .create-select-input {
-        width: 100%;
-    }
-}
 
-@media only screen and (max-width: 400px) {
-    #select {
-        padding: 1rem;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .create-file-input {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .form-submit-container {
-        height: 15rem;
-        padding-bottom: 5rem;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .form-submit-container > button {
-        width: 100%;
-        padding: 0.65rem;
+@media (min-width: 1750px) and (max-width: 2050px) {
+    #create-submit {
+        width: 9.5rem;
     }
 }
 
 @media (min-width: 1750px) and (max-width: 2050px) {
-    .form-submit-container {
-        width: 50rem;
-    }
-}
-
-@media (min-width: 1750px) and (max-width: 2050px) {
-    .create-form-container {
-        width: 50%;
+    #error-validate {
+        margin-top: 0.5rem;
     }
 }
