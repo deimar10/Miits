@@ -9,6 +9,7 @@ import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
 import Footer from '../../Components/Footer/Footer';
 import ActionModal from '../../Components/ActionModal/ActionModal';
+import {BiCheckCircle} from 'react-icons/bi';
 
 interface Props {
     theme: boolean,
@@ -121,14 +122,14 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
         style: {
             color: theme ? 'white' : 'initial',
             width: '95%',
-            border: `1px solid ${theme ? 'white' : null}`,
+            border: `1px solid ${theme ? '#6b6b6b' : null}`,
             borderRadius: '4px',
         },
     };
 
     const labelProps = {
         style: {
-            color: theme ? '#5EFFB1' : 'initial',
+            color: theme ? '#5EFFB1' : 'initial'
         },
     };
 
@@ -166,6 +167,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="title"
                                 label="Tiitel"
+                                variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 value={createOffer.title}
@@ -174,6 +176,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="location"
                                 label="Asukoht"
+                                variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 value={createOffer.location}
@@ -184,6 +187,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 label="Kirjeldus"
                                 multiline
                                 maxRows={4}
+                                variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 value={createOffer.description}
@@ -192,6 +196,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="date"
                                 label="Kuupäev"
+                                variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 value={createOffer.date}
@@ -200,6 +205,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="price"
                                 label="Hind(€)"
+                                variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 value={createOffer.price}
@@ -234,6 +240,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                         <div className="create-submit-container">
                             <button id="create-submit" type="submit">
                                 Salvesta
+                                <BiCheckCircle id="check" />
                             </button>
                         </div>
                     </form>

@@ -10,6 +10,7 @@ import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSide
 import Footer from '../../Components/Footer/Footer';
 import ActionModal from '../../Components/ActionModal/ActionModal';
 import {OfferInterface} from "../../Interfaces/index";
+import {BiCheckCircle} from 'react-icons/bi';
 
 interface Props {
     offersData: any,
@@ -105,7 +106,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
         style: {
             color: theme ? 'white' : 'initial',
             width: '95%',
-            border: `1px solid ${theme ? 'white' : null}`,
+            border: `1px solid ${theme ? '#6b6b6b' : null}`,
             borderRadius: '4px',
         },
     };
@@ -151,6 +152,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                                 name="title"
                                 label="Tiitel"
                                 value={editOffer.title}
+                                variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 onChange={handleOfferChange}
@@ -159,6 +161,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                                 name="location"
                                 label="Asukoht"
                                 value={editOffer.location}
+                                variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 onChange={handleOfferChange}
@@ -168,6 +171,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                                 label="Kirjeldus"
                                 value={editOffer.description}
                                 multiline
+                                variant={variant}
                                 maxRows={4}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
@@ -176,6 +180,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <TextField
                                 name="date"
                                 label="Kuupäev"
+                                variant={variant}
                                 value={editOffer.date}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
@@ -184,6 +189,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <TextField
                                 name="price"
                                 label="Hind(€)"
+                                variant={variant}
                                 value={editOffer.price}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
@@ -210,6 +216,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                         <div className="edit-submit-container">
                             <button id="edit-submit" type="submit">
                                 Salvesta
+                                <BiCheckCircle id="check" />
                             </button>
                         </div>
                     </form>

@@ -21,16 +21,19 @@
 
 .edit-submit-container {
     margin-top: 5rem;
-    width: 90%;
+    width: 88.5%;
     height: 5rem;
 }
 
 #edit-submit {
-    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7.5rem;
     height: 3rem;
     font-size: 1rem;
-    border-radius: 1rem;
     background: #5EFFB1;
+    border-radius: 0.5rem;
     border: 0;
     font-weight: bold;
     margin-left: auto;
