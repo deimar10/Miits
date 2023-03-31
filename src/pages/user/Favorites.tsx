@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
-import {OfferInterface} from "../../Interfaces/interface";
+import {OfferInterface} from "../../Interfaces/index";
 import './Favorites.css';
 import '../../Responsive/pages/Favorites.css';
 import {Link} from 'react-router-dom';

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './EnterpriseOffers.css';
 import '../../Responsive/components/EnterpriseOffers.css';
-import {OfferInterface} from '../../Interfaces/interface';
+import {OfferInterface} from '../../Interfaces/index';
 import UserFeedback from '../UserFeedback/UserFeedback';
 import {BiDrink, BiCheck} from 'react-icons/bi';
 import {AiFillCalendar, AiOutlineClose, AiOutlineEdit} from 'react-icons/ai';

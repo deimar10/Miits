@@ -1,4 +1,4 @@
-import {OfferInterface} from '../Interfaces/interface';
+import {OfferInterface} from '../Interfaces/index';
 
 const date = new Date().getTime();
 

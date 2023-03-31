@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './Login.css';
 import '../../Responsive/pages/Login.css';
 import axios from 'axios';
-import {login} from '../../Interfaces/interface';
+import {login} from '../../Interfaces/index';
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 import {FaUserAlt} from 'react-icons/fa';

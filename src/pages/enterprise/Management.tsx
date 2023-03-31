@@ -8,7 +8,7 @@ import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSide
 import EnterpriseOffers from "../../Components/EnterpriseOffers/EnterpriseOffers";
 import ActionModal from "../../Components/ActionModal/ActionModal";
 import DeleteModal from '../../Components/DeleteModal/DeleteModal';
-import {OfferInterface} from '../../Interfaces/interface';
+import {OfferInterface} from '../../Interfaces/index';
 
 interface Props {
     theme: boolean,

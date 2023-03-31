@@ -9,7 +9,7 @@ import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import Footer from '../../Components/Footer/Footer';
 import ActionModal from '../../Components/ActionModal/ActionModal';
-import {OfferInterface} from "../../Interfaces/interface";
+import {OfferInterface} from "../../Interfaces/index";
 
 interface Props {
     offersData: any,

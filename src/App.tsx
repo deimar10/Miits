@@ -9,8 +9,8 @@ import Menu from './pages/enterprise/Menu';
 import Management from "./pages/enterprise/Management";
 import EditOffer from "./pages/enterprise/EditOffer";
 import CreateOffer from "./pages/enterprise/CreateOffer";
-import {OfferInterface} from "./Interfaces/interface";
-import {register} from './Interfaces/interface';
+import {OfferInterface} from "./Interfaces/index";
+import {register} from './Interfaces/index';
 import {handleOfferStatus} from './utils/index';
 import axios from 'axios';
 

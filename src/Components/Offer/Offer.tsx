@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import './Offer.css';
 import '../../Responsive/components/Offer.css';
 import {Link} from 'react-router-dom';
-import {OfferInterface} from "../../Interfaces/interface";
+import {OfferInterface} from "../../Interfaces/index";
 import {FaRegHeart,FaHeart} from 'react-icons/fa';
 import offers from "../../pages/user/Offers";
 
