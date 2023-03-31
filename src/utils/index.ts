@@ -11,3 +11,33 @@ export const handleOfferStatus = (offers: OfferInterface[]): OfferInterface[] =>
         }
     })
 }
+
+export const FieldInputProps = (theme: boolean) => {
+    return (
+        {
+            style: {
+                color: theme ? 'white' : 'initial',
+                width: '95%',
+                border: `1px solid ${theme ? '#6b6b6b' : null}`,
+                borderRadius: '4px',
+            },
+        }
+    );
+}
+
+export const FieldLabelProps = (theme: boolean) => {
+    return (
+        {
+            style: {
+                color: theme ? '#5EFFB1' : 'initial',
+                shrink: true
+            },
+        }
+    );
+}
+
+export const FieldVariant = (theme: boolean) => {
+    return (
+        theme ? 'outlined' : 'standard'
+    );
+}

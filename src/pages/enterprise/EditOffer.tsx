@@ -7,6 +7,9 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
+import {FieldInputProps} from '../../utils/index';
+import {FieldLabelProps} from '../../utils/index';
+import {FieldVariant} from '../../utils/index';
 import Footer from '../../Components/Footer/Footer';
 import ActionModal from '../../Components/ActionModal/ActionModal';
 import {OfferInterface} from "../../Interfaces/index";
@@ -100,24 +103,11 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
 
     const settings = [`Pakkumine (${viewEditModal.offer}) edukalt muudetud`, 'info'];
 
-    const variant = theme ? 'outlined' : 'standard';
+    const variant = FieldVariant(theme);
 
-    const inputProps = {
-        style: {
-            color: theme ? 'white' : 'initial',
-            width: '95%',
-            border: `1px solid ${theme ? '#6b6b6b' : null}`,
-            borderRadius: '4px',
-        },
-    };
-
-    const labelProps = {
-        style: {
-            color: theme ? '#5EFFB1' : 'initial',
-            shrink: true
-        },
-    };
-
+    const inputProps = FieldInputProps(theme);
+    const labelProps = FieldLabelProps(theme);
+    
     return (
         <>
             <EnterpriseNav 
