@@ -10,6 +10,7 @@ import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSide
 import {FieldInputProps} from '../../utils/index';
 import {FieldLabelProps} from '../../utils/index';
 import {FieldVariant} from '../../utils/index';
+import {DateField} from '../../Components/DateField';
 import Footer from '../../Components/Footer/Footer';
 import ActionModal from '../../Components/ActionModal/ActionModal';
 import {BiCheckCircle} from 'react-icons/bi';
@@ -184,7 +185,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 value={createOffer.description}
                                 onChange={handleOfferChange}
                             />
-                            <TextField
+                            <DateField
                                 name="date"
                                 label="Kuupäev"
                                 variant={variant}
