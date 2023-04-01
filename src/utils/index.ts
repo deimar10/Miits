@@ -30,7 +30,8 @@ export const FieldLabelProps = (theme: boolean) => {
         {
             style: {
                 color: theme ? '#5EFFB1' : 'initial',
-                shrink: true
+                shrink: true,
+                fontWeight: 'bold'
             },
         }
     );
