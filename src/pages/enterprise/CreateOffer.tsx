@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
+import { storage } from "../../firebase/config";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import './CreateOffer.css';
 import '../../Responsive/pages/CreateOffer.css';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import LinearProgress from '@mui/material/CircularProgress';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
 import {FieldInputProps} from '../../utils/index';
@@ -26,6 +29,8 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
 
     let location = useLocation();
 
+    const [file, setFile] = useState<any>("");
+    const [loading, setLoading] = useState<number>(0);
     const [createError, setCreateError] = useState<{errorMessage: string}>({
         errorMessage: ''
     });
@@ -51,11 +56,34 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
     }
 
     const handleImageUploadChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
-        const file = e.target.files[0];
-        const imgPath = `/assets/Images/offers/${file.name}`;
-
-        setCreateOffer({...createOffer, image: imgPath});
+        setFile(e.target.files[0]);
     }
+    
+    useEffect(() => {
+        handleFileUpload();
+    }, [file])
+
+    const handleFileUpload = () => {
+        const storageRef = ref(storage, `/files/${file.name}`);
+
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const percent = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                setLoading(percent);
+            },
+            (err) => console.log(err),
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                     setCreateOffer({...createOffer, image: url});
+                });
+            }
+        );
+    };
 
     const validate = () => {
         let errorMessage;
@@ -220,14 +248,23 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                     Drinks
                                 </MenuItem>
                             </TextField>
-                            <TextField
-                                name="image"
-                                type="file"
-                                variant={variant}
-                                InputLabelProps={labelProps}
-                                InputProps={inputProps}
-                                onChange={handleImageUploadChange}
-                            />
+                            <>
+                                <TextField
+                                    name="image"
+                                    type="file"
+                                    variant={variant}
+                                    InputLabelProps={labelProps}
+                                    InputProps={inputProps}
+                                    onChange={handleImageUploadChange}
+                                />
+                                {loading !== 100 && file ?
+                                    <LinearProgress
+                                        value={loading}
+                                    />
+                                    :
+                                    null
+                                }
+                            </>
                         </div>
                         <div className="create-submit-container">
                             <button id="create-submit" type="submit">
