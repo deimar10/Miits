@@ -114,21 +114,25 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                             />
                             <AiFillCalendar
                                 id="sideBar-icons"
+                                className={selected === 'events' ? 'selected-process' : ''}
                                 data-cy="events"
                                 onClick={e => handleSelected('events')}
                             />
                             <BiDrink
                                 id="sideBar-icons"
+                                className={selected === 'drinks' ? 'selected-process' : ''}
                                 data-cy="drinks"
                                 onClick={e => handleSelected('drinks')}
                             />
                             <FaWallet
                                 id="sideBar-icons"
+                                className={selected === 'price' ? 'selected-process' : ''}
                                 data-cy="price"
                                 onClick={e => handleSelected('price')}
                             />
                             <HiClock
                                 id="sideBar-icons"
+                                className={selected === 'date' ? 'selected-process' : ''}
                                 data-cy="date"
                                 onClick={e => handleSelected('date')}
                             />

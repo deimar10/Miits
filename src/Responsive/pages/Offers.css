@@ -43,7 +43,7 @@
 @media only screen and (max-width: 400px) {
     #sideBar-icons {
         font-size: 1.85rem;
-        padding-bottom: 0;
+        margin-bottom: 0;
         color: #5EFFB1;
     }
 }
