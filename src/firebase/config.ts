@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBuixBamvS8lMlLUSMEd35uXxk5dnjdvHA",
-    authDomain: "miits-images.firebaseapp.com",
-    projectId: "miits-images",
-    storageBucket: "miits-images.appspot.com",
-    messagingSenderId: "83218995455",
-    appId: "1:83218995455:web:1c613a20ff018e3f0754ca"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
