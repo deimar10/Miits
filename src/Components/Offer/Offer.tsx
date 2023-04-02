@@ -42,16 +42,8 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                 break;
         }
 
-        switch (location) {
-            case 'Tartu':
-                filteredOffers = filteredOffers.filter((offer: { location: string }) => offer.location === 'Tartu');
-                break;
-            case 'Tallinn':
-                filteredOffers = filteredOffers.filter((offer: { location: string }) => offer.location === 'Tallinn');
-                break;
-            case 'Pärnu':
-                filteredOffers = filteredOffers.filter((offer: { location: string }) => offer.location === 'Pärnu');
-                break;
+        if (location) {
+            filteredOffers = filteredOffers.filter((offer: { location: string }) => offer.location === location);
         }
 
         if (search) {
