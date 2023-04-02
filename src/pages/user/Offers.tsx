@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Offers.css';
 import '../../Responsive/pages/Offers.css';
+import axios from 'axios';
 import {FaWallet} from 'react-icons/fa';
 import {AiFillCalendar} from 'react-icons/ai';
 import {BiDrink} from 'react-icons/bi';
@@ -28,7 +29,22 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
     const [selected, setSelected] = useState<string>();
     const [locationMenu, setLocationMenu] = useState<boolean>(false);
     const [location, setLocation] = useState<string>();
+    const [locations, setLocations] = useState<string[]>();
     const [search, setSearch] = useState<string>();
+
+    const handleGetLocations = () => {
+        axios.get('http://localhost:3002/miits/api/user/offers/locations')
+            .then((response => {
+                setLocations(response.data);
+            }))
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        handleGetLocations();
+    }, [])
 
     const handleSelected = (category: string) => {
         setSelected(category);
@@ -81,15 +97,13 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                     <div className="sideBar-container">
                         <div className="location-filter" style={window.innerWidth <= 400 ? mobileLocationFilterStyles : locationFilterStyles}>
                             <ul style={{ display: locationMenu ? '' : 'none'}}>
-                                <li data-cy="Tartu" onClick={e => handleLocation('Tartu')}>
-                                    Tartu
-                                </li>
-                                <li data-cy="Pärnu" onClick={e => handleLocation('Tallinn')}>
-                                    Tallinn
-                                </li>
-                                <li data-cy="Tallinn" onClick={e => handleLocation('Pärnu')}>
-                                    Pärnu
-                                </li>
+                                {locations && locations.map((location: string) => {
+                                    return (
+                                            <li data-cy={location} onClick={e => handleLocation(location)} key={location}>
+                                                {location}
+                                            </li>
+                                        )
+                                })}
                             </ul>
                         </div>
                         <div className="sideBar">
