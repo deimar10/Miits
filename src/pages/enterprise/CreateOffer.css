@@ -38,7 +38,7 @@
     font-weight: bold;
     margin-left: auto;
     float: right;
-    box-shadow: 0 4px 12px 0 rgba(0,0,0,0.2), 0 2px 16px 0 rgba(0,0,0,0.19);;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 2px 16px 0 rgba(0,0,0,0.19);
 }
 
 #create-submit:hover {
