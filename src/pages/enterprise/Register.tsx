@@ -80,10 +80,7 @@ function Register({register, setRegister}: Props) {
         <div className="register-parent">
             <div className="register-main-container">
                 <div className="register-form-container">
-                    <form 
-                        onSubmit={handleSubmitRegister} 
-                        className="register-input-container"
-                    >
+                    <form onSubmit={handleSubmitRegister} className="register-input-container">
                         <div className="register-fields">
                             <div className="input-icon">
                                 <FaUserAlt />
@@ -130,15 +127,20 @@ function Register({register, setRegister}: Props) {
                         <div className="error-container">
                             {registerError.usernameError ? 
                                 <p>{registerError.usernameError}</p> 
-                                : null
+                                : 
+                                null
                             }
                             {registerError.passwordError ? 
                                 <p>{registerError.passwordError}</p>
-                                : null
+                                : 
+                                null
                             }
                             {registerError.passwordRepeatError ? 
-                                <p data-cy="password_repeat">{registerError.passwordRepeatError}</p> 
-                                : null
+                                <p data-cy="password_repeat">
+                                    {registerError.passwordRepeatError}
+                                </p> 
+                                : 
+                                null
                             }
                         </div>
                     </form>

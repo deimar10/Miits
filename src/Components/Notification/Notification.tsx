@@ -48,7 +48,10 @@ function Notification({isExpiring, theme}: Props) {
                         </div>
                     </div>
                     )
-            }) : <h1 id="expiring-empty">Tundub, et sul ei ole pakkumisi, mis hakkab lähiajal lõppema.</h1>}
+            }) : <h1 id="expiring-empty">
+                    Tundub, et sul ei ole pakkumisi, mis hakkab lähiajal lõppema.
+                </h1>
+            }
         </div>
     );
 }

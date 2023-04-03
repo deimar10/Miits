@@ -92,18 +92,19 @@ function Login({setAuth, auth}: Props) {
                     />
                 </div>
                 <div className="login-form-container">
-                    <form 
-                        onSubmit={handleSubmitLogin} 
-                        className="login-input-container"
-                    >
+                    <form onSubmit={handleSubmitLogin} className="login-input-container">
                         <div className="login-error-container">
                             {loginError.usernameError ? 
-                                <p>{loginError.usernameError}</p> 
-                                : null
+                                <p>{loginError.usernameError}</p>
+                                :
+                                null
                             }
                             {loginError.passwordError ? 
-                                <p id="password-error">{loginError.passwordError}</p> 
-                                : null
+                                <p id="password-error">
+                                    {loginError.passwordError}
+                                </p>
+                                :
+                                null
                             }
                         </div>
                         <div className="login-fields">
@@ -138,7 +139,10 @@ function Login({setAuth, auth}: Props) {
                         </button>
                         <div className="nav-to-register">
                             <Link id="navigate" to={"/enterprise/register"}>
-                                Loo konto <span><HiOutlineArrowNarrowRight /></span>
+                                Loo konto
+                                <span>
+                                    <HiOutlineArrowNarrowRight />
+                                </span>
                             </Link>
                         </div>
                     </form>

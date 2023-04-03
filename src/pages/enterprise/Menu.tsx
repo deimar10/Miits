@@ -33,11 +33,13 @@ function Menu({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     setAuth={setAuth} 
                 />
                 <div className="menu-introduction" style={{color: theme ? 'white' : 'black'}}>
-                    <h1>
-                        Siin menüüs saad hallata enda pakkumisi
-                    </h1>
-                    <BiDrink id="menu-icon" />
-                    <AiFillCalendar id="menu-icon" />
+                    <h1>Siin menüüs saad hallata enda pakkumisi</h1>
+                    <BiDrink 
+                        id="menu-icon" 
+                    />
+                    <AiFillCalendar 
+                        id="menu-icon" 
+                    />
                 </div>
             </div>
         </>
