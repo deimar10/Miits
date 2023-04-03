@@ -36,7 +36,11 @@
     font-weight: bold;
 }
 
-.offer-details > img {
+.offer-detail-container {
+    width: 20%;
+}
+
+.offer-detail-container > img {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;

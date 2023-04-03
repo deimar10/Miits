@@ -64,13 +64,21 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                             </div>
                         }
                         <div className="offer-details">
-                            <p>{offer.title}</p>
-                            <p>{offer.price}€</p>
-                            <img
-                                src={offer.image}
-                                alt="offer-image"
-                            />
-                            <p>{offer.location}</p>
+                            <div className="offer-detail-container">
+                                <p>{offer.title}</p>
+                            </div>
+                            <div className="offer-detail-container">
+                                <p>{offer.price}€</p>
+                            </div>
+                            <div className="offer-detail-container">
+                                <img
+                                    src={offer.image}
+                                    alt="offer-image"
+                                />
+                            </div>
+                            <div className="offer-detail-container">
+                                <p>{offer.location}</p>
+                            </div>
                         </div>
                         {offer.upcoming ?
                             <div className="offer-status">
