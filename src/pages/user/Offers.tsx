@@ -62,6 +62,10 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme])
 
+    const handleActive = (selected: string) => {
+        return ({color: location === selected ? '#5EFFB1' : ''});
+    }
+
     const locationFilterStyles = {
         width: locationMenu ? '7.5rem' : '0',
         height: locationMenu ? 'auto' : '0'
@@ -99,7 +103,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                             <ul style={{ display: locationMenu ? '' : 'none'}}>
                                 {locations && locations.map((location: string) => {
                                     return (
-                                            <li data-cy={location} onClick={e => handleLocation(location)} key={location}>
+                                            <li data-cy={location} style={handleActive(location)} onClick={e => handleLocation(location)} key={location}>
                                                 {location}
                                             </li>
                                         )
