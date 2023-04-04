@@ -68,8 +68,10 @@ function Login({setAuth, auth}: Props) {
                     setAuth({...auth, login: response.data.auth});
 
                     navigate("/enterprise/menu", {state: login.username});
-                } else {
-                    setAuth({...auth, login: response.data.auth});
+                } else if (response.data.admin) {
+                    setAuth({...auth, login: false});
+
+                    navigate("/admin");
                 }
             }).catch(error => {
                 console.log(error);

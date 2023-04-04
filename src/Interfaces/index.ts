@@ -33,3 +33,9 @@ export interface login {
     password: string
 }
 
+export interface registered {
+    name: string,
+    id: number,
+    joined_at: string
+}
+

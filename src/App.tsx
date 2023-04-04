@@ -9,6 +9,7 @@ import Menu from './pages/enterprise/Menu';
 import Management from "./pages/enterprise/Management";
 import EditOffer from "./pages/enterprise/EditOffer";
 import CreateOffer from "./pages/enterprise/CreateOffer";
+import Panel from "./pages/admin/Panel";
 import {OfferInterface} from "./Interfaces/index";
 import {register} from './Interfaces/index';
 import {handleOfferStatus} from './utils/index';
@@ -133,6 +134,7 @@ function App() {
                   setAuth={setAuth}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
+              <Route path="/admin" element={<Panel />} />
           </Routes>
       </BrowserRouter>
   );
