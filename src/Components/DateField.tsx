@@ -17,6 +17,7 @@ export const DateField = ({name, label, variant, value, InputLabelProps, InputPr
         <TextField
             name={name}
             label={label}
+            required={true}
             variant={variant}
             value={value}
             InputLabelProps={InputLabelProps}

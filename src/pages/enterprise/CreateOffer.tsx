@@ -187,6 +187,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="title"
                                 label="Tiitel"
+                                required={true}
                                 variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
@@ -196,6 +197,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="location"
                                 label="Asukoht"
+                                required={true}
                                 variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
@@ -205,6 +207,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="description"
                                 label="Kirjeldus"
+                                required={true}
                                 multiline
                                 maxRows={4}
                                 variant={variant}
@@ -225,6 +228,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="price"
                                 label="Hind(€)"
+                                required={true}
                                 variant={variant}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
@@ -234,6 +238,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="category"
                                 label="Kategooria"
+                                required={true}
                                 select
                                 variant={variant}
                                 value={createOffer.category}

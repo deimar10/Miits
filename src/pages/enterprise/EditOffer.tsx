@@ -142,6 +142,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <TextField
                                 name="title"
                                 label="Tiitel"
+                                required={true}
                                 value={editOffer.title}
                                 variant={variant}
                                 InputLabelProps={labelProps}
@@ -151,6 +152,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <TextField
                                 name="location"
                                 label="Asukoht"
+                                required={true}
                                 value={editOffer.location}
                                 variant={variant}
                                 InputLabelProps={labelProps}
@@ -160,6 +162,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <TextField
                                 name="description"
                                 label="Kirjeldus"
+                                required={true}
                                 value={editOffer.description}
                                 multiline
                                 variant={variant}
@@ -180,6 +183,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <TextField
                                 name="price"
                                 label="Hind(€)"
+                                required={true}
                                 variant={variant}
                                 value={editOffer.price}
                                 InputLabelProps={labelProps}
@@ -189,6 +193,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                             <TextField
                                 name="category"
                                 label="Kategooria"
+                                required={true}
                                 select
                                 variant={variant}
                                 value={editOffer.category}
