@@ -32,7 +32,10 @@ function Menu({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     setAuth={setAuth} 
                 />
                 <div className="menu-introduction" style={{color: theme ? 'white' : 'black'}}>
-                    <h1>Siin menüüs saad hallata enda pakkumisi</h1>
+                    <h1>
+                        Loo uus pakkumine,
+                        muuda pakkumist või kustuta pakkumine
+                    </h1>
                     <BiDrink 
                         id="menu-icon" 
                     />
