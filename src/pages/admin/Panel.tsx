@@ -24,6 +24,9 @@ function Panel() {
 
     return (
         <div className="registered-container">
+            <div className="registered-enterprise-count">
+                Registreeritud Ettevõtted: {registered.length}
+            </div>
             {registered.map((enterprise: registered) => {
                 return (
                     <div className="registered-tab" key={enterprise.id}>

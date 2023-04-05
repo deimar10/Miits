@@ -1,3 +1,12 @@
+.registered-enterprise-count {
+    width: 80%;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
 .registered-container {
     width: 50%;
     margin: 0 auto;
