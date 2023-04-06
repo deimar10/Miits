@@ -2,6 +2,7 @@
     display: flex;
     height: 100vh;
     width: 100%;
+    position: relative;
 }
 
 .offers-container {
@@ -19,4 +20,37 @@
     width: 0.35rem;
     background: #cccccc;
     border-radius: 1rem;
+}
+
+#filter-icon {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 3.75rem;
+    left: 27.25rem;
+}
+
+#filter-icon:hover {
+    cursor: pointer;
+}
+
+.offers-filter-container {
+    position: absolute;
+    left: 28rem;
+    top: 5.85rem;
+    width: 10rem;
+    height: 3.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cccccc;
+}
+
+input[type="checkbox"] {
+    width: 1.05rem;
+    height: 1.05rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
 }

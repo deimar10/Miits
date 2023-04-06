@@ -2,6 +2,7 @@
     .enterprise-offers-container {
         height: 37.5rem;
         overflow-y: scroll;
+        position: unset;
     }
 }
 
@@ -9,5 +10,32 @@
     .offers-container {
         width: 92.5%;
         overflow-y: unset;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #filter-icon {
+        top: 7.75rem;
+        left: 2rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .offers-filter-container {
+        top: 9.5rem;
+        left: 3.5rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    #filter-icon {
+        top: 3.75rem;
+        left: 22.5rem;
+    }
+}
+
+@media (min-width: 1750px) and (max-width: 2050px) {
+    .offers-filter-container {
+        left: 23.5rem;
     }
 }

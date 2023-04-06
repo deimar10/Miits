@@ -9,6 +9,7 @@ import EnterpriseOffers from "../../Components/EnterpriseOffers/EnterpriseOffers
 import ActionModal from "../../Components/ActionModal/ActionModal";
 import DeleteModal from '../../Components/DeleteModal/DeleteModal';
 import {OfferInterface} from '../../Interfaces/index';
+import {FiMoreHorizontal} from 'react-icons/fi';
 
 interface Props {
     theme: boolean,
@@ -21,6 +22,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
 
     let { name } = useParams();
     let { state } = useLocation();
+    
     let navigate = useNavigate();
 
     const [enterpriseOffers, setEnterpriseOffers] = useState<OfferInterface[]>([]);
@@ -32,6 +34,8 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
         view: false,
         offer: 0,
     });
+    const [filterModal, setFilterModal] = useState<boolean>(false);
+    const [upcoming, setShowUpcoming] = useState<boolean>(false);
 
     useEffect(() => {
         handleGetEnterpriseOffers();
@@ -46,6 +50,14 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
               console.log(error);
           });
     };
+    
+    const handleFilterModalOpen = () => {
+        setFilterModal(!filterModal);
+    }
+
+    const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setShowUpcoming(e.target.checked);
+    }
     
     const handleDeleteNotification = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
         setNotification(true);
@@ -107,6 +119,32 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     setAuth={setAuth}
                 />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
+                    {enterpriseOffers.length !== 0 ?
+                        <FiMoreHorizontal
+                            onClick={handleFilterModalOpen}
+                            style={{
+                                color: filterModal ? '#cccccc' : ''
+                            }}
+                            id="filter-icon"
+                        />
+                        :
+                        null
+                    }
+                    {filterModal && 
+                        <div className="offers-filter-container"  style={{
+                            backgroundColor: theme ? '#212121' : 'white',
+                            border: theme ? '1px solid #313131' : ''
+                        }}>
+                            <input
+                                name="filter_status"
+                                type="checkbox"
+                                id="filter-status"
+                                checked={upcoming}
+                                onChange={handleCheckboxChange}
+                            />
+                            <label>Tulekul</label>
+                        </div>
+                    }
                     {deleteNotification ?
                         <DeleteModal 
                             theme={theme} 
@@ -119,6 +157,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     }
                     <EnterpriseOffers
                         theme={theme}
+                        upcoming={upcoming}
                         enterpriseOffers={enterpriseOffers}
                         handleDeleteNotification={handleDeleteNotification}
                         handleEditOffer={handleEditOffer}

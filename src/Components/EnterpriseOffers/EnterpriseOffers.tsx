@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 import './EnterpriseOffers.css';
 import '../../Responsive/components/EnterpriseOffers.css';
 import {OfferInterface} from '../../Interfaces/index';
@@ -13,10 +13,11 @@ interface Props {
     theme: boolean,
     enterpriseOffers: OfferInterface[],
     handleDeleteNotification(e: any, id: number): void,
-    handleEditOffer(e: any, title: string): void
+    handleEditOffer(e: any, title: string): void,
+    upcoming: boolean
 }
 
-function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, handleEditOffer}: Props) {
+function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, handleEditOffer, upcoming}: Props) {
 
     const [processed, setProcessed] = useState<OfferInterface[]>([]);
     const [viewFeedbackModal, setView] = useState<boolean>(false);
@@ -47,9 +48,18 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
         setView(false)
     }
 
+    const handleFilterOffers = () => {
+        if (upcoming) {
+            return processed.filter((offer: OfferInterface) => offer.upcoming);
+        }
+        return processed;
+    }
+
+    let filteredOffers = useMemo(handleFilterOffers, [upcoming, processed]);
+
     return (
         <>
-            {enterpriseOffers?.length ? processed.map((offer: OfferInterface) => {
+            {enterpriseOffers?.length ? filteredOffers.map((offer: OfferInterface) => {
                 return (
                     <div className="enterprise-offer" key={offer.id}>
                         {offer.category === 'Event' ?
@@ -73,7 +83,7 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                             <div className="offer-detail-container">
                                 <img
                                     src={offer.image}
-                                    alt="offer-image"
+                                    alt="offer"
                                 />
                             </div>
                             <div className="offer-detail-container">
