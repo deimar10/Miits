@@ -40,7 +40,7 @@ function Panel({admin}: Props) {
             </div>
             {registered.map((enterprise: registered) => {
                 return (
-                    <div className="registered-tab" key={enterprise.id}>
+                    <div className="registered-tab" data-cy="registered" key={enterprise.id}>
                         <div className="registered-icon">
                             <IoBusinessOutline />
                         </div>
