@@ -28,6 +28,7 @@ function App() {
         password_repeat: ''
     });
     const [auth, setAuth] = useState<{login: boolean}>({login: false});
+    const [admin, setAdmin] = useState<boolean>(false);
 
     useEffect(() => {
         setCount(favorites.length);
@@ -107,7 +108,9 @@ function App() {
               />
               <Route path="/enterprise/login" element={<Login
                   setAuth={setAuth}
-                  auth={auth} />}
+                  auth={auth} 
+                  admin={admin}
+                  setAdmin={setAdmin} />}
               />
               <Route path="/enterprise/menu" element={<Menu
                   theme={theme}
@@ -134,7 +137,9 @@ function App() {
                   setAuth={setAuth}
                   handleThemeSwitch={handleThemeSwitch} />}
               />
-              <Route path="/admin" element={<Panel />} />
+              <Route path="/admin" element={<Panel 
+                  admin={admin} />}
+              />
           </Routes>
       </BrowserRouter>
   );

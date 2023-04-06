@@ -11,10 +11,12 @@ import {HiOutlineArrowNarrowRight} from 'react-icons/hi';
 
 interface Props {
     setAuth: (auth: any) => void,
-    auth: object
+    auth: object,
+    admin: boolean,
+    setAdmin: (admin: boolean) => void
 }
 
-function Login({setAuth, auth}: Props) {
+function Login({setAuth, auth, admin, setAdmin}: Props) {
 
     const navigate = useNavigate();
 
@@ -70,7 +72,8 @@ function Login({setAuth, auth}: Props) {
                     navigate("/enterprise/menu", {state: login.username});
                 } else if (response.data.admin) {
                     setAuth({...auth, login: false});
-
+                    
+                    setAdmin(true);
                     navigate("/admin");
                 }
             }).catch(error => {

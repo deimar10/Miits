@@ -1,16 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import './Panel.css';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 import {registered} from '../../Interfaces/index';
 import {IoBusinessOutline} from 'react-icons/io5';
 
-function Panel() {
+interface Props {
+    admin: boolean
+}
+
+function Panel({admin}: Props) {
+
+    const navigate = useNavigate();
 
     const [registered, setRegistered] = useState<registered[]>([]);
 
     useEffect(() => {
-        handleGetRegistered();
-    }, [])
+        if (admin) {
+            handleGetRegistered();
+        } else {
+            navigate('/enterprise/login');
+        }
+    }, [admin])
 
     const handleGetRegistered = () => {
         axios.get('http://localhost:3002/miits/api/enterprise/registered')
