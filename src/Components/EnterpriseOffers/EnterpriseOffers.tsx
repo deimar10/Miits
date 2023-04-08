@@ -61,7 +61,7 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
         <>
             {enterpriseOffers?.length ? filteredOffers.map((offer: OfferInterface) => {
                 return (
-                    <div className="enterprise-offer" key={offer.id}>
+                    <div className="enterprise-offer" key={offer.id} data-cy="offer">
                         {offer.category === 'Event' ?
                             <div className="offer-category">
                                 <AiFillCalendar id="category" />

@@ -126,6 +126,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                                 color: filterModal ? '#cccccc' : ''
                             }}
                             id="filter-icon"
+                            data-cy="filter-option"
                         />
                         :
                         null
