@@ -19,9 +19,10 @@
 }
 
 @media only screen and (max-width: 400px) {
-    .offer-details > img {
-        width: 2.5rem;
-        height: 2.5rem;
+    .offer-detail-container > img {
+        width: 3rem;
+        height: 3rem;
+        margin-left: -0.25rem;
     }
 }
 
@@ -35,7 +36,7 @@
 @media only screen and (max-width: 400px) {
     #offer-feedback {
         margin-left: 0;
-        margin-right: 0.40rem;
+        margin-right: 0.35rem;
         float: none;
         font-size: 1.25rem;
     }
