@@ -22,7 +22,7 @@
 
 @media only screen and (max-width: 400px) {
     #create-submit {
-        width: 17.5rem;
+        width: 100%;
         height: 2.75rem;
         margin-right: 0.5rem;
     }

@@ -37,12 +37,13 @@
     position: absolute;
     left: 28rem;
     top: 5.85rem;
-    width: 10rem;
+    width: 9.5rem;
     height: 3.5rem;
     background: white;
     border-radius: 0.5rem;
     display: flex;
     gap: 2.5rem;
+    font-weight: bold;
     align-items: center;
     justify-content: center;
     border: 1px solid #cccccc;
