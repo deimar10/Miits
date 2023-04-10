@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8rem;
+    width: 8.5rem;
     height: 2.85rem;
     font-size: 0.95rem;
     background: #5EFFB1;
@@ -38,12 +38,12 @@
     font-weight: bold;
     margin-left: auto;
     float: right;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 2px 16px 0 rgba(0,0,0,0.19);
 }
 
 #create-submit:hover {
     cursor: pointer;
     color: white;
+    box-shadow: rgba(65, 64, 64, 0.4) 0 4px 8px;
 }
 
 #check {
