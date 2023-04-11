@@ -24,11 +24,11 @@ function EnterpriseNav({theme, handleThemeSwitch}: Props) {
             case `/enterprise/management/${enterpriseLoginInfo.state}`:
                 return location[1];
             default:
-                return 'Edit'
+                return 'Muuda'
         }
     }
 
-    const location = ['Menu', 'Management', 'Create'];
+    const location = ['Menüü', 'Halda', 'Loo'];
 
     return (
         <nav className="enterprise-nav-container" style={{ boxShadow: theme ? '2px 0 6px 0 black' : '2px 0 6px 0 #494949'}}>

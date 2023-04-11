@@ -65,12 +65,12 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                         {offer.category === 'Event' ?
                             <div className="offer-category">
                                 <AiFillCalendar id="category" />
-                                <p>Event</p>
+                                <p>Üritus</p>
                             </div>
                             :
                             <div className="offer-category">
                                 <BiDrink id="category" />
-                                <p>Offer</p>
+                                <p>Pakkumine</p>
                             </div>
                         }
                         <div className="offer-details">
@@ -95,7 +95,7 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                                 <BiCheck
                                     id="status-open"
                                 />
-                                <p>Upcoming</p>
+                                <p>Tulekul</p>
                                 <MdOutlineFeedback
                                     id="offer-feedback"
                                     onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
@@ -106,7 +106,7 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                                 <AiOutlineClose
                                     id="status-closed"
                                 />
-                                <p>Upcoming</p>
+                                <p>Tulekul</p>
                                 <MdOutlineFeedback
                                     id="offer-feedback"
                                     onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
