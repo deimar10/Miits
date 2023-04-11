@@ -8,6 +8,7 @@ import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSide
 import EnterpriseOffers from "../../Components/EnterpriseOffers/EnterpriseOffers";
 import ActionModal from "../../Components/ActionModal/ActionModal";
 import DeleteModal from '../../Components/DeleteModal/DeleteModal';
+import LinearProgress from '@mui/material/CircularProgress';
 import {OfferInterface} from '../../Interfaces/index';
 import {FiMoreHorizontal} from 'react-icons/fi';
 
@@ -36,8 +37,11 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     });
     const [filterModal, setFilterModal] = useState<boolean>(false);
     const [upcoming, setShowUpcoming] = useState<boolean>(false);
+    const [loader, setLoader] = useState<boolean>(true);
 
     useEffect(() => {
+        setTimeout(() => setLoader(false), 1000);
+
         handleGetEnterpriseOffers();
     }, []);
 
@@ -119,7 +123,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     setAuth={setAuth}
                 />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
-                    {enterpriseOffers.length !== 0 ?
+                    {enterpriseOffers.length !== 0 && !loader ?
                         <FiMoreHorizontal
                             onClick={handleFilterModalOpen}
                             style={{
@@ -156,13 +160,26 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                         : 
                         null
                     }
-                    <EnterpriseOffers
-                        theme={theme}
-                        upcoming={upcoming}
-                        enterpriseOffers={enterpriseOffers}
-                        handleDeleteNotification={handleDeleteNotification}
-                        handleEditOffer={handleEditOffer}
-                    />
+                    {loader ?
+                        <LinearProgress
+                            style={{
+                                position: 'absolute',
+                                left: window.innerWidth <=400 ? '40%' : '50%',
+                                top: '35%',
+                                width: '4.5rem',
+                                height: '4.5rem',
+                                zIndex: 1,
+                            }}
+                        />
+                        :
+                        <EnterpriseOffers
+                            theme={theme}
+                            upcoming={upcoming}
+                            enterpriseOffers={enterpriseOffers}
+                            handleDeleteNotification={handleDeleteNotification}
+                            handleEditOffer={handleEditOffer}
+                        />
+                    }
                 </div>
             </div>
         </>
