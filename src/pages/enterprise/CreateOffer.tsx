@@ -159,13 +159,12 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                 theme={theme}
                 handleThemeSwitch={handleThemeSwitch}
             />
-            {viewCreateModal.view ?
+            {viewCreateModal.view &&
                 <ActionModal
                     modal={settings}
                     handleModalClose={handleModalClose}
                     open={viewCreateModal}
                 />
-                : null
             }
             <div className="enterprise-create-container">
                 <EnterpriseSidebar
@@ -176,12 +175,10 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                 />
                 <div className="create-offer-container">
                     <form onSubmit={handleCreateSubmit}>
-                        {createError.errorMessage ?
+                        {createError.errorMessage &&
                             <p id="error-validate">
                                 {createError.errorMessage}
                             </p>
-                            :
-                            null
                         }
                         <div className="create-input-container">
                             <TextField
@@ -262,12 +259,10 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                     InputProps={inputProps}
                                     onChange={handleImageUploadChange}
                                 />
-                                {loading !== 100 && file ?
+                                {loading !== 100 && file &&
                                     <LinearProgress
                                         value={loading}
                                     />
-                                    :
-                                    null
                                 }
                             </>
                         </div>

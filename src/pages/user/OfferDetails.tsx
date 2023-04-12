@@ -200,10 +200,8 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                 </div>
                 <div className="details-feedback-container">
                     <h2>Kasutaja Tagasiside</h2>
-                    {success ? 
-                        <FeedbackSuccess /> 
-                        : 
-                        null
+                    {success &&
+                        <FeedbackSuccess />
                     }
                     <div className="user-feedback-container" style={{overflowY: offerSelected.feedback.length <= 2 ? 'hidden' : 'scroll'}}>
                         {offerSelected.feedback.length !== 0 ? offerSelected.feedback.map((feedback: {comment: string, name: string, tagasiside_id: string}) => {
@@ -223,12 +221,10 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                     </div>
                     <div className="details-form-container">
                         <label>Eesnimi</label>
-                        {feedback.nameError ?
+                        {feedback.nameError &&
                             <p data-cy="name-error" id="error-validate">
                                 {feedback.nameError}
                             </p>
-                            : 
-                            null
                         }
                         <input
                             id="form-name"
@@ -243,12 +239,10 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             }}
                         />
                         <label>Tagasiside</label>
-                        {feedback.commentError ?
+                        {feedback.commentError &&
                             <p id="error-validate">
                                 {feedback.commentError}
                             </p>
-                            : 
-                            null
                         }
                         <input
                             id="form-feedback"

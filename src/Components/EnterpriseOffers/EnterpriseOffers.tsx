@@ -134,14 +134,12 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                     </p>
                 </div>
             }
-            {viewFeedbackModal ?
+            {viewFeedbackModal &&
                 <UserFeedback
                     selectedFeedback={selectedFeedback}
                     theme={theme}
                     handleCloseFeedbackModal={handleCloseFeedbackModal}
                 />
-                :
-                null
             }
         </>
     )

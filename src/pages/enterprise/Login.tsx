@@ -99,17 +99,13 @@ function Login({setAuth, auth, admin, setAdmin}: Props) {
                 <div className="login-form-container">
                     <form onSubmit={handleSubmitLogin} className="login-input-container">
                         <div className="login-error-container">
-                            {loginError.usernameError ? 
+                            {loginError.usernameError &&
                                 <p>{loginError.usernameError}</p>
-                                :
-                                null
                             }
-                            {loginError.passwordError ? 
+                            {loginError.passwordError &&
                                 <p id="password-error">
                                     {loginError.passwordError}
                                 </p>
-                                :
-                                null
                             }
                         </div>
                         <div className="login-fields">

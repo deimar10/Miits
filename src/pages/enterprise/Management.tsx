@@ -108,13 +108,12 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                 theme={theme} 
                 handleThemeSwitch={handleThemeSwitch} 
             />
-            {viewDeleteModal.view ? 
+            {viewDeleteModal.view &&
                 <ActionModal 
                     modal={settings} 
                     handleModalClose={handleModalClose} 
                     open={viewDeleteModal}
-                /> 
-                : null
+                />
             }
             <div className="enterprise-offers-container">
                 <EnterpriseSidebar
@@ -123,7 +122,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     setAuth={setAuth}
                 />
                 <div className="offers-container" style={{color: theme ? 'white' : 'black'}}>
-                    {enterpriseOffers.length !== 0 && !loader ?
+                    {enterpriseOffers.length !== 0 && !loader &&
                         <FiMoreHorizontal
                             onClick={handleFilterModalOpen}
                             style={{
@@ -132,8 +131,6 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                             id="filter-icon"
                             data-cy="filter-option"
                         />
-                        :
-                        null
                     }
                     {filterModal && 
                         <div className="offers-filter-container"  style={{
@@ -150,15 +147,13 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                             <label>Tulekul</label>
                         </div>
                     }
-                    {deleteNotification ?
+                    {deleteNotification &&
                         <DeleteModal 
                             theme={theme} 
                             handleDeleteOffer={handleDeleteOffer}
                             handleCloseNotification={handleCloseNotification}
                             offerSelected={offerSelected}
-                        /> 
-                        : 
-                        null
+                        />
                     }
                     {loader ?
                         <LinearProgress

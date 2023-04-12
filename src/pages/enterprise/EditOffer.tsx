@@ -115,13 +115,12 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                 theme={theme} 
                 handleThemeSwitch={handleThemeSwitch}
             />
-            {viewEditModal.view ? 
+            {viewEditModal.view &&
                 <ActionModal 
                     modal={settings} 
                     handleModalClose={handleModalClose}
                     open={viewEditModal}
-                /> 
-                : null
+                />
             }
             <div className="enterprise-edit-container">
                 <EnterpriseSidebar 
@@ -131,12 +130,10 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                 />
                 <div className="edit-offer-container">
                     <form onSubmit={handleEditSubmit}>
-                        {editError.errorMessage ?
+                        {editError.errorMessage &&
                             <p id="error-validate">
                                 {editError.errorMessage}
                             </p>
-                            :
-                            null
                         }
                         <div className="edit-input-container">
                             <TextField

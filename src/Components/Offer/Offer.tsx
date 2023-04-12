@@ -95,10 +95,10 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                             }}>
                             </div>
                         </Link>
-                        {info.upcoming ? 
-                            <h3 id="upcoming">Varsti</h3> 
-                            : 
-                            null
+                        {info.upcoming &&
+                            <h3 id="upcoming">
+                                Varsti
+                            </h3>
                         }
                         <div className="offer-details-container">
                             <div className="offer-info">

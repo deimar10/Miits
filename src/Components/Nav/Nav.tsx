@@ -93,12 +93,10 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                       data-cy="favorites" 
                       id="nav-icons" 
                   />
-                  {favoriteCount !== 0 ? 
+                  {favoriteCount !== 0 &&
                       <p id="fav-count">
                           {favoriteCount}
-                      </p> 
-                      : 
-                      null
+                      </p>
                   }
               </Link>
               <FaRegBell 
@@ -106,18 +104,14 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                   id="nav-icons" 
                   onClick={handleNotificationModal} 
               />
-              {!isEmpty ? 
+              {!isEmpty &&
                   <span id="notification-count"></span>
-                  : 
-                  null
               }
-              {notification ? 
+              {notification &&
                   <Notifcation
                       isExpiring={isExpiring}
                       theme={theme}
                   />
-                  : 
-                  null
               }
           </div>
       </nav>
