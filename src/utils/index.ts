@@ -27,10 +27,10 @@ export const FieldInputProps = (theme: boolean) => {
 
 export const FieldLabelProps = (theme: boolean) => {
     return (
-        {
+        {   
+            shrink: true,
             style: {
                 color: theme ? '#5EFFB1' : 'initial',
-                shrink: true,
                 fontWeight: 'bold'
             },
         }
