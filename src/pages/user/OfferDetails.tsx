@@ -10,7 +10,6 @@ import Footer from '../../Components/Footer/Footer';
 import FeedbackSuccess from '../../Components/FeedbackSuccess/FeedbackSuccess';
 import {FaRegHeart, FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
-import {AiFillPlusCircle} from 'react-icons/ai';
 
 interface Props {
     theme: boolean,
