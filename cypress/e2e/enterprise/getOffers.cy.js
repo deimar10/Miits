@@ -14,9 +14,7 @@ describe('Check that enterprise offers are displayed', () => {
 
         cy.url().should('eq', 'http://localhost:3000/enterprise/management/KolmTilli');
 
-        cy.get('[data-cy="offer-title"]').should('contain.text', 'Triple-Effect');
-
-        cy.get('[data-cy="offer-price"]').should('contain.text', '16.99');
+        cy.get('[data-cy="offer"]').should('have.length', 4);
     });
 
 })

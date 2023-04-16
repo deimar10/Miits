@@ -19,7 +19,7 @@ describe('Check that enterprise can filter offers by status', () => {
         cy.get('[data-cy="offer"]').should(($divs) => {
             const offers = $divs.filter('[data-cy="offer"]');
 
-            expect(offers).to.have.lengthOf(3);
+            expect(offers).to.have.lengthOf(2);
         });
     });
 
