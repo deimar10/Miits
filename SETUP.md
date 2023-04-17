@@ -1,5 +1,5 @@
 ## Setup 
-### Clone repository
+### Clone repository & navigate to project folder
 ```
     git clone https://github.com/deimar10/Miits.git
 ```
