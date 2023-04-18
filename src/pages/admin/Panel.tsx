@@ -38,23 +38,25 @@ function Panel({admin}: Props) {
             <div className="registered-enterprise-count">
                 Registreeritud Ettevõtted: {registered.length}
             </div>
-            {registered.map((enterprise: registered) => {
-                return (
-                    <div className="registered-tab" data-cy="registered" key={enterprise.id}>
-                        <div className="registered-icon">
-                            <IoBusinessOutline />
+            <div className="tab-container">
+                {registered.map((enterprise: registered) => {
+                    return (
+                        <div className="registered-tab" data-cy="registered" key={enterprise.id}>
+                            <div className="registered-icon">
+                                <IoBusinessOutline />
+                            </div>
+                            <div className="registered-details">
+                                <p id="registered-name">
+                                    {enterprise.name}
+                                </p>
+                                <p id="registered-date">
+                                    Liitus: <span id="date">{enterprise.joined_at}</span>
+                                </p>
+                            </div>
                         </div>
-                        <div className="registered-details">
-                            <p id="registered-name">
-                                {enterprise.name}
-                            </p>
-                            <p id="registered-date">
-                                Liitus: <span id="date">{enterprise.joined_at}</span>
-                            </p>
-                        </div>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
         </div>
     );
 }

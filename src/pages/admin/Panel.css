@@ -1,3 +1,12 @@
+.registered-container {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .registered-enterprise-count {
     width: 80%;
     height: 1rem;
@@ -7,13 +16,8 @@
     font-size: 1.15rem;
 }
 
-.registered-container {
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 2.5rem;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.tab-container {
+    padding-bottom: 10rem;
 }
 
 .registered-tab {
