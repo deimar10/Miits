@@ -234,6 +234,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                             <TextField
                                 name="category"
                                 label="Kategooria"
+                                data-cy="category"
                                 required={true}
                                 select
                                 variant={variant}
@@ -253,6 +254,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                                 <TextField
                                     name="image"
                                     type="file"
+                                    data-cy="image"
                                     variant={variant}
                                     InputLabelProps={labelProps}
                                     InputProps={inputProps}

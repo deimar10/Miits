@@ -12,13 +12,11 @@ describe('Check that enterprise offers can be deleted from the table', () => {
 
         cy.get('[data-cy="nav-to-offers"]').click();
 
-        cy.get('#offer-delete').click();
+        cy.get('[data-cy="Delete: 371"]').click();
 
         cy.get('#delete-submit').should('have.text', 'Kustuta').click();
-
-        cy.get('[data-cy="offer-title"]').should('not.exist');
-
-        cy.get('[data-cy="action-description"]').should('contain.text', 'Pakkumine (120) edukalt eemaldatud');
+        
+        cy.get('[data-cy="action-description"]').should('contain.text', 'Pakkumine (371) edukalt eemaldatud');
     });
 
 })

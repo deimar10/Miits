@@ -75,10 +75,14 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                         }
                         <div className="offer-details">
                             <div className="offer-detail-container">
-                                <p>{offer.title}</p>
+                                <p data-cy="offer-title">
+                                    {offer.title}
+                                </p>
                             </div>
                             <div className="offer-detail-container">
-                                <p>{offer.price}€</p>
+                                <p data-cy="offer-price">
+                                    {offer.price}€
+                                </p>
                             </div>
                             <div className="offer-detail-container">
                                 <img
@@ -116,10 +120,12 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                         <div className="offer-action">
                             <TfiTrash
                                 id="offer-delete"
+                                data-cy={`Delete: ${offer.id}`}
                                 onClick={e => handleDeleteNotification(e, offer.id)}
                             />
                             <AiOutlineEdit
                                 id="offer-edit"
+                                data-cy={`${offer.id}`}
                                 onClick={e => handleEditOffer(e, offer.title)}
                             />
                         </div>

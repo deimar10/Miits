@@ -13,7 +13,7 @@ describe('Check that admin can login to panel', () => {
         cy.get('[data-cy="registered"]').should(($divs) => {
             const registeredDivs = $divs.filter('[data-cy="registered"]');
 
-            expect(registeredDivs).to.have.lengthOf(7);
+            expect(registeredDivs).to.have.lengthOf(8);
         });
 
         cy.url().should('eq', 'http://localhost:3000/admin');

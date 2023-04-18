@@ -33,6 +33,7 @@ function ActionModal({modal, handleModalClose, open}: Props) {
                 onClose={handleModalClose}
                 message={modal[0]}
                 anchorOrigin={{vertical, horizontal}}
+                data-cy="action-description"
             >
                 <Alert onClose={handleModalClose} severity={modal[1]} sx={modalStyle}>
                     {modal[0]}
