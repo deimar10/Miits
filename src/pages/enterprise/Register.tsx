@@ -36,7 +36,7 @@ function Register({register, setRegister}: Props) {
         }
 
         if(!register.password || !register.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)) {
-            passwordError = 'Parool ei saa ola tühi. Parool peab sisaldama 8 tähemärki ja numbrit';
+            passwordError = 'Parool ei saa olla tühi. Parool peab sisaldama 8 tähemärki ja numbrit';
         }
 
         if(register.password_repeat !== register.password) {

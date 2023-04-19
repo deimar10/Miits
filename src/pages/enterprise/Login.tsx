@@ -42,7 +42,7 @@ function Login({setAuth, auth, admin, setAdmin}: Props) {
         }
 
         if(!login.password || !login.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)) {
-            passwordError = 'Parool ei saa ola tühi. Parool peab sisaldama 8 tähemärki ja numbrit';
+            passwordError = 'Parool ei saa olla tühi. Parool peab sisaldama 8 tähemärki ja numbrit';
         }
 
         if(nameError) {
