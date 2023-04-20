@@ -56,41 +56,24 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
         setEditOffer({...editOffer, [e.target.name]: e.target.valueAsNumber || e.target.value});
     }
 
-    const validate = () => {
-        let errorMessage;
-
-        if (Object.values(editOffer).some(obj => obj === "")) {
-            errorMessage = 'Palun täida pakkumise muutmisel kõik väljad';
-        }
-
-        if (errorMessage) {
-            setEditError({...editError, errorMessage: errorMessage});
-            return false;
-        }
-        return true;
-    }
-
     const handleEditSubmit = (e:React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
-        let isValid = validate();
 
-        if (isValid) {
-            axios.put(`http://localhost:3002/miits/api/enterprise/offer/edit/${editOffer.id}`, {
-                title: editOffer.title,
-                category: editOffer.category,
-                location: editOffer.location,
-                date: editOffer.date,
-                price: editOffer.price,
-                description: editOffer.description
+        axios.put(`http://localhost:3002/miits/api/enterprise/offer/edit/${editOffer.id}`, {
+            title: editOffer.title,
+            category: editOffer.category,
+            location: editOffer.location,
+            date: editOffer.date,
+            price: editOffer.price,
+            description: editOffer.description
+        })
+            .then(() => {
+                setViewEditModal({...viewEditModal, view: true, offer: editOffer.id});
+                setEditError({...editError, errorMessage: ""});
             })
-                .then(() => {
-                    setViewEditModal({...viewEditModal, view: true, offer: editOffer.id});
-                    setEditError({...editError, errorMessage: ""});
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        }
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     const handleModalClose = () => {
@@ -129,11 +112,6 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                 />
                 <div className="edit-offer-container">
                     <form onSubmit={handleEditSubmit}>
-                        {editError.errorMessage &&
-                            <p id="error-validate">
-                                {editError.errorMessage}
-                            </p>
-                        }
                         <div className="edit-input-container">
                             <TextField
                                 name="title"
