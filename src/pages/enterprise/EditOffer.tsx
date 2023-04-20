@@ -166,7 +166,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
                                 required={true}
                                 select
                                 variant={variant}
-                                value={editOffer.category}
+                                value={editOffer.category || ""}
                                 InputLabelProps={labelProps}
                                 InputProps={inputProps}
                                 onChange={handleOfferChange}
