@@ -30,9 +30,6 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
     const offer = offersData.find((offer: OfferInterface) => offer.title === title);
 
     const [editOffer, setEditOffer] = useState<OfferInterface>({...offer});
-    const [editError, setEditError] = useState<{errorMessage: string}>({
-        errorMessage: ''
-    });
     const [viewEditModal, setViewEditModal] = useState({
         view: false,
         offer: 0
@@ -69,7 +66,6 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
         })
             .then(() => {
                 setViewEditModal({...viewEditModal, view: true, offer: editOffer.id});
-                setEditError({...editError, errorMessage: ""});
             })
             .catch(error => {
                 console.log(error);
