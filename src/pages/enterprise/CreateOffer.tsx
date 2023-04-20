@@ -59,7 +59,9 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
     }
     
     useEffect(() => {
-        handleFileUpload();
+        if (file) {
+            handleFileUpload();
+        }
     }, [file])
 
     const handleFileUpload = () => {
