@@ -75,7 +75,7 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                     <h3>Tagasi</h3>
                </span>
             </div>
-            {typeof favorites !== "undefined" && favorites.length !== 0 ?
+            {favorites?.length !== 0 ?
             <div className="favorites-main-container">
                 {favorites.map((favorite: OfferInterface) => {
                     return (

@@ -80,7 +80,7 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
 
     return (
         <div className="offers-grid-container">
-            {typeof processed !== "undefined" && processed.length !== 0 ? processed.map((info: OfferInterface) => {
+            {processed?.length !== 0 ? processed?.map((info: OfferInterface) => {
                 return (
                     <div className="grid-item" key={info.id}>
                         <Link to={`/offers/offer-details/${info.slug}`}>

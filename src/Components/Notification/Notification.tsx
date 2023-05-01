@@ -19,7 +19,7 @@ function Notification({isExpiring, theme}: Props) {
             <div className="notification-header">
                 <h1>Aegub päeva pärast</h1>
             </div>
-            {typeof isExpiring !== "undefined" && isExpiring.length !== 0 ? isExpiring.map((favorite: OfferInterface) => {
+            {isExpiring?.length !== 0 ? isExpiring?.map((favorite: OfferInterface) => {
                 return (
                     <div className="notification-item" key={favorite.id}>
                         <div className="notification-img">
