@@ -10,6 +10,7 @@ import {HiClock} from 'react-icons/hi';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
+import Tooltip from '@mui/material/Tooltip';
 
 interface Props {
     theme: boolean,
@@ -110,35 +111,55 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                             </ul>
                         </div>
                         <div className="sideBar">
-                            <ImLocation2
-                                id="sideBar-icons"
-                                name="location"
-                                onClick={e => handleLocationSelect() }
-                            />
-                            <AiFillCalendar
-                                id="sideBar-icons"
-                                className={selected === 'events' ? 'selected-process' : ''}
-                                data-cy="events"
-                                onClick={e => handleSelected('events')}
-                            />
-                            <BiDrink
-                                id="sideBar-icons"
-                                className={selected === 'drinks' ? 'selected-process' : ''}
-                                data-cy="drinks"
-                                onClick={e => handleSelected('drinks')}
-                            />
-                            <FaWallet
-                                id="sideBar-icons"
-                                className={selected === 'price' ? 'selected-process' : ''}
-                                data-cy="price"
-                                onClick={e => handleSelected('price')}
-                            />
-                            <HiClock
-                                id="sideBar-icons"
-                                className={selected === 'date' ? 'selected-process' : ''}
-                                data-cy="date"
-                                onClick={e => handleSelected('date')}
-                            />
+                            <Tooltip title="Asukohad" placement="left-start">
+                                <span>
+                                    <ImLocation2
+                                        id="sideBar-icons"
+                                        name="location"
+                                        onClick={e => handleLocationSelect()}
+                                    />
+                                </span>
+                            </Tooltip>
+                            <Tooltip title="Üritused" placement="left-start">
+                                <span>
+                                    <AiFillCalendar
+                                        id="sideBar-icons"
+                                        className={selected === 'events' ? 'selected-process' : ''}
+                                        data-cy="events"
+                                        onClick={e => handleSelected('events')}
+                                    />
+                                </span>
+                            </Tooltip>
+                            <Tooltip title="Joogid" placement="left-start">
+                                <span>
+                                    <BiDrink
+                                        id="sideBar-icons"
+                                        className={selected === 'drinks' ? 'selected-process' : ''}
+                                        data-cy="drinks"
+                                        onClick={e => handleSelected('drinks')}
+                                    />
+                                </span>
+                            </Tooltip>
+                            <Tooltip title="Hind" placement="left-start">
+                                <span>
+                                    <FaWallet
+                                        id="sideBar-icons"
+                                        className={selected === 'price' ? 'selected-process' : ''}
+                                        data-cy="price"
+                                        onClick={e => handleSelected('price')}
+                                    />
+                                </span>
+                            </Tooltip>
+                            <Tooltip title="Kuupäev" placement="left-start">
+                                <span>
+                                    <HiClock
+                                        id="sideBar-icons"
+                                        className={selected === 'date' ? 'selected-process' : ''}
+                                        data-cy="date"
+                                        onClick={e => handleSelected('date')}
+                                    />
+                                </span>
+                            </Tooltip>
                         </div>
                     </div>
                     <Offer

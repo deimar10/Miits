@@ -8,6 +8,7 @@ import {AiFillCalendar, AiOutlineClose, AiOutlineEdit} from 'react-icons/ai';
 import {MdOutlineFeedback} from 'react-icons/md';
 import {TfiTrash} from 'react-icons/tfi';
 import {handleOfferStatus} from '../../utils/index';
+import Tooltip from '@mui/material/Tooltip';
 
 interface Props {
     theme: boolean,
@@ -102,10 +103,13 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                                     id="status-open"
                                 />
                                 <p>Tulekul</p>
-                                <MdOutlineFeedback
-                                    id="offer-feedback"
-                                    onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
-                                />
+                                <Tooltip title={`${offer.title} tagasiside`} placement="left-start">
+                                    <span id="offer-feedback">
+                                        <MdOutlineFeedback
+                                            onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                             :
                             <div className="offer-status">
@@ -113,10 +117,13 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                                     id="status-closed"
                                 />
                                 <p>Tulekul</p>
-                                <MdOutlineFeedback
-                                    id="offer-feedback"
-                                    onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
-                                />
+                                <Tooltip title={`${offer.title} tagasiside`} placement="left-start">
+                                    <span id="offer-feedback">
+                                        <MdOutlineFeedback
+                                            onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         }
                         <div className="offer-action">
