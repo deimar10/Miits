@@ -6,8 +6,17 @@
     align-items: center;
 }
 
+.enterprise-offer-dark {
+    width: 100%;
+    border-bottom: 1px solid #cccccc;
+    height: 7.5rem;
+    display: flex;
+    align-items: center;
+}
+
 .enterprise-offer:hover {
-    background: rgba(63, 48, 48, 0.10);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 4px;
+    border: none;
 }
 
 .offer-category {

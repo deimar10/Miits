@@ -45,7 +45,7 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
     }
 
     const handleCloseFeedbackModal = () => {
-        setView(false)
+        setView(false);
     }
 
     const handleFilterOffers = () => {
@@ -57,11 +57,13 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
 
     let filteredOffers = useMemo(handleFilterOffers, [upcoming, processed]);
 
+    const themeClassNames = ['enterprise-offer', 'enterprise-offer-dark'];
+
     return (
         <>
             {enterpriseOffers?.length ? filteredOffers.map((offer: OfferInterface) => {
                 return (
-                    <div className="enterprise-offer" key={offer.id} data-cy="offer">
+                    <div className={theme ? themeClassNames[1] : themeClassNames[0]} key={offer.id} data-cy="offer">
                         {offer.category === 'Event' ?
                             <div className="offer-category">
                                 <AiFillCalendar id="category" />
