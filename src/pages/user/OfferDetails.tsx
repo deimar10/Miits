@@ -187,7 +187,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
                             Kategooria: <span>{offerSelected.category}</span>
                         </h3>
                         <h3 data-cy="location">
-                            Asukoht: <span>{offerSelected.location}</span>
+                            Asukoht: <span>{offerSelected.location}, {offerSelected.enterprise}</span>
                         </h3>
                         <h3 data-cy="description">
                             Kirjeldus: <span>{offerSelected.description}</span>
