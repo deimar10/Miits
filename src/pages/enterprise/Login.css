@@ -134,7 +134,7 @@
 .login-error-container {
     display: flex;
     height: 2rem;
-    color: rgb(215, 92, 92);
+    color: rgb(0 94 211);
 }
 
 #password-error {

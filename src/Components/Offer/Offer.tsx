@@ -130,7 +130,7 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                         palun registreeruge!
                     </p>
                     <Link to={"/enterprise/register"} id="redirect">
-                        Register Account
+                        Registreeri Konto
                     </Link>
                 </div>
             }
