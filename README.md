@@ -43,6 +43,7 @@ The main functionality of the application is to allow companies to create new of
   * Filter offers based on category & location
     * see selected active process
     * all locations come dynamically from the BE
+    * see tooltip on icon hover
   * Sort offers by date or price
   * Search for offers by title & location
   * See hover effects on all interactive elements
@@ -69,6 +70,7 @@ The main functionality of the application is to allow companies to create new of
     * see offer count in the enterprise sidebar
     * filter enterprise offers by status: upcoming?
     * see user feedback on an individual offer in a pop-up feedback modal
+    * see tooltip on icon hover
   * Create new offers
     * notification when a new offer has been created
     * input-mask to enter the correct date format
