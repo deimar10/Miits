@@ -106,7 +106,9 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                                 <Tooltip title={`${offer.title} tagasiside`} placement="left-start">
                                     <span id="offer-feedback">
                                         <MdOutlineFeedback
-                                            onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
+                                            onClick={() => 
+                                                handleShowFeedbackModal(offer.feedback, offer.title)
+                                            }
                                         />
                                     </span>
                                 </Tooltip>
@@ -120,7 +122,9 @@ function EnterpriseOffers({theme, enterpriseOffers, handleDeleteNotification, ha
                                 <Tooltip title={`${offer.title} tagasiside`} placement="left-start">
                                     <span id="offer-feedback">
                                         <MdOutlineFeedback
-                                            onClick={e => handleShowFeedbackModal(offer.feedback, offer.title)}
+                                            onClick={() => 
+                                                handleShowFeedbackModal(offer.feedback, offer.title)
+                                            }
                                         />
                                     </span>
                                 </Tooltip>

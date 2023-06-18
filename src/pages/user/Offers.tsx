@@ -103,7 +103,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                             <ul style={{ display: locationMenu ? '' : 'none'}}>
                                 {locations && locations.map((location: string) => {
                                     return (
-                                            <li data-cy={location} style={handleActive(location)} onClick={e => handleLocation(location)} key={location}>
+                                            <li data-cy={location} style={handleActive(location)} onClick={() => handleLocation(location)} key={location}>
                                                 {location}
                                             </li>
                                         )
@@ -116,7 +116,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                                     <ImLocation2
                                         id="sideBar-icons"
                                         name="location"
-                                        onClick={e => handleLocationSelect()}
+                                        onClick={handleLocationSelect}
                                     />
                                 </span>
                             </Tooltip>
@@ -126,7 +126,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                                         id="sideBar-icons"
                                         className={selected === 'events' ? 'selected-process' : ''}
                                         data-cy="events"
-                                        onClick={e => handleSelected('events')}
+                                        onClick={() => handleSelected('events')}
                                     />
                                 </span>
                             </Tooltip>
@@ -136,7 +136,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                                         id="sideBar-icons"
                                         className={selected === 'drinks' ? 'selected-process' : ''}
                                         data-cy="drinks"
-                                        onClick={e => handleSelected('drinks')}
+                                        onClick={() => handleSelected('drinks')}
                                     />
                                 </span>
                             </Tooltip>
@@ -146,7 +146,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                                         id="sideBar-icons"
                                         className={selected === 'price' ? 'selected-process' : ''}
                                         data-cy="price"
-                                        onClick={e => handleSelected('price')}
+                                        onClick={() => handleSelected('price')}
                                     />
                                 </span>
                             </Tooltip>
@@ -156,7 +156,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
                                         id="sideBar-icons"
                                         className={selected === 'date' ? 'selected-process' : ''}
                                         data-cy="date"
-                                        onClick={e => handleSelected('date')}
+                                        onClick={() => handleSelected('date')}
                                     />
                                 </span>
                             </Tooltip>

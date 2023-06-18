@@ -100,7 +100,7 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                                     <Link id="read-more" to={`/offers/offer-details/${favorite.slug}`}>
                                         Loe lähemalt
                                     </Link>
-                                    <button onClick={e => handleRemoveFavorite(favorite.id)}>
+                                    <button onClick={() => handleRemoveFavorite(favorite.id)}>
                                         Eemalda
                                     </button>
                                 </div>

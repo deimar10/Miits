@@ -114,7 +114,9 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                                     <FaRegHeart 
                                         data-cy="unmarked" 
                                         id="fav-icon"
-                                        onClick={e => handleAddToFavorites(info)} 
+                                        onClick={() => 
+                                            handleAddToFavorites(info)
+                                        } 
                                     />
                                 }
                             </div>

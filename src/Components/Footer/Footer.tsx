@@ -9,7 +9,7 @@ interface Props {
 
 function Footer ({theme}: Props) {
     return (
-        <footer className="footer-container" style={{ backgroundColor: theme ? '#212121' : '#F1F0F0'}}>
+        <footer className="footer-container" style={{backgroundColor: theme ? '#212121' : '#F1F0F0'}}>
             <div className="social-icons-container">
                 <FaFacebookSquare 
                     id="footer-social-icons" 
