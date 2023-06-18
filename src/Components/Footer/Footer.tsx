@@ -8,16 +8,21 @@ interface Props {
 }
 
 function Footer ({theme}: Props) {
+
+    const socialIconStyle = {
+        color: theme ? 'white' : 'black'
+    }
+
     return (
         <footer className="footer-container" style={{backgroundColor: theme ? '#212121' : '#F1F0F0'}}>
             <div className="social-icons-container">
                 <FaFacebookSquare 
                     id="footer-social-icons" 
-                    style={{color: theme ? 'white' : 'black'}} 
+                    style={socialIconStyle}
                 />
                 <FaTwitter 
                     id="footer-social-icons" 
-                    style={{color: theme ? 'white' : 'black'}} 
+                    style={socialIconStyle}
                 />
             </div>
             <div className="logo-container">
