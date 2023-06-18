@@ -1,3 +1,4 @@
+import {CSSProperties} from "react";
 import {OfferInterface} from '../Interfaces/index';
 
 const date = new Date().getTime();
@@ -41,4 +42,13 @@ export const FieldVariant = (theme: boolean) => {
     return (
         theme ? 'outlined' : 'standard'
     );
+}
+
+export const progressLoaderStyle: CSSProperties = {
+    position: 'absolute',
+    left: window.innerWidth <=400 ? '40%' : '50%',
+    top: '35%',
+    width: '4.5rem',
+    height: '4.5rem',
+    zIndex: 1
 }

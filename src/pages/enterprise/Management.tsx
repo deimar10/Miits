@@ -11,6 +11,7 @@ import DeleteModal from '../../Components/DeleteModal/DeleteModal';
 import LinearProgress from '@mui/material/CircularProgress';
 import {OfferInterface} from '../../Interfaces/index';
 import {FiMoreHorizontal} from 'react-icons/fi';
+import {progressLoaderStyle} from '../../utils/index';
 
 interface Props {
     theme: boolean,
@@ -148,7 +149,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                         </div>
                     }
                     {deleteNotification &&
-                        <DeleteModal 
+                        <DeleteModal
                             theme={theme} 
                             handleDeleteOffer={handleDeleteOffer}
                             handleCloseNotification={handleCloseNotification}
@@ -157,14 +158,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
                     }
                     {loader ?
                         <LinearProgress
-                            style={{
-                                position: 'absolute',
-                                left: window.innerWidth <=400 ? '40%' : '50%',
-                                top: '35%',
-                                width: '4.5rem',
-                                height: '4.5rem',
-                                zIndex: 1,
-                            }}
+                            style={progressLoaderStyle}
                         />
                         :
                         <EnterpriseOffers
