@@ -31,7 +31,7 @@ function EnterpriseNav({theme, handleThemeSwitch}: Props) {
     const location = ['Menüü', 'Halda', 'Loo'];
 
     return (
-        <nav className="enterprise-nav-container" style={{ boxShadow: theme ? '2px 0 6px 0 black' : '2px 0 6px 0 #494949'}}>
+        <nav className="enterprise-nav-container" style={{boxShadow: theme ? '2px 0 6px 0 black' : '2px 0 6px 0 #494949'}}>
             <div className="enterprise-logo-container">
                 <img
                     src="../../assets/logo/logo-dark.png"

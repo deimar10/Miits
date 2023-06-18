@@ -105,7 +105,7 @@ function Nav({theme, handleThemeSwitch, handleNotificationModal, notification, s
                   onClick={handleNotificationModal} 
               />
               {!isEmpty &&
-                  <span id="notification-count"></span>
+                  <span id="notification-count" />
               }
               {notification &&
                   <Notifcation
