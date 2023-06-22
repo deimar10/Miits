@@ -39,15 +39,17 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     const [filterModal, setFilterModal] = useState<boolean>(false);
     const [upcoming, setShowUpcoming] = useState<boolean>(false);
     const [loader, setLoader] = useState<boolean>(true);
-
+    
     useEffect(() => {
         setTimeout(() => setLoader(false), 1000);
 
         handleGetEnterpriseOffers();
     }, []);
+    
+    const enterpriseOffersUrl = `${process.env.REACT_APP_GET_ENTERPRISE_OFFERS}/?enterprise=${name}`;
 
     const handleGetEnterpriseOffers = () => {
-      axios.get(`http://localhost:3002/miits/api/enterprise/offers/?enterprise=${name}`)
+      axios.get(enterpriseOffersUrl)
           .then(response => {
               setEnterpriseOffers(response.data);
           })
@@ -75,9 +77,11 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     }
 
     const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+        const deleteOfferUrl = `${process.env.REACT_APP_DELETE_OFFER}/${id}`;
+        
         setNotification(false);
 
-        axios.delete(`http://localhost:3002/miits/api/enterprise/offer/delete/${id}`)
+        axios.delete(deleteOfferUrl)
             .then(() => {
                 let removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
                 setEnterpriseOffers(removedOffer);

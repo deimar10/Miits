@@ -26,8 +26,10 @@ function EnterpriseSidebar({theme, auth, setAuth, created}: Props) {
 
     const location = pathname.split('/');
 
+    const offerCountUrl = `${process.env.REACT_APP_GET_OFFER_COUNT}/${enterpriseLoginInfo.state}/count`;
+
     const handleEnterpriseOfferCount = () => {
-        axios.get(`http://localhost:3002/miits/api/enterprise/offers/${enterpriseLoginInfo.state}/count`)
+        axios.get(offerCountUrl)
             .then(response => {
                 setCount(response.data.count);
             })

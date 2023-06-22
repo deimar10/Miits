@@ -51,7 +51,7 @@ function App() {
     useEffect(() => {
         let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
 
-        axios.get('http://localhost:3002/miits/api/user/offers')
+        axios.get(process.env.REACT_APP_GET_OFFERS as string)
             .then(response => {
                 const updatedOffers = handleOfferStatus(response.data).map((object: OfferInterface) => {
                     if (localFavorites.find((favorite: OfferInterface) => favorite.id === object.id) !== undefined) {

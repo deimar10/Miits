@@ -28,19 +28,22 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
     const { title } = useParams();
 
     const offer = offersData.find((offer: OfferInterface) => offer.title === title);
-
+    
     const [editOffer, setEditOffer] = useState<OfferInterface>({...offer});
     const [viewEditModal, setViewEditModal] = useState({
         view: false,
         offer: 0
-    })
+    });
+    
+    const singleOfferUrl = `${process.env.REACT_APP_GET_OFFER_DETAILS}/${title}`;
+    const editOfferUrl = `${process.env.REACT_APP_EDIT_OFFER}/${editOffer.id}`;
 
     useEffect(() => {
         handleGetSingleOffer();
     }, [])
 
     const handleGetSingleOffer = () => {
-        axios.get(`http://localhost:3002/miits/api/user/offers/offer-details/${title}`)
+        axios.get(singleOfferUrl)
             .then(response => {
                 setEditOffer(response.data);
             })
@@ -56,7 +59,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
     const handleEditSubmit = (e:React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        axios.put(`http://localhost:3002/miits/api/enterprise/offer/edit/${editOffer.id}`, {
+        axios.put(editOfferUrl, {
             title: editOffer.title,
             category: editOffer.category,
             location: editOffer.location,

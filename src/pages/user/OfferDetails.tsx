@@ -40,6 +40,9 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
     });
     const [success, setSuccess] = useState<boolean>(false);
 
+    const feedbackUrl = `${process.env.REACT_APP_SUBMIT_FEEDBACK}/${slug}`;
+    const offerDetailsUrl =`${process.env.REACT_APP_GET_OFFER_DETAILS}/${slug}`;
+
     const handleNavigateBack = () => {
         navigate(-1);
     }
@@ -71,7 +74,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
     }, [slug, offersData])
 
     const handleGetSingleOffer = () => {
-        axios.get(`http://localhost:3002/miits/api/user/offers/offer-details/${slug}`)
+        axios.get(offerDetailsUrl)
             .then(response => {
                 setOfferSelected(response.data);
             })
@@ -85,7 +88,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
     }, [theme])
 
     const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFeedback({...feedback,  [e.target.name] : e.target.value});
+        setFeedback({...feedback, [e.target.name] : e.target.value});
     }
 
     const handleFormSubmit = () => {
@@ -94,7 +97,7 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
         if(isValid) {
             let offerFeedback = [...offerSelected.feedback];
 
-            axios.post(`http://localhost:3002/miits/api/user/feedback/${slug}`, {
+            axios.post(feedbackUrl, {
                 name: feedback.name,
                 comment: feedback.comment
             })

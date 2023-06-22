@@ -105,7 +105,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
         let isValid = validate();
 
         if (isValid) {
-            axios.post('http://localhost:3002/miits/api/enterprise/offer/create', {
+            axios.post(process.env.REACT_APP_CREATE_OFFER as string, {
                 upcoming: createOffer.upcoming,
                 favorite: createOffer.favorite,
                 enterprise: createOffer.enterprise,

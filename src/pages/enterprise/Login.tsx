@@ -61,8 +61,8 @@ function Login({setAuth, auth, admin, setAdmin}: Props) {
         e.preventDefault();
         let isValid = loginValidate();
 
-        if(isValid && process.env.REACT_APP_LOGIN) {
-            axios.post(process.env.REACT_APP_LOGIN, {
+        if(isValid) {
+            axios.post(process.env.REACT_APP_LOGIN as string, {
                 username: login.username,
                 password: login.password
             }).then(response => {

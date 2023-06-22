@@ -24,7 +24,7 @@ function Panel({admin}: Props) {
     }, [admin])
 
     const handleGetRegistered = () => {
-        axios.get('http://localhost:3002/miits/api/enterprise/registered')
+        axios.get(process.env.REACT_APP_ADMIN as string)
             .then(response => {
                 setRegistered(response.data);
             })

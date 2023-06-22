@@ -33,7 +33,7 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
     const [search, setSearch] = useState<string>();
 
     const handleGetLocations = () => {
-        axios.get('http://localhost:3002/miits/api/user/offers/locations')
+        axios.get(process.env.REACT_APP_GET_OFFER_LOC as string)
             .then((response => {
                 setLocations(response.data);
             }))

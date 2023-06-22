@@ -64,8 +64,8 @@ function Register({register, setRegister}: Props) {
         e.preventDefault();
         let isValid = registerValidate();
 
-        if(isValid && process.env.REACT_APP_REGISTER) {
-            axios.post(process.env.REACT_APP_REGISTER, {
+        if(isValid) {
+            axios.post(process.env.REACT_APP_REGISTER as string, {
                 username: register.username,
                 password: register.password
             }).then(() => {
