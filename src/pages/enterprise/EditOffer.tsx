@@ -14,6 +14,7 @@ import {DateField} from '../../Components/DateField';
 import ActionModal from '../../Components/ActionModal/ActionModal';
 import {OfferInterface} from "../../Interfaces/index";
 import {BiCheckCircle} from 'react-icons/bi';
+import {getSingleOfferDetails} from '../../middleware/api';
 
 interface Props {
     offersData: any,
@@ -42,14 +43,14 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
         handleGetSingleOffer();
     }, [])
 
-    const handleGetSingleOffer = () => {
-        axios.get(singleOfferUrl)
-            .then(response => {
-                setEditOffer(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    const handleGetSingleOffer = async () => {
+        try {
+            const offerDetails = await getSingleOfferDetails(singleOfferUrl);
+            setEditOffer(offerDetails);
+        } catch (error) {
+            console.log('Error requesting offer-details:', error);
+            throw error;
+        }
     }
 
     const handleOfferChange = (e:React.ChangeEvent<HTMLInputElement> | any) => {

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './Panel.css';
-import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import {registered} from '../../Interfaces/index';
 import {IoBusinessOutline} from 'react-icons/io5';
+import {getRegisteredEnterprises} from '../../middleware/api';
 
 interface Props {
     admin: boolean
@@ -23,14 +23,14 @@ function Panel({admin}: Props) {
         }
     }, [admin])
 
-    const handleGetRegistered = () => {
-        axios.get(process.env.REACT_APP_ADMIN as string)
-            .then(response => {
-                setRegistered(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    const handleGetRegistered = async () => {
+        try {
+            const registered = await getRegisteredEnterprises();
+            setRegistered(registered);
+        } catch (error) {
+            console.log('Error requesting registered enterprises:', error);
+            throw error;
+        }
     }
 
     return (

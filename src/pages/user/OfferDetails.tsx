@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import './OfferDetails.css';
 import '../../Responsive/pages/OfferDetails.css';
-import axios from 'axios';
 import {OfferInterface} from "../../Interfaces/index";
 import {feedback} from "../../Interfaces/index";
 import Nav from '../../Components/Nav/Nav';
@@ -10,6 +9,7 @@ import Footer from '../../Components/Footer/Footer';
 import FeedbackSuccess from '../../Components/FeedbackSuccess/FeedbackSuccess';
 import {FaRegHeart, FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
+import {getSingleOfferDetails, submitUserFeedback} from '../../middleware/api';
 
 interface Props {
     theme: boolean,
@@ -73,14 +73,14 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
         handleGetSingleOffer();
     }, [slug, offersData])
 
-    const handleGetSingleOffer = () => {
-        axios.get(offerDetailsUrl)
-            .then(response => {
-                setOfferSelected(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    const handleGetSingleOffer = async () => {
+        try {
+            const offerDetails = await getSingleOfferDetails(offerDetailsUrl);
+            setOfferSelected(offerDetails);
+        } catch (error) {
+            console.log('Error requesting offer-details:', error);
+            throw error;
+        }
     }
 
     useEffect(() => {
@@ -91,32 +91,30 @@ function OfferDetails ({offersData, theme, handleThemeSwitch, handleNotification
         setFeedback({...feedback, [e.target.name] : e.target.value});
     }
 
-    const handleFormSubmit = () => {
+    const handleFormSubmit = async () => {
         let isValid = handleValidate();
 
         if(isValid) {
-            let offerFeedback = [...offerSelected.feedback];
+            try {
+                let offerFeedback = [...offerSelected.feedback];
 
-            axios.post(feedbackUrl, {
-                name: feedback.name,
-                comment: feedback.comment
-            })
-                .then(response => {
-                    setFeedback({...feedback,
-                        commentError: "",
-                        nameError: "",
-                        name: "",
-                        comment: ""
-                    });
+                const userFeedback = await submitUserFeedback(feedbackUrl, feedback.name, feedback.comment);
 
-                    offerFeedback.push(response.data);
-                    setOfferSelected({...offerSelected, feedback: offerFeedback});
-                })
-                .catch(error => {
-                    console.log(error);
+                setFeedback({...feedback,
+                    commentError: "",
+                    nameError: "",
+                    name: "",
+                    comment: ""
                 });
 
-            setSuccess(true);
+                offerFeedback.push(userFeedback);
+                setOfferSelected({...offerSelected, feedback: offerFeedback});
+
+                setSuccess(true);
+            } catch (error) {
+                console.log('Error trying to save user feedback:', error);
+                throw error;
+            }
         }
     }
 

@@ -13,7 +13,7 @@ import Panel from "./pages/admin/Panel";
 import {OfferInterface} from "./Interfaces/index";
 import {register} from './Interfaces/index';
 import {handleOfferStatus} from './utils/index';
-import axios from 'axios';
+import {getAllOffers} from './middleware/api';
 
 function App() {
 
@@ -38,7 +38,7 @@ function App() {
         if (localStorage.getItem('favorites') === null) {
             localStorage.setItem('favorites', JSON.stringify([]));
         }
-    }, [])
+    }, []);
 
     const handleThemeSwitch = () => {
         setTheme(!theme);
@@ -48,23 +48,29 @@ function App() {
         setNotification(!notification);
     }
 
-    useEffect(() => {
-        let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
+    const handleGetAllOffers = async () => {
+        try {
+            let localFavorites = JSON.parse(localStorage.getItem('favorites') || "");
 
-        axios.get(process.env.REACT_APP_GET_OFFERS as string)
-            .then(response => {
-                const updatedOffers = handleOfferStatus(response.data).map((object: OfferInterface) => {
-                    if (localFavorites.find((favorite: OfferInterface) => favorite.id === object.id) !== undefined) {
-                        return {...object, favorite: true};
-                    } else {
-                        return object;
-                    }
-                });
-                setOffers(updatedOffers);
-            })
-            .catch(error => {
-                console.log(error);
+            const offers = await getAllOffers();
+
+            const updatedOffers = handleOfferStatus(offers).map((object: OfferInterface) => {
+                if (localFavorites.find((favorite: OfferInterface) => favorite.id === object.id) !== undefined) {
+                    return {...object, favorite: true};
+                } else {
+                    return object;
+                }
             });
+
+            setOffers(updatedOffers);
+        } catch (error) {
+            console.log('Error requesting offers:', error);
+            throw error;
+        }
+    }
+
+    useEffect(() => {
+        handleGetAllOffers();
     }, []);
 
   return (

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Offers.css';
 import '../../Responsive/pages/Offers.css';
-import axios from 'axios';
 import {FaWallet} from 'react-icons/fa';
 import {AiFillCalendar} from 'react-icons/ai';
 import {BiDrink} from 'react-icons/bi';
@@ -11,6 +10,7 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import Offer from '../../Components/Offer/Offer';
 import Tooltip from '@mui/material/Tooltip';
+import {getLocationsBasedOnOffers} from '../../middleware/api';
 
 interface Props {
     theme: boolean,
@@ -32,14 +32,14 @@ function Offers({offersData, theme, handleThemeSwitch, handleNotificationModal, 
     const [locations, setLocations] = useState<string[]>();
     const [search, setSearch] = useState<string>();
 
-    const handleGetLocations = () => {
-        axios.get(process.env.REACT_APP_GET_OFFER_LOC as string)
-            .then((response => {
-                setLocations(response.data);
-            }))
-            .catch(error => {
-                console.log(error);
-            });
+    const handleGetLocations = async () => {
+        try {
+            const locations = await getLocationsBasedOnOffers();
+            setLocations(locations);
+        } catch (error) {
+            console.log('Error requesting locations:', error);
+            throw error;
+        }
     }
 
     useEffect(() => {

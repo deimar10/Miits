@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import './Register.css';
 import '../../Responsive/pages/Register.css';
-import axios from 'axios';
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {BsArrowRepeat} from 'react-icons/bs';
+import {registerEnterprise} from '../../middleware/api';
 
 interface Props {
     register: {username: string, password: string, password_repeat: string},
@@ -60,19 +60,18 @@ function Register({register, setRegister}: Props) {
         return true;
     }
 
-    const handleSubmitRegister = (e: React.MouseEvent<HTMLFormElement>) => {
+    const handleSubmitRegister = async (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
         let isValid = registerValidate();
-
-        if(isValid) {
-            axios.post(process.env.REACT_APP_REGISTER as string, {
-                username: register.username,
-                password: register.password
-            }).then(() => {
+        
+        if (isValid) {
+            try {
+                await registerEnterprise(register.username, register.password);
                 navigate('/enterprise/login');
-            }).catch(error => {
-               console.log(error);
-            });
+            } catch (error) {
+                console.log('Error trying to register an enterprise account:', error);
+                throw error;
+            }
         }
     }
 

@@ -6,7 +6,7 @@ import {IoIosSettings} from 'react-icons/io';
 import {BiMenu} from 'react-icons/bi';
 import {RiLogoutBoxRLine} from 'react-icons/ri';
 import {BsPlus} from 'react-icons/bs';
-import axios from 'axios';
+import {getOfferCount} from '../../middleware/api';
 
 interface Props {
     theme: boolean,
@@ -28,14 +28,14 @@ function EnterpriseSidebar({theme, auth, setAuth, created}: Props) {
 
     const offerCountUrl = `${process.env.REACT_APP_GET_OFFER_COUNT}/${enterpriseLoginInfo.state}/count`;
 
-    const handleEnterpriseOfferCount = () => {
-        axios.get(offerCountUrl)
-            .then(response => {
-                setCount(response.data.count);
-            })
-            .catch(error => {
-               console.log(error);
-            });
+    const handleEnterpriseOfferCount = async () => {
+        try {
+            const offerCount = await getOfferCount(offerCountUrl);
+            setCount(offerCount);
+        } catch (error) {
+            console.log('Error requesting offer count:', error);
+            throw error;
+        }
     }
 
     useEffect(() => {

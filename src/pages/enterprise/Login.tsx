@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import './Login.css';
 import '../../Responsive/pages/Login.css';
-import axios from 'axios';
 import {login} from '../../Interfaces/index';
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi';
+import {loginEnterprise} from '../../middleware/api';
 
 interface Props {
     setAuth: (auth: any) => void,
@@ -57,29 +57,33 @@ function Login({setAuth, auth, admin, setAdmin}: Props) {
         return true;
     }
 
-    const handleSubmitLogin = (e: React.MouseEvent<HTMLFormElement>) => {
+    const handleSubmitLogin = async (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
         let isValid = loginValidate();
-
+        
         if(isValid) {
-            axios.post(process.env.REACT_APP_LOGIN as string, {
-                username: login.username,
-                password: login.password
-            }).then(response => {
-                if (response.data.auth) {
-                    setAuth({...auth, login: response.data.auth});
+            try {
+                const enterpriseSession = await loginEnterprise(login.username, login.password);
 
-                    navigate("/enterprise/menu", {state: login.username});
-                } else if (response.data.admin) {
-                    setAuth({...auth, login: false});
-                    
-                    setAdmin(true);
-                    navigate("/admin");
+                switch (true) {
+                    case enterpriseSession.auth: {
+                        setAuth({...auth, login: enterpriseSession.auth});
+
+                        navigate("/enterprise/menu", {state: login.username});
+                        return;
+                    }
+                    case enterpriseSession.admin: {
+                        setAuth({...auth, login: false});
+                        setAdmin(true);
+                        
+                        navigate("/admin");
+                        return;
+                    }
                 }
-            }).catch(error => {
-                console.log(error);
+            } catch (error) {
+                console.log('Error trying to login enterprise account:', error);
                 setLoginError({...loginError, passwordError: 'Paroolid ei ühti. Sissepääs keelatud.'});
-            });
+            }
         }
     }
 

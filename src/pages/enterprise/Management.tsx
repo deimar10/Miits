@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate, useLocation} from 'react-router-dom';
 import './Management.css';
 import '../../Responsive/pages/Management.css';
-import axios from "axios";
 import EnterpriseNav from "../../Components/EnterpriseNav/EnterpriseNav";
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
 import EnterpriseOffers from "../../Components/EnterpriseOffers/EnterpriseOffers";
@@ -12,6 +11,7 @@ import LinearProgress from '@mui/material/CircularProgress';
 import {OfferInterface} from '../../Interfaces/index';
 import {FiMoreHorizontal} from 'react-icons/fi';
 import {progressLoaderStyle} from '../../utils/index';
+import {getAllEnterpriseOffers, deleteEnterpriseOffer} from '../../middleware/api';
 
 interface Props {
     theme: boolean,
@@ -48,14 +48,14 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     
     const enterpriseOffersUrl = `${process.env.REACT_APP_GET_ENTERPRISE_OFFERS}/?enterprise=${name}`;
 
-    const handleGetEnterpriseOffers = () => {
-      axios.get(enterpriseOffersUrl)
-          .then(response => {
-              setEnterpriseOffers(response.data);
-          })
-          .catch(error => {
-              console.log(error);
-          });
+    const handleGetEnterpriseOffers = async () => {
+        try {
+            const enterpriseOffers = await getAllEnterpriseOffers(enterpriseOffersUrl);
+            setEnterpriseOffers(enterpriseOffers);
+        } catch (error) {
+            console.log('Error requesting enterprise offers:', error);
+            throw error;
+        }
     };
     
     const handleFilterModalOpen = () => {
@@ -76,21 +76,21 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
         setNotification(false);
     }
 
-    const handleDeleteOffer = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
-        const deleteOfferUrl = `${process.env.REACT_APP_DELETE_OFFER}/${id}`;
-        
-        setNotification(false);
+    const handleDeleteOffer = async (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+        try {
+            const deleteOfferUrl = `${process.env.REACT_APP_DELETE_OFFER}/${id}`;
+            setNotification(false);
 
-        axios.delete(deleteOfferUrl)
-            .then(() => {
-                let removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
-                setEnterpriseOffers(removedOffer);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+            await deleteEnterpriseOffer(deleteOfferUrl);
 
-        setViewDeleteModal({...viewDeleteModal, view: true, offer: id});
+            let removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
+            setEnterpriseOffers(removedOffer);
+
+            setViewDeleteModal({...viewDeleteModal, view: true, offer: id});
+        } catch (error) {
+            console.log('Error trying to delete an offer:', error);
+            throw error;
+        }
     }
 
     const handleEditOffer = (e: React.MouseEvent<HTMLButtonElement>, title: string) => {
