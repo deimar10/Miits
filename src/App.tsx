@@ -16,7 +16,6 @@ import {handleOfferStatus} from './utils/index';
 import {getAllOffers} from './middleware/api';
 
 function App() {
-
     const [theme, setTheme] = useState<boolean>(false);
     const [notification, setNotification] = useState<boolean>(false);
     const [offersData, setOffers] = useState<OfferInterface[]>();
@@ -40,8 +39,27 @@ function App() {
         }
     }, []);
 
+    const handlePersistedThemeSetting = () => {
+        const persistTheme = localStorage.getItem('theme');
+
+        if (persistTheme) {
+            switch (JSON.parse(persistTheme)) {
+                case 'theme-true': {
+                    setTheme(true);
+                    return;
+                }
+                case 'theme-false': {
+                    setTheme(false);
+                    return;
+                }
+            }
+        }
+    }
+
     const handleThemeSwitch = () => {
         setTheme(!theme);
+
+        localStorage.setItem('theme', JSON.stringify(`theme-${!theme}`));
     }
 
     const handleNotificationModal = () => {
@@ -70,6 +88,8 @@ function App() {
     }
 
     useEffect(() => {
+        handlePersistedThemeSetting();
+
         handleGetAllOffers();
     }, []);
 
