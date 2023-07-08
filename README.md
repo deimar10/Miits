@@ -56,7 +56,7 @@ The main functionality of the application is to allow companies to create new of
     * comment or give feedback on offers
       * receive validation errors when handling feedback
       * receive a notification when successfully commenting on an offer
-  * Switch between dark/light theme
+  * Switch between dark/light theme (persisted in LocalStorage)
   * Differentiate between upcoming & past offers
 * Enterprise
   * Desktop Responsive
@@ -81,7 +81,7 @@ The main functionality of the application is to allow companies to create new of
   * Edit an offer
     * notification when an offer has been edited
     * input-mask to enter the correct date format
-  * Switch between dark/light theme
+  * Switch between dark/light theme (persisted in LocalStorage)
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/89903354/230744284-9fb29d47-3e7b-4e89-a3d0-4c323d35741f.png)
 ![image](https://user-images.githubusercontent.com/89903354/230744598-45df7852-f74b-4a5c-90ba-828dab8f4c37.png)
