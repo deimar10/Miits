@@ -8,6 +8,8 @@ import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import {FaHeart} from 'react-icons/fa';
 import {HiChevronLeft} from 'react-icons/hi';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface Props {
     theme: boolean,
@@ -52,6 +54,8 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
         document.body.style.backgroundColor = theme ? '#161616' : 'white';
     }, [theme])
 
+    const screen = window.innerWidth <= 395;
+
     return (
         <>
             <Nav
@@ -81,9 +85,13 @@ function Favorites({theme, handleThemeSwitch, handleNotificationModal, notificat
                     return (
                         <div className="favorites-grid-item" key={favorite.id}>
                             <div className="offer-image">
-                                <img 
-                                    src={favorite.image} 
-                                    alt="offer" 
+                                <LazyLoadImage
+                                    id="offer-favorite"
+                                    src={favorite.image}
+                                    alt={`favorite-${favorite.title}`}
+                                    effect="opacity"
+                                    width={screen ? '100%' : '92.5%'}
+                                    height={'100%'}
                                 />
                             </div>
                             <div className="offer-description-container">

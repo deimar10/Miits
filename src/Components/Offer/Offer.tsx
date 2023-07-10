@@ -4,6 +4,8 @@ import '../../Responsive/components/Offer.css';
 import {Link} from 'react-router-dom';
 import {OfferInterface} from "../../Interfaces/index";
 import {FaRegHeart,FaHeart} from 'react-icons/fa';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface Props {
     offersData: OfferInterface[],
@@ -67,7 +69,7 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
 
         offers.map((offer: OfferInterface) => {
             if (offer.id === info.id) {return offer.favorite = true;}
-        })
+        });
 
         let localFavorite = JSON.parse(localStorage.getItem('favorites') || "");
         localFavorite.push(info);
@@ -84,14 +86,15 @@ function Offer({offersData, selected, location, theme, search, favorites, setFav
                 return (
                     <div className="grid-item" key={info.id}>
                         <Link to={`/offers/offer-details/${info.slug}`}>
-                            <div className="grid-image" style={{
-                                backgroundImage: `url(${info.image})`,
-                                backgroundSize: 'cover',
-                                backgroundRepeat: 'no-repeat',
-                                backgroundPosition: 'center center',
-                                width: '100%',
-                                borderRadius: '2rem 2rem 0rem 0rem',
-                            }}>
+                            <div className="grid-image">
+                                <LazyLoadImage
+                                    id="offer-feature"
+                                    src={info.image}
+                                    alt={`offer-${info.title}`}
+                                    effect="opacity"
+                                    width={'100%'}
+                                    height={'100%'}
+                                />
                             </div>
                         </Link>
                         {info.upcoming &&

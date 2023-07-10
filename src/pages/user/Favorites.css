@@ -54,9 +54,7 @@
     width: 27.5%;
 }
 
-.offer-image > img {
-    height: 100%;
-    width: 87.5%;
+#offer-favorite {
     border-radius: 2rem;
 }
 

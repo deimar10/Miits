@@ -41,12 +41,6 @@
 }
 
 @media only screen and (max-width: 400px) {
-    .offer-image > img {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 400px) {
     .offer-description-container {
         width: 100%;
     }
