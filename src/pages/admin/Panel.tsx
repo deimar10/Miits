@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Panel.css';
 import {useNavigate} from "react-router-dom";
-import {registered} from '../../Interfaces/index';
+import {registered} from '../../Interfaces';
 import {IoBusinessOutline} from 'react-icons/io5';
 import {getRegisteredEnterprises} from '../../middleware/api';
 

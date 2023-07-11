@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
-import {useNavigate} from "react-router-dom";
-import {OfferInterface} from "../../Interfaces/index";
+import {useNavigate, Link} from "react-router-dom";
+import {OfferInterface} from "../../Interfaces";
 import './Favorites.css';
 import '../../Responsive/pages/Favorites.css';
-import {Link} from 'react-router-dom';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import {FaHeart} from 'react-icons/fa';

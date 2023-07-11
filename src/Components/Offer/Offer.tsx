@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import './Offer.css';
 import '../../Responsive/components/Offer.css';
 import {Link} from 'react-router-dom';
-import {OfferInterface} from "../../Interfaces/index";
+import {OfferInterface} from "../../Interfaces";
 import {FaRegHeart,FaHeart} from 'react-icons/fa';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';

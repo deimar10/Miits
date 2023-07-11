@@ -8,9 +8,9 @@ import EnterpriseOffers from "../../Components/EnterpriseOffers/EnterpriseOffers
 import ActionModal from "../../Components/ActionModal/ActionModal";
 import DeleteModal from '../../Components/DeleteModal/DeleteModal';
 import LinearProgress from '@mui/material/CircularProgress';
-import {OfferInterface} from '../../Interfaces/index';
+import {OfferInterface} from '../../Interfaces';
 import {FiMoreHorizontal} from 'react-icons/fi';
-import {progressLoaderStyle} from '../../utils/index';
+import {progressLoaderStyle} from '../../utils';
 import {getAllEnterpriseOffers, deleteEnterpriseOffer} from '../../middleware/api';
 
 interface Props {

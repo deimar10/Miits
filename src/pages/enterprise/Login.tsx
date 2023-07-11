@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './Login.css';
 import '../../Responsive/pages/Login.css';
-import {login} from '../../Interfaces/index';
-import {Link} from 'react-router-dom';
-import {useNavigate} from "react-router-dom";
+import {login} from '../../Interfaces';
+import {Link, useNavigate} from 'react-router-dom';
 import {FaUserAlt} from 'react-icons/fa';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi';

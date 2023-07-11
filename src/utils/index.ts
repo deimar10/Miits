@@ -1,5 +1,5 @@
 import {CSSProperties} from "react";
-import {OfferInterface} from '../Interfaces/index';
+import {OfferInterface} from '../Interfaces';
 
 const date = new Date().getTime();
 

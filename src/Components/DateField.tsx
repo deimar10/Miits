@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMaskInput } from 'react-imask';
+import {IMaskInput} from 'react-imask';
 import TextField from '@mui/material/TextField';
 
 interface Props {

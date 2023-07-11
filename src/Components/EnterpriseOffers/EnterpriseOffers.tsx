@@ -1,13 +1,13 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import './EnterpriseOffers.css';
 import '../../Responsive/components/EnterpriseOffers.css';
-import {OfferInterface} from '../../Interfaces/index';
+import {OfferInterface} from '../../Interfaces';
 import UserFeedback from '../UserFeedback/UserFeedback';
 import {BiDrink, BiCheck} from 'react-icons/bi';
 import {AiFillCalendar, AiOutlineClose, AiOutlineEdit} from 'react-icons/ai';
 import {MdOutlineFeedback} from 'react-icons/md';
 import {TfiTrash} from 'react-icons/tfi';
-import {handleOfferStatus} from '../../utils/index';
+import {handleOfferStatus} from '../../utils';
 import Tooltip from '@mui/material/Tooltip';
 
 interface Props {

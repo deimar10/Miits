@@ -1,7 +1,7 @@
 import React from 'react';
 import './DeleteModal.css';
 import '../../Responsive/components/DeleteModal.css';
-import { IoCloseCircleOutline } from 'react-icons/io5';
+import {IoCloseCircleOutline} from 'react-icons/io5';
 
 interface Props {
     theme: boolean,

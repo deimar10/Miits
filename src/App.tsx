@@ -2,9 +2,8 @@ import React,{useState, useEffect, lazy, Suspense} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import {OfferInterface} from "./Interfaces/index";
-import {register} from './Interfaces/index';
-import {handleOfferStatus, lazyLoaderFallbackStyle} from './utils/index';
+import {OfferInterface, register} from "./Interfaces";
+import {handleOfferStatus, lazyLoaderFallbackStyle} from './utils';
 import {getAllOffers} from './middleware/api';
 
 const Offers = lazy(() => import('./pages/user/Offers'));

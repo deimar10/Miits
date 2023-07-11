@@ -1,7 +1,7 @@
 import React from 'react';
 import './Notification.css';
 import '../../Responsive/components/Notification.css';
-import {OfferInterface} from "../../Interfaces/index";
+import {OfferInterface} from "../../Interfaces";
 import {BiDrink} from 'react-icons/bi';
 import {AiFillCalendar} from 'react-icons/ai';
 

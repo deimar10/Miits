@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Nav.css';
 import '../../Responsive/components/Nav.css';
-import {OfferInterface} from "../../Interfaces/index";
+import {OfferInterface} from "../../Interfaces";
 import Notifcation from '../Notification/Notification';
 import {Link} from 'react-router-dom';
 import {FaMoon, FaFacebookSquare, FaTwitter, FaRegBell, FaRegHeart} from 'react-icons/fa';
