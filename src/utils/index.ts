@@ -52,3 +52,10 @@ export const progressLoaderStyle: CSSProperties = {
     height: '4.5rem',
     zIndex: 1
 }
+
+export const lazyLoaderFallbackStyle: CSSProperties = {
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+}

@@ -1,19 +1,22 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, lazy, Suspense} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Offers from './pages/user/Offers';
-import Favorites from "./pages/user/Favorites";
-import Register from "./pages/enterprise/Register";
-import Login from "./pages/enterprise/Login";
-import OfferDetails from './pages/user/OfferDetails';
-import Menu from './pages/enterprise/Menu';
-import Management from "./pages/enterprise/Management";
-import EditOffer from "./pages/enterprise/EditOffer";
-import CreateOffer from "./pages/enterprise/CreateOffer";
-import Panel from "./pages/admin/Panel";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import {OfferInterface} from "./Interfaces/index";
 import {register} from './Interfaces/index';
-import {handleOfferStatus} from './utils/index';
+import {handleOfferStatus, lazyLoaderFallbackStyle} from './utils/index';
 import {getAllOffers} from './middleware/api';
+
+const Offers = lazy(() => import('./pages/user/Offers'));
+const Favorites = lazy(() => import('./pages/user/Favorites'));
+const Register = lazy(() => import('./pages/enterprise/Register'));
+const Login = lazy(() => import('./pages/enterprise/Login'));
+const OfferDetails = lazy(() => import('./pages/user/OfferDetails'));
+const Menu = lazy(() => import('./pages/enterprise/Menu'));
+const Management = lazy(() => import('./pages/enterprise/Management'));
+const EditOffer = lazy(() => import('./pages/enterprise/EditOffer'));
+const CreateOffer = lazy(() => import('./pages/enterprise/CreateOffer'));
+const Panel = lazy(() => import('./pages/admin/Panel'));
 
 function App() {
     const [theme, setTheme] = useState<boolean>(false);
@@ -95,78 +98,88 @@ function App() {
 
   return (
       <BrowserRouter>
-          <Routes>
-              <Route index element={<Offers
-                  offersData={offersData}
-                  theme={theme}
-                  handleThemeSwitch={handleThemeSwitch}
-                  handleNotificationModal={handleNotificationModal}
-                  notification={notification}
-                  favorites={favorites}
-                  setFavorites={setFavorites}
-                  favoriteCount={favoriteCount}
-                  setOffers={setOffers} />}
-              />
-              <Route path="/offers/favorites" element={<Favorites
-                  theme={theme}
-                  handleThemeSwitch={handleThemeSwitch}
-                  handleNotificationModal={handleNotificationModal}
-                  notification={notification}
-                  favorites={favorites}
-                  setFavorites={setFavorites}
-                  offersData={offersData}
-                  setOffers={setOffers} />}
-              />
-              <Route path="/offers/offer-details/:slug" element={<OfferDetails
-                  offersData={offersData}
-                  theme={theme}
-                  favorites={favorites}
-                  setFavorites={setFavorites}
-                  setOffers={setOffers}
-                  handleThemeSwitch={handleThemeSwitch}
-                  handleNotificationModal={handleNotificationModal}
-                  notification={notification}
-                  favoriteCount={favoriteCount} />}
-              />
-              <Route path="/enterprise/register" element={<Register
-                  register={register}
-                  setRegister={setRegister} />}
-              />
-              <Route path="/enterprise/login" element={<Login
-                  setAuth={setAuth}
-                  auth={auth} 
-                  admin={admin}
-                  setAdmin={setAdmin} />}
-              />
-              <Route path="/enterprise/menu" element={<Menu
-                  theme={theme}
-                  auth={auth}
-                  setAuth={setAuth}
-                  handleThemeSwitch={handleThemeSwitch} />}
-              />
-              <Route path="/enterprise/management/:name" element={<Management
-                  theme={theme}
-                  auth={auth}
-                  setAuth={setAuth}
-                  handleThemeSwitch={handleThemeSwitch} />}
-              />
-              <Route path="/enterprise/edit/:title" element={<EditOffer
-                  offersData={offersData}
-                  theme={theme}
-                  auth={auth}
-                  setAuth={setAuth}
-                  handleThemeSwitch={handleThemeSwitch} />}
-              />
-              <Route path="/enterprise/create-offer" element={<CreateOffer
-                  theme={theme}
-                  auth={auth}
-                  setAuth={setAuth}
-                  handleThemeSwitch={handleThemeSwitch} />}
-              />
-              <Route path="/admin" element={<Panel 
-                  admin={admin} />}
-              />
-          </Routes>
+          <Suspense
+              fallback={
+                    <Box sx={lazyLoaderFallbackStyle}>
+                        <CircularProgress
+                            size={60}
+                        />
+                    </Box>
+                }
+          >
+              <Routes>
+                  <Route index element={<Offers
+                      offersData={offersData}
+                      theme={theme}
+                      handleThemeSwitch={handleThemeSwitch}
+                      handleNotificationModal={handleNotificationModal}
+                      notification={notification}
+                      favorites={favorites}
+                      setFavorites={setFavorites}
+                      favoriteCount={favoriteCount}
+                      setOffers={setOffers} />}
+                  />
+                  <Route path="/offers/favorites" element={<Favorites
+                      theme={theme}
+                      handleThemeSwitch={handleThemeSwitch}
+                      handleNotificationModal={handleNotificationModal}
+                      notification={notification}
+                      favorites={favorites}
+                      setFavorites={setFavorites}
+                      offersData={offersData}
+                      setOffers={setOffers} />}
+                  />
+                  <Route path="/offers/offer-details/:slug" element={<OfferDetails
+                      offersData={offersData}
+                      theme={theme}
+                      favorites={favorites}
+                      setFavorites={setFavorites}
+                      setOffers={setOffers}
+                      handleThemeSwitch={handleThemeSwitch}
+                      handleNotificationModal={handleNotificationModal}
+                      notification={notification}
+                      favoriteCount={favoriteCount} />}
+                  />
+                  <Route path="/enterprise/register" element={<Register
+                      register={register}
+                      setRegister={setRegister} />}
+                  />
+                  <Route path="/enterprise/login" element={<Login
+                      setAuth={setAuth}
+                      auth={auth}
+                      admin={admin}
+                      setAdmin={setAdmin} />}
+                  />
+                  <Route path="/enterprise/menu" element={<Menu
+                      theme={theme}
+                      auth={auth}
+                      setAuth={setAuth}
+                      handleThemeSwitch={handleThemeSwitch} />}
+                  />
+                  <Route path="/enterprise/management/:name" element={<Management
+                      theme={theme}
+                      auth={auth}
+                      setAuth={setAuth}
+                      handleThemeSwitch={handleThemeSwitch} />}
+                  />
+                  <Route path="/enterprise/edit/:title" element={<EditOffer
+                      offersData={offersData}
+                      theme={theme}
+                      auth={auth}
+                      setAuth={setAuth}
+                      handleThemeSwitch={handleThemeSwitch} />}
+                  />
+                  <Route path="/enterprise/create-offer" element={<CreateOffer
+                      theme={theme}
+                      auth={auth}
+                      setAuth={setAuth}
+                      handleThemeSwitch={handleThemeSwitch} />}
+                  />
+                  <Route path="/admin" element={<Panel
+                      admin={admin} />}
+                  />
+              </Routes>
+          </Suspense>
       </BrowserRouter>
   );
 }
