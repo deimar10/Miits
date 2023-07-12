@@ -1,8 +1,8 @@
 import React,{useState, useEffect, lazy, Suspense} from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import {OfferInterface, register} from "./Interfaces";
+import {OfferInterface, register, PublicRouteProps, PrivateRouteProps} from "./Interfaces";
 import {handleOfferStatus, lazyLoaderFallbackStyle} from './utils';
 import {getAllOffers} from './middleware/api';
 
@@ -139,44 +139,36 @@ function App() {
                       notification={notification}
                       favoriteCount={favoriteCount} />}
                   />
-                  <Route path="/enterprise/register" element={<Register
-                      register={register}
-                      setRegister={setRegister} />}
-                  />
-                  <Route path="/enterprise/login" element={<Login
-                      setAuth={setAuth}
-                      auth={auth}
-                      admin={admin}
-                      setAdmin={setAdmin} />}
-                  />
-                  <Route path="/enterprise/menu" element={<Menu
-                      theme={theme}
-                      auth={auth}
-                      setAuth={setAuth}
-                      handleThemeSwitch={handleThemeSwitch} />}
-                  />
-                  <Route path="/enterprise/management/:name" element={<Management
-                      theme={theme}
-                      auth={auth}
-                      setAuth={setAuth}
-                      handleThemeSwitch={handleThemeSwitch} />}
-                  />
-                  <Route path="/enterprise/edit/:title" element={<EditOffer
-                      offersData={offersData}
-                      theme={theme}
-                      auth={auth}
-                      setAuth={setAuth}
-                      handleThemeSwitch={handleThemeSwitch} />}
-                  />
-                  <Route path="/enterprise/create-offer" element={<CreateOffer
-                      theme={theme}
-                      auth={auth}
-                      setAuth={setAuth}
-                      handleThemeSwitch={handleThemeSwitch} />}
-                  />
-                  <Route path="/admin" element={<Panel
-                      admin={admin} />}
-                  />
+                  <Route path="/*" element={auth.login ?
+                      <PrivateRoutes
+                          theme={theme}
+                          auth={auth}
+                          setAuth={setAuth}
+                          handleThemeSwitch={handleThemeSwitch}
+                          offersData={offersData}
+                      />
+                      :
+                      <PublicRoutes
+                          auth={auth}
+                          setAuth={setAuth}
+                          admin={admin}
+                          setAdmin={setAdmin}
+                          register={register}
+                          setRegister={setRegister}
+                      />
+                  } />
+                  <Route path="/admin/*" element={admin ?
+                      <Panel admin={admin} />
+                      :
+                      <PublicRoutes
+                          auth={auth}
+                          setAuth={setAuth}
+                          admin={admin}
+                          setAdmin={setAdmin}
+                          register={register}
+                          setRegister={setRegister}
+                      />
+                  } />
               </Routes>
           </Suspense>
       </BrowserRouter>
@@ -184,3 +176,54 @@ function App() {
 }
 
 export default App;
+
+export const PublicRoutes = ({auth, setAuth, admin, setAdmin, register, setRegister}: PublicRouteProps) => {
+    return (
+        <Routes>
+            <Route path="/enterprise/login" element={<Login
+                setAuth={setAuth}
+                auth={auth}
+                admin={admin}
+                setAdmin={setAdmin} />}
+            />
+            <Route path="/enterprise/register" element={<Register
+                register={register}
+                setRegister={setRegister} />}
+            />
+            <Route path='/*' element={<Navigate to='/enterprise/login' replace />} />
+        </Routes>
+    )
+}
+
+export const PrivateRoutes = ({theme, auth, setAuth, handleThemeSwitch, offersData}: PrivateRouteProps) => {
+    return (
+        <Routes>
+            <Route path="/enterprise/menu" element={<Menu
+                theme={theme}
+                auth={auth}
+                setAuth={setAuth}
+                handleThemeSwitch={handleThemeSwitch} />}
+            />
+            <Route path="/enterprise/management/:name" element={<Management
+                theme={theme}
+                auth={auth}
+                setAuth={setAuth}
+                handleThemeSwitch={handleThemeSwitch} />}
+            />
+            <Route path="/enterprise/edit/:title" element={<EditOffer
+                offersData={offersData}
+                theme={theme}
+                auth={auth}
+                setAuth={setAuth}
+                handleThemeSwitch={handleThemeSwitch} />}
+            />
+            <Route path="/enterprise/create-offer" element={<CreateOffer
+                theme={theme}
+                auth={auth}
+                setAuth={setAuth}
+                handleThemeSwitch={handleThemeSwitch} />}
+            />
+            <Route path="/*" element={<Navigate to={'/enterprise/menu'} replace />} />
+        </Routes>
+    )
+}

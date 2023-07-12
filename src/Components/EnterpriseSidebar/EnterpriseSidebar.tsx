@@ -59,10 +59,6 @@ function EnterpriseSidebar({theme, auth, setAuth, created}: Props) {
     const handleUserLogout = () => {
         setAuth({...auth, login: false});
     }
-
-    useEffect(() => {
-        if (!auth.login) { navigate('/enterprise/login'); }
-    }, [auth])
     
     return (
         <div className="enterpriseSidebar-container">
