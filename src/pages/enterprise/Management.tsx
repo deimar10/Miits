@@ -39,6 +39,8 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     const [filterModal, setFilterModal] = useState<boolean>(false);
     const [upcoming, setShowUpcoming] = useState<boolean>(false);
     const [loader, setLoader] = useState<boolean>(true);
+
+    const sessionToken = localStorage.getItem('session_id') as string;
     
     useEffect(() => {
         setTimeout(() => setLoader(false), 1000);
@@ -81,7 +83,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
             const deleteOfferUrl = `${process.env.REACT_APP_DELETE_OFFER}/${id}`;
             setNotification(false);
 
-            await deleteEnterpriseOffer(deleteOfferUrl);
+            await deleteEnterpriseOffer(deleteOfferUrl, sessionToken);
 
             let removedOffer = enterpriseOffers.filter((offer: OfferInterface) => offer.id !== id);
             setEnterpriseOffers(removedOffer);

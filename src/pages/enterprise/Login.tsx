@@ -63,9 +63,11 @@ function Login({setAuth, auth, admin, setAdmin}: Props) {
         if(isValid) {
             try {
                 const enterpriseSession = await loginEnterprise(login.username, login.password);
-
+                
                 switch (true) {
                     case enterpriseSession.auth: {
+                        localStorage.setItem('session_id', JSON.stringify(enterpriseSession.session));
+                        
                         setAuth({...auth, login: enterpriseSession.auth});
 
                         navigate("/enterprise/menu", {state: login.username});

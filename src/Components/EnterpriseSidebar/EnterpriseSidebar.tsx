@@ -58,6 +58,8 @@ function EnterpriseSidebar({theme, auth, setAuth, created}: Props) {
 
     const handleUserLogout = () => {
         setAuth({...auth, login: false});
+
+        localStorage.removeItem('session_id');
     }
     
     return (

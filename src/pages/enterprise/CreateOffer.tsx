@@ -47,6 +47,8 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
         offer: 0
     });
 
+    const sessionToken = localStorage.getItem('session_id') as string;
+
     const handleOfferChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
         setCreateOffer({...createOffer, [e.target.name]: e.target.value});
     }
@@ -102,6 +104,8 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
         let isValid = validate();
 
         if (isValid) {
+            const parsedSessionToken = JSON.parse(sessionToken);
+            
             axios.post(process.env.REACT_APP_CREATE_OFFER as string, {
                 upcoming: createOffer.upcoming,
                 favorite: createOffer.favorite,
@@ -113,11 +117,13 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
                 price: createOffer.price,
                 image: createOffer.image,
                 description: createOffer.description
+            }, {
+                headers: {
+                  Authorization: `Bearer ${parsedSessionToken}`
+                },
             })
                 .then((response) => {
-                    setCreateError({...createError,
-                        errorMessage: ''
-                    });
+                    setCreateError({...createError, errorMessage: ''});
                     setViewCreateModal({...viewCreateModal,
                         view: true,
                         offer: response.data.id

@@ -36,6 +36,8 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
     const singleOfferUrl = `${process.env.REACT_APP_GET_OFFER_DETAILS}/${title}`;
     const editOfferUrl = `${process.env.REACT_APP_EDIT_OFFER}/${editOffer.id}`;
 
+    const sessionToken = localStorage.getItem('session_id') as string;
+
     useEffect(() => {
         handleGetSingleOffer();
     }, [])
@@ -56,6 +58,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
 
     const handleEditSubmit = (e:React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const parsedSessionToken = JSON.parse(sessionToken);
 
         axios.put(editOfferUrl, {
             title: editOffer.title,
@@ -64,6 +67,10 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
             date: editOffer.date,
             price: editOffer.price,
             description: editOffer.description
+        }, {
+            headers: {
+                Authorization: `Bearer ${parsedSessionToken}`
+            }
         })
             .then(() => {
                 setViewEditModal({...viewEditModal, view: true, offer: editOffer.id});

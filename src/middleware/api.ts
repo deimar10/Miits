@@ -40,9 +40,17 @@ export const getAllEnterpriseOffers = async (url: string) => {
     }
 }
 
-export const deleteEnterpriseOffer = async (url: string) => {
+export const deleteEnterpriseOffer = async (url: string, token: string) => {
     try {
-        await axios.delete(url);
+        const parsedSessionToken = JSON.parse(token);
+        
+        const config = {
+            headers: {
+                Authorization: `Bearer ${parsedSessionToken}`
+            },
+        };
+        
+        await axios.delete(url, config);
     } catch (error) {
         console.log(error);
         throw error;
@@ -63,7 +71,7 @@ export const loginEnterprise = async (username: string, password: string) => {
         const response = await axios.post(process.env.REACT_APP_LOGIN as string, {username: username, password: password});
         
         if (response.data.auth) {
-            return {auth: true};
+            return {auth: true, session: response.data.session};
         } else {
             return {admin: true};
         }
