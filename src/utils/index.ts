@@ -13,6 +13,10 @@ export const handleOfferStatus = (offers: OfferInterface[]): OfferInterface[] =>
     })
 }
 
+export const handleGetSessionToken = () => {
+    return localStorage.getItem('session_id') as string;
+}
+
 export const FieldInputProps = (theme: boolean) => {
     return (
         {

@@ -6,7 +6,7 @@ import axios from 'axios';
 import {TextField, MenuItem} from '@mui/material';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from "../../Components/EnterpriseSidebar/EnterpriseSidebar";
-import {FieldInputProps, FieldLabelProps, FieldVariant} from '../../utils';
+import {FieldInputProps, FieldLabelProps, FieldVariant, handleGetSessionToken} from '../../utils';
 import {DateField} from '../../Components/DateField';
 import ActionModal from '../../Components/ActionModal/ActionModal';
 import {OfferInterface} from "../../Interfaces";
@@ -36,7 +36,7 @@ function EditOffer({offersData, theme, handleThemeSwitch, auth, setAuth}: Props)
     const singleOfferUrl = `${process.env.REACT_APP_GET_OFFER_DETAILS}/${title}`;
     const editOfferUrl = `${process.env.REACT_APP_EDIT_OFFER}/${editOffer.id}`;
 
-    const sessionToken = localStorage.getItem('session_id') as string;
+    const sessionToken = handleGetSessionToken();
 
     useEffect(() => {
         handleGetSingleOffer();

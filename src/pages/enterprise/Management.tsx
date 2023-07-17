@@ -10,7 +10,7 @@ import DeleteModal from '../../Components/DeleteModal/DeleteModal';
 import LinearProgress from '@mui/material/CircularProgress';
 import {OfferInterface} from '../../Interfaces';
 import {FiMoreHorizontal} from 'react-icons/fi';
-import {progressLoaderStyle} from '../../utils';
+import {progressLoaderStyle, handleGetSessionToken} from '../../utils';
 import {getAllEnterpriseOffers, deleteEnterpriseOffer} from '../../middleware/api';
 
 interface Props {
@@ -40,7 +40,7 @@ function Management({theme, handleThemeSwitch, auth, setAuth}: Props) {
     const [upcoming, setShowUpcoming] = useState<boolean>(false);
     const [loader, setLoader] = useState<boolean>(true);
 
-    const sessionToken = localStorage.getItem('session_id') as string;
+    const sessionToken = handleGetSessionToken();
     
     useEffect(() => {
         setTimeout(() => setLoader(false), 1000);

@@ -9,7 +9,7 @@ import {TextField, MenuItem} from '@mui/material';
 import LinearProgress from '@mui/material/CircularProgress';
 import EnterpriseNav from '../../Components/EnterpriseNav/EnterpriseNav';
 import EnterpriseSidebar from '../../Components/EnterpriseSidebar/EnterpriseSidebar';
-import {FieldInputProps, FieldLabelProps, FieldVariant} from '../../utils';
+import {FieldInputProps, FieldLabelProps, FieldVariant, handleGetSessionToken} from '../../utils';
 import {DateField} from '../../Components/DateField';
 import ActionModal from '../../Components/ActionModal/ActionModal';
 import {BiCheckCircle} from 'react-icons/bi';
@@ -47,7 +47,7 @@ function CreateOffer({theme, auth, setAuth, handleThemeSwitch}: Props) {
         offer: 0
     });
 
-    const sessionToken = localStorage.getItem('session_id') as string;
+    const sessionToken = handleGetSessionToken();
 
     const handleOfferChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
         setCreateOffer({...createOffer, [e.target.name]: e.target.value});
